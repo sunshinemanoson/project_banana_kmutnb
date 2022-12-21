@@ -252,6 +252,39 @@ export default function Add_wideth_Raw() {
               </Item>
             </Grid>
 
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                ความพร้อมในการผลิต (2) 
+                </h1>
+              </Item>
+            </Grid>
+            <Grid item xs={8} md={8}>
+              <Item>
+                <Slider
+                  aria-label="Add_width1"
+                  aria-labelledby="Add_width1"
+                  id="Add_width1"
+                  name="Add_width1"
+                  defaultValue={0}
+                  onChange={val_w1}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={1}
+                  marks
+                  min={-9}
+                  max={9}
+                />
+              </Item>
+            </Grid>
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h2 id="criteria2" name="criteria2">
+                  ความพร้อมในการผลิต (2)
+                </h2>
+              </Item>
+            </Grid>
+
             <Grid item xs={10} md={10}></Grid>
             <Grid item xs={2} md={2}>
               <Button
