@@ -29,13 +29,13 @@ function valuetext(value) {
 const axios = require("axios");
 
 export default function Add_wideth_Raw() {
- 
+
   const [testVal, setTestVal] = useState([]);
   const [testVal2, setTestVal2] = useState([]);
 
-  const add_weight = [testVal,testVal2]
-  const add_name = ['cartilir1','cartilir2']
-  
+  const add_weight = [testVal, testVal2]
+  const add_name = ['cartilir1', 'cartilir2']
+
 
 
   const handleSubmit = (event) => {
@@ -71,23 +71,23 @@ export default function Add_wideth_Raw() {
   const handleSubmit_2 = () => {
     for (let i = 0, len = add_weight.length; i < len; i++) {
       axios
-      .post("http://localhost:8888/add_weight", {
-        w_name: add_name[i],
-        w_wight: add_weight[i],  
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .post("http://localhost:8888/add_weight", {
+          w_name: add_name[i],
+          w_wight: add_weight[i],
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
-    console.log("handle !!!!");
-  };
-    }
-    
+      console.log("handle !!!!");
+    };
+  }
 
-  
+
+
   const val_w1 = (e, num) => {
     // let array = [];
     // array.push(num);
@@ -110,7 +110,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำค๊ญเปรียบเทียบระหว่างสองอย่าง 
+            โปรดเลือกระดับความสำค๊ญเปรียบเทียบระหว่างสองอย่าง
           </Typography>
         </Toolbar>
       </AppBar>
@@ -120,7 +120,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสำคัณ1
+                  วัตถุดิบหลัก (1)
                 </h1>
               </Item>
             </Grid>
@@ -145,14 +145,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ความสำคัณ2
+                  ความพร้อมในการผลิต (2)
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสำคัณ1
+                  วัตถุดิบหลัก (1)
                 </h1>
               </Item>
             </Grid>
@@ -178,7 +178,75 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสำคัณ1
+                  ผลกำไรและช่องทางการตลาด (3)
+                </h1>
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                  วัตถุดิบหลัก (1)
+                </h1>
+              </Item>
+            </Grid>
+            <Grid item xs={8} md={8}>
+              <Item>
+                <Slider
+                  aria-label="Add_width1"
+                  aria-labelledby="Add_width1"
+                  id="Add_width1"
+                  name="Add_width1"
+                  defaultValue={0}
+                  onChange={val_w2}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={1}
+                  marks
+                  min={-9}
+                  max={9}
+                />
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                  การเก็บรักษา (4)
+                </h1>
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                  วัตถุดิบหลัก (1)
+                </h1>
+              </Item>
+            </Grid>
+            <Grid item xs={8} md={8}>
+              <Item>
+                <Slider
+                  aria-label="Add_width1"
+                  aria-labelledby="Add_width1"
+                  id="Add_width1"
+                  name="Add_width1"
+                  defaultValue={0}
+                  onChange={val_w2}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={1}
+                  marks
+                  min={-9}
+                  max={9}
+                />
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                  สิ่งแวดล้อมและสังคม (5)
                 </h1>
               </Item>
             </Grid>
