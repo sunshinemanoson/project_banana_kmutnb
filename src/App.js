@@ -4,6 +4,7 @@ import Dashboard from "./components/Dashboard";
 import Login from './components/Login';
 import Register from "./components/Register";
 import Add_wideth_Raw from "./components/Add_wideth_Raw";
+import Add_wideth_Raw_2 from "./components/Add_wideth_Raw_2";
 import Add_wideth_Unraw from "./components/Add_wideth_Unraw";
 import Add_infouser from "./components/Add_infouser";
 import Test from "./components/Test";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="Add_wideth_Raw" element={<Add_wideth_Raw />} />
+          <Route path="Add_wideth_Raw_2" element={<Add_wideth_Raw_2 />} />
           <Route path="Add_wideth_Unraw" element={<Add_wideth_Unraw />} />
           <Route path="Add_infouser" element={<Add_infouser />} />
           <Route path="Test" element={<Test/>} />

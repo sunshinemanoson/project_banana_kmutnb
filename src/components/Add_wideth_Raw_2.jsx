@@ -69,7 +69,6 @@ export default function Add_wideth_Raw() {
   };
 
   const handleSubmit_2 = () => {
-    window.location = '/Add_wideth_Raw_2'
     for (let i = 0, len = add_weight.length; i < len; i++) {
       axios
         .post("http://localhost:8888/add_weight", {
@@ -121,7 +120,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                ความพร้อมในการผลิต (2) 
                 </h1>
               </Item>
             </Grid>
@@ -150,10 +149,11 @@ export default function Add_wideth_Raw() {
                 </h2>
               </Item>
             </Grid>
+
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                ความพร้อมในการผลิต (2)
                 </h1>
               </Item>
             </Grid>
@@ -187,7 +187,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                ความพร้อมในการผลิต (2)
                 </h1>
               </Item>
             </Grid>
@@ -213,41 +213,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  การเก็บรักษา (4)
-                </h1>
-              </Item>
-            </Grid>
-
-            <Grid item xs={2} md={2}>
-              <Item>
-                <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
-                </h1>
-              </Item>
-            </Grid>
-            <Grid item xs={8} md={8}>
-              <Item>
-                <Slider
-                  aria-label="Add_width1"
-                  aria-labelledby="Add_width1"
-                  id="Add_width1"
-                  name="Add_width1"
-                  defaultValue={0}
-                  onChange={val_w2}
-                  getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
-                  step={1}
-                  marks
-                  min={-9}
-                  max={9}
-                />
-              </Item>
-            </Grid>
-
-            <Grid item xs={2} md={2}>
-              <Item>
-                <h1 id="criteria1" name="criteria1">
-                  สิ่งแวดล้อมและสังคม (5)
+                  ผลกำไรและช่องทางการตลาด (3)
                 </h1>
               </Item>
             </Grid>
