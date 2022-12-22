@@ -21,10 +21,12 @@ import { margin } from '@mui/system';
 
 const cards = [1];
 const cards2 = [1];
+const cards3 = [1];
 
 const theme = createTheme();
 const options = ['', 'นาย', 'นาง', 'นางสาว', 'ไม่ระบุ'];
 const options2 = ['', 'ระดับประถมศึกษา', 'ระดับมัธยมต้น', 'ระดับมัธยมปลาย หรือ ปวช.', 'ระดับ ปวส.', 'ระดับปริญญาตรี', 'สูงกว่าปริญญาตรี'];
+const options3 = [];
 
 
 export default function Infouser() {
@@ -62,171 +64,272 @@ export default function Infouser() {
                     }}
                 >
                 </Box>
-                <Container>
-                    <div className='flex space-x-5' >
-                        <Grid container spacing={4}>
-                            <div className=' flex w-full h-full '>
-                                {cards.map((card) => (
-                                    <Grid item key={card} xs={12} sm={6} md={6} pd={6}>
-                                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', margin: 3 }}>
-                                            <CardContent sx={{ flexGrow: 2 }}>
-                                                <Typography gutterBottom variant="h5" component="h2">
-                                                    กรอกข้อมูลผู้ใช้
-                                                </Typography>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <Autocomplete
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                        value={value}
-                                                        onChange={(event, newValue) => {
-                                                            setValue(newValue);
-                                                        }}
-                                                        inputValue={inputValue}
-                                                        onInputChange={(event, newInputValue) => {
-                                                            setInputValue(newInputValue);
-                                                        }}
-                                                        id="controllable-states-demo"
-                                                        options={options}
+                <Container maxWidth="auto">
+                    <Grid container spacing={4}>
+                        {cards.map((card) => (
+                            <Grid item key={card} xs={12} sm={6} md={6} pd={6}>
+                                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', margin: 3 }}>
+                                    <CardContent sx={{ flexGrow: 2 }}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            กรอกข้อมูลผู้ใช้
+                                        </Typography>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <Autocomplete
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                value={value}
+                                                onChange={(event, newValue) => {
+                                                    setValue(newValue);
+                                                }}
+                                                inputValue={inputValue}
+                                                onInputChange={(event, newInputValue) => {
+                                                    setInputValue(newInputValue);
+                                                }}
+                                                id="controllable-states-demo"
+                                                options={options}
 
-                                                        renderInput={(params) => <TextField {...params} label="คำนำหน้า" />}
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        onChange={(event) => setNValue(event.target.value)}
-                                                        id="outlined1"
-                                                        label="ชื่อ"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                        variant="outlined"
-                                                        value={nValue}
-                                                    />
+                                                renderInput={(params) => <TextField {...params} label="คำนำหน้า" />}
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                onChange={(event) => setNValue(event.target.value)}
+                                                id="outlined1"
+                                                label="ชื่อ"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                variant="outlined"
+                                                value={nValue}
+                                            />
 
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        onChange={(event) => setLValue(event.target.value)}
-                                                        id="outlined2"
-                                                        label="นามสกุล"
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                        value={lValue}
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        value={ageValue}
-                                                        onChange={(event) => setAGEValue(event.target.value)}
-                                                        id="age"
-                                                        label="อายุ"
-                                                        InputProps={{
-                                                            endAdornment: <InputAdornment position='end'>/ ปี</InputAdornment>,
-                                                        }}
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <Autocomplete
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                        value={value2}
-                                                        onChange={(event, newValue) => {
-                                                            setValue2(newValue);
-                                                        }}
-                                                        inputValue={inputValue2}
-                                                        onInputChange={(event, newInputValue2) => {
-                                                            setInputValue2(newInputValue2);
-                                                        }}
-                                                        id="controllable-states-demo2"
-                                                        options={options2}
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                onChange={(event) => setLValue(event.target.value)}
+                                                id="outlined2"
+                                                label="นามสกุล"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                value={lValue}
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                value={ageValue}
+                                                onChange={(event) => setAGEValue(event.target.value)}
+                                                id="age"
+                                                label="อายุ"
+                                                InputProps={{
+                                                    endAdornment: <InputAdornment position='end'>/ ปี</InputAdornment>,
+                                                }}
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <Autocomplete
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                value={value2}
+                                                onChange={(event, newValue) => {
+                                                    setValue2(newValue);
+                                                }}
+                                                inputValue={inputValue2}
+                                                onInputChange={(event, newInputValue2) => {
+                                                    setInputValue2(newInputValue2);
+                                                }}
+                                                id="controllable-states-demo2"
+                                                options={options2}
 
-                                                        renderInput={(params) => <TextField {...params} label="ระดับการศึกษา" />}
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="ex"
-                                                        label="ประสบการณ์ในการแปรรูป"
-                                                        InputProps={{
-                                                            endAdornment: <InputAdornment position='end'>/ ปี</InputAdornment>,
-                                                        }}
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                            </CardContent>
-                                        </Card>
-                                    </Grid>
-                                ))}
-                                {cards2.map((card) => (
-                                    <Grid item key={card} xs={12} sm={6} md={6} pd={6}>
-                                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', margin: 3 }}>
-                                            <CardContent sx={{ flexGrow: 2 }}>
-                                                <Typography gutterBottom variant="h5" component="h2">
-                                                    ข้อมูลเกี่ยวกับสถานประกอบการ
-                                                </Typography>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="busname"
-                                                        label="ชื่อกิจการ"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                        variant="outlined"
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="address"
-                                                        label="ที่อยู่ของสถานประกอบการ"
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="address2"
-                                                        label="ตำบล / แขวง"
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="address3"
-                                                        label="อำเภอ / เขต"
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="address4"
-                                                        label="จังหวัด"
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="address5"
-                                                        label="รหัสไปรษณีย์"
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                                <Grid className='flex space-x-5 mt-4'>
-                                                    <TextField
-                                                        id="address6"
-                                                        label="ปี พ.ศ.ที่เริ่มการธุรกิจ"
-                                                        variant="outlined"
-                                                        className='w-[28rem] md:w-full sm:w-full'
-                                                    />
-                                                </Grid>
-                                                
-                                            </CardContent>
-                                        </Card>
-                                    </Grid>
-                                ))}
-                            </div>
-                        </Grid>
-                    </div>
+                                                renderInput={(params) => <TextField {...params} label="ระดับการศึกษา" />}
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="ex"
+                                                label="ประสบการณ์ในการแปรรูป"
+                                                InputProps={{
+                                                    endAdornment: <InputAdornment position='end'>/ ปี</InputAdornment>,
+                                                }}
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                        {cards2.map((card) => (
+                            <Grid item key={card} xs={12} sm={6} md={6} pd={6}>
+                                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', margin: 3 }}>
+                                    <CardContent sx={{ flexGrow: 2 }}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            ข้อมูลเกี่ยวกับสถานประกอบการ
+                                        </Typography>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="busname"
+                                                label="ชื่อกิจการ"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                variant="outlined"
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address"
+                                                label="ที่อยู่ของสถานประกอบการ"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address2"
+                                                label="ตำบล / แขวง"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address3"
+                                                label="อำเภอ / เขต"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address4"
+                                                label="จังหวัด"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address5"
+                                                label="รหัสไปรษณีย์"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address6"
+                                                label="ปี พ.ศ.ที่เริ่มการธุรกิจ"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                        {cards3.map((card) => (
+                            <Grid item key={card} xs={12} sm={6} md={6} pd={6}>
+                                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', margin: 3 }}>
+                                    <CardContent sx={{ flexGrow: 2 }}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            ผลิตภัณฑ์หลักที่เกี่ยวกับการแปรรูปจากกล้วยน้ำว้า
+                                        </Typography>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <Autocomplete
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                // value={value}
+                                                // onChange={(event, newValue) => {
+                                                //     setValue(newValue);
+                                                // }}
+                                                // inputValue={inputValue}
+                                                // onInputChange={(event, newInputValue) => {
+                                                //     setInputValue(newInputValue);
+                                                // }}
+                                                id="controllable-states-demo"
+                                                options={options3}
+
+                                                renderInput={(params) => <TextField {...params} label="การแปรรูปกล้วยดิบ" />}
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <Autocomplete
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                // value={value}
+                                                // onChange={(event, newValue) => {
+                                                //     setValue(newValue);
+                                                // }}
+                                                // inputValue={inputValue}
+                                                // onInputChange={(event, newInputValue) => {
+                                                //     setInputValue(newInputValue);
+                                                // }}
+                                                id="controllable-states-demo"
+                                                options={options3}
+
+                                                renderInput={(params) => <TextField {...params} label="การแปรรูปกล้วยสุก" />}
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <Typography gutterBottom variant="h5" component="h2" className='mt-4'>
+                                                ด้านวัตถุดิบ
+                                            </Typography>
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address2"
+                                                label="กล้วยมาจากแหล่งใด"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <Autocomplete
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                                // value={value}
+                                                // onChange={(event, newValue) => {
+                                                //     setValue(newValue);
+                                                // }}
+                                                // inputValue={inputValue}
+                                                // onInputChange={(event, newInputValue) => {
+                                                //     setInputValue(newInputValue);
+                                                // }}
+                                                id="controllable-states-demo"
+                                                options={options3}
+
+                                                renderInput={(params) => <TextField {...params} label="คุณภาพของกล้วย" />}
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address2"
+                                                label="ปริมาณของกล้วย"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <Typography gutterBottom variant="h5" component="h2" className='mt-4'>
+                                                กำลังการผลิต
+                                            </Typography>
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address2"
+                                                label="กำลังการผลิต / ครั้ง"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                        <Grid className='flex space-x-5 mt-4'>
+                                            <TextField
+                                                id="address2"
+                                                label="จำนวนแรงงานในสถานประกอบการ"
+                                                variant="outlined"
+                                                className='w-[28rem] md:w-full sm:w-full'
+                                            />
+                                        </Grid>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+
+                    </Grid>
 
                     <div className='flex space-x-5 mt-10'>
                         <Button variant="contained">Submit</Button>
