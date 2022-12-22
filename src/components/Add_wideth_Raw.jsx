@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
+import { Token } from "@mui/icons-material";
 
 const theme = createTheme();
 const Item = styled(Paper)(({ theme }) => ({
@@ -29,52 +30,74 @@ function valuetext(value) {
 const axios = require("axios");
 
 export default function Add_wideth_Raw() {
-
-  const [testVal, setTestVal] = useState([]);
+  const [testVal1, setTestVal1] = useState([]);
   const [testVal2, setTestVal2] = useState([]);
+  const [testVal3, setTestVal3] = useState([]);
+  const [testVal4, setTestVal4] = useState([]);
+  const [testVal5, setTestVal5] = useState([]);
 
-  const add_weight = [testVal, testVal2]
-  const add_name = ['cartilir1', 'cartilir2']
+  const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
+  // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
+  const w_name = [
+    "cartilir1",
+    "cartilir2",
+    "cartilir3",
+    "cartilir4",
+    "cartilir5",
+  ];
+  const email = localStorage.getItem('email')
 
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = document.getElementById("Add_width1");
-    const data = new FormData(form);
-    var jsonData = {
-      w_wight: data.get("Add_width1"),
-    };
-    fetch("http://localhost:8888/add_weight", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(jsonData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === "ok_200") {
-          localStorage.setItem("token", data.token);
-          window.location = "/dashboard";
-          alert(data.msg);
-        } else {
-          alert(data.msg);
-        }
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const form = document.getElementById("Add_width1");
+  //   const data = new FormData(form);
+  //   var jsonData = {
+  //     w_wight: data.get("Add_width1"),
+  //   };
+  //   fetch("http://localhost:8888/add_weight", {
+  //     method: "POST", // or 'PUT'
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(jsonData),
+  //   })
+  //     .then((response) => response.json())
+  // .then((data) => {
+  //   if (data.status === "ok_200") {
+  //     localStorage.setItem("token", data.token);
+  //     window.location = "/dashboard";
+  //     alert(data.msg);
+  //   } else {
+  //     alert(data.msg);
+  //   }
+  //   console.log("Success:", data);
+  // })
+  // .catch((error) => {
+  //   console.error("Error:", error);
+  // });
+  // };
 
   const handleSubmit_2 = () => {
-    window.location = '/Add_wideth_Raw_2'
-    for (let i = 0, len = add_weight.length; i < len; i++) {
+    if(testVal1, testVal2, testVal3, testVal4, testVal5 == 0){
+      console.log("ไม่สมารถมัค่าเป็น 0 ได้โปรดกรอีกครั้ง")
+      alert("ไม่สมารถมัค่าเป็น 0 ได้โปรดกรอีกครั้ง");
+    }
+    else if (localStorage.length === 2 ) {
+      console.log("token ok");
+      let data_ar = [];
+      for (let i = 0, len = w_name.length; i < len; i++) {
+        const w_data = {
+          w_name: w_name[i],
+          w_wight: add_weight[i],
+          email: email
+        };
+        data_ar.push(w_data);
+      }
+      // window.location = '/Add_wideth_Raw'
+      // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
-          w_name: add_name[i],
-          w_wight: add_weight[i],
+          data_ar,
         })
         .then((res) => {
           console.log(res.data);
@@ -84,17 +107,18 @@ export default function Add_wideth_Raw() {
         });
 
       console.log("handle !!!!");
-    };
-  }
-
-
+    } else {
+      alert("token expired");
+      console.log(localStorage.length)
+      window.location = "/login";
+    }
+  };
 
   const val_w1 = (e, num) => {
-    // let array = [];
-    // array.push(num);
-    setTestVal(num);
-    console.log(num)
+    setTestVal1(num);
+    console.log(num);
   };
+
   const val_w2 = (e, num) => {
     // let array = [];
     // array.push(num);
@@ -103,7 +127,19 @@ export default function Add_wideth_Raw() {
     // console.log(num);
     // console.log(array);
     setTestVal2(num);
-    console.log(num)
+    console.log(num);
+  };
+  const val_w3 = (e, num) => {
+    setTestVal3(num);
+    console.log(num);
+  };
+  const val_w4 = (e, num) => {
+    setTestVal4(num);
+    console.log(num);
+  };
+  const val_w5 = (e, num) => {
+    setTestVal5(num);
+    console.log(num);
   };
   return (
     <ThemeProvider theme={theme}>
@@ -199,7 +235,7 @@ export default function Add_wideth_Raw() {
                   id="Add_width1"
                   name="Add_width1"
                   defaultValue={0}
-                  onChange={val_w2}
+                  onChange={val_w3}
                   getAriaValueText={valuetext}
                   valueLabelDisplay="auto"
                   step={1}
@@ -233,7 +269,7 @@ export default function Add_wideth_Raw() {
                   id="Add_width1"
                   name="Add_width1"
                   defaultValue={0}
-                  onChange={val_w2}
+                  onChange={val_w4}
                   getAriaValueText={valuetext}
                   valueLabelDisplay="auto"
                   step={1}
@@ -255,7 +291,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                ความพร้อมในการผลิต (2) 
+                  ความพร้อมในการผลิต (2)
                 </h1>
               </Item>
             </Grid>
@@ -267,7 +303,7 @@ export default function Add_wideth_Raw() {
                   id="Add_width1"
                   name="Add_width1"
                   defaultValue={0}
-                  onChange={val_w1}
+                  onChange={val_w5}
                   getAriaValueText={valuetext}
                   valueLabelDisplay="auto"
                   step={1}

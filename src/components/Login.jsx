@@ -27,6 +27,7 @@ export default function SignInSide() {
       email: data.get("email"),
       password: data.get("password"),
     };
+    let email = data.get("email")
     fetch("http://localhost:8888/login", {
       method: "POST", // or 'PUT'
       headers: {
@@ -38,6 +39,7 @@ export default function SignInSide() {
       .then((data) => {
         if (data.status === "ok_200") {
           localStorage.setItem("token", data.token);
+          localStorage.setItem("email", email);
           window.location = "/dashboard";
           alert(data.msg);
         } else {
