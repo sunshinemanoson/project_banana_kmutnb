@@ -5,6 +5,9 @@ import Login from './components/Login';
 import Register from "./components/Register";
 import Add_wideth_Raw from "./components/Add_wideth_Raw";
 import Add_wideth_Raw_2 from "./components/Add_wideth_Raw_2";
+import Add_wideth_Raw_3 from "./components/Add_wideth_Raw_3";
+import Add_wideth_Raw_4 from "./components/Add_wideth_Raw_4";
+import Add_wideth_Raw_5 from "./components/Add_wideth_Raw_5";
 import Add_wideth_Unraw from "./components/Add_wideth_Unraw";
 import Add_infouser from "./components/Add_infouser";
 import Test from "./components/Test";
@@ -17,9 +20,19 @@ function App() {
       <Routes>
           <Route path="/" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
+          {/* raw route */}
           <Route path="Add_wideth_Raw" element={<Add_wideth_Raw />} />
           <Route path="Add_wideth_Raw_2" element={<Add_wideth_Raw_2 />} />
+          <Route path="Add_wideth_Raw_3" element={<Add_wideth_Raw_3 />} />
+          <Route path="Add_wideth_Raw_4" element={<Add_wideth_Raw_4 />} />
+          <Route path="Add_wideth_Raw_5" element={<Add_wideth_Raw_5 />} />
+
+          {/* unraw route */}
+          {/* unraw route */}
           <Route path="Add_wideth_Unraw" element={<Add_wideth_Unraw />} />
+
+
+          {/* unraw route */}
           <Route path="Add_infouser" element={<Add_infouser />} />
           <Route path="Test" element={<Test/>} />
         </Route>

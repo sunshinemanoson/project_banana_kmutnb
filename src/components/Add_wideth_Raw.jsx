@@ -11,7 +11,6 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
-import { Token } from "@mui/icons-material";
 
 const theme = createTheme();
 const Item = styled(Paper)(({ theme }) => ({
@@ -45,7 +44,7 @@ export default function Add_wideth_Raw() {
     "cartilir4",
     "cartilir5",
   ];
-  const email = localStorage.getItem('email')
+  const email = localStorage.getItem("email");
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -78,22 +77,28 @@ export default function Add_wideth_Raw() {
   // };
 
   const handleSubmit_2 = () => {
-    if(testVal1, testVal2, testVal3, testVal4, testVal5 == 0){
-      console.log("ไม่สมารถมัค่าเป็น 0 ได้โปรดกรอีกครั้ง")
-      alert("ไม่สมารถมัค่าเป็น 0 ได้โปรดกรอีกครั้ง");
-    }
-    else if (localStorage.length === 2 ) {
-      console.log("token ok");
+    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length === 0)) {
+      alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
+      console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
+      console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
+    } else if ((testVal1, testVal2, testVal3, testVal4, testVal5 === 0)) {
+      alert("ไม่สามารถค่าเป็น 0 ได้โปรดกรอกอีกครั้ง");
+    } else if (localStorage.length === 2) {
+      // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
+      console.log(
+        testVal1 || testVal2 || testVal3 || testVal4 || testVal5 === 0
+      );
+      // console.log(add_weight.length)
       let data_ar = [];
       for (let i = 0, len = w_name.length; i < len; i++) {
         const w_data = {
           w_name: w_name[i],
           w_wight: add_weight[i],
-          email: email
+          email: email,
         };
         data_ar.push(w_data);
       }
-      // window.location = '/Add_wideth_Raw'
+      window.location = '/Add_wideth_Raw_2'
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -109,7 +114,7 @@ export default function Add_wideth_Raw() {
       console.log("handle !!!!");
     } else {
       alert("token expired");
-      console.log(localStorage.length)
+      console.log(localStorage.length);
       window.location = "/login";
     }
   };
@@ -316,7 +321,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ความพร้อมในการผลิต (2)
+                  ผลกำไรและช่องทางการตลาด (3)
                 </h2>
               </Item>
             </Grid>
