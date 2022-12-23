@@ -25,39 +25,39 @@ const cards3 = [1];
 const cards4 = [1];
 
 const theme = createTheme();
-const options = [ 'นาย', 'นาง', 'นางสาว', 'ไม่ระบุ'];
-const options2 = [ 'ระดับประถมศึกษา', 'ระดับมัธยมต้น', 'ระดับมัธยมปลาย หรือ ปวช.', 'ระดับ ปวส.', 'ระดับปริญญาตรี', 'สูงกว่าปริญญาตรี'];
-const options3 = ['กล้วยฉาบ','กล้วยอบเนย','กล้วยเบรคแตก'];
-const options4 = ['กล้วยตาก','กล้วยกวน','ทอฟฟี่กล้วย','ข้าวเกรียบกล้วย','นํ้ากล้วย','เครื่องดื่มแอลกอฮอร์','ผลิตภัณฑ์อื่น ๆ'];
-const options5 = ['ดีมาก','ดี','ปานกลาง','ไม่ค่อยดี'];
-const options6 = ['ส่งออก','กำลังริเริ่ม','ไม่ได้ส่งออก'];
+const options = [ ,'นาย', 'นาง', 'นางสาว', 'ไม่ระบุ'];
+const options2 = [ ,'ระดับประถมศึกษา', 'ระดับมัธยมต้น', 'ระดับมัธยมปลาย หรือ ปวช.', 'ระดับ ปวส.', 'ระดับปริญญาตรี', 'สูงกว่าปริญญาตรี'];
+const options3 = [,'กล้วยฉาบ','กล้วยอบเนย','กล้วยเบรคแตก'];
+const options4 = [,'กล้วยตาก','กล้วยกวน','ทอฟฟี่กล้วย','ข้าวเกรียบกล้วย','นํ้ากล้วย','เครื่องดื่มแอลกอฮอร์','ผลิตภัณฑ์อื่น ๆ'];
+const options5 = [,'ดีมาก','ดี','ปานกลาง','ไม่ค่อยดี'];
+const options6 = [,'ส่งออก','กำลังริเริ่ม','ไม่ได้ส่งออก'];
 
 
 export default function Infouser() {
 
     // อันนี้ของเลือกคำนำหน้า
-    const [value, setValue] = React.useState(options[0]);
-    const [inputValue, setInputValue] = React.useState('');
+    const [value, setValue] = useState(options[0]);
+    const [inputValue, setInputValue] = useState('');
     // อันนี้ของระดับการศึกษา
-    const [value2, setValue2] = React.useState(options2[0]);
-    const [inputValue2, setInputValue2] = React.useState('');
+    const [value2, setValue2] = useState(options2[0]);
+    const [inputValue2, setInputValue2] = useState('');
     // อันนี้ของชื่อ
-    const [nValue, setNValue] = React.useState('');
+    const [nValue, setNValue] = useState('');
     // อันนี้ของนามสกุล
-    const [lValue, setLValue] = React.useState('');
+    const [lValue, setLValue] = useState('');
     // อันนี้ของอายุ
-    const [ageValue, setAGEValue] = React.useState('');
+    const [ageValue, setAGEValue] = useState('');
 
-
+    
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        return (
-        //<div className=' bg-[#E1F17C] h-[100rem] w-full'>
+
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <AppBar position="relative">
                 <Toolbar>
                     <Typography variant="h6" color="inherit" noWrap>
-                        กรอกข้อมูลผู้ใช้
+                        กรอกข้อมูลส่วนตัวของผู้ใช้
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -138,8 +138,8 @@ export default function Infouser() {
                                                     setValue2(newValue);
                                                 }}
                                                 inputValue={inputValue2}
-                                                onInputChange={(event, newInputValue2) => {
-                                                    setInputValue2(newInputValue2);
+                                                onInputChange={(event, newInputValue) => {
+                                                    setInputValue2(newInputValue);
                                                 }}
                                                 id="controllable-states-demo2"
                                                 options={options2}
@@ -519,6 +519,5 @@ export default function Infouser() {
             </Box>
             {/* End footer */}
         </ThemeProvider >
-        //</div>
     );
 }

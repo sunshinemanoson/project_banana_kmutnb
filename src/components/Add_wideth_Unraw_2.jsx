@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 
+
 const theme = createTheme();
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -28,7 +29,7 @@ function valuetext(value) {
 
 const axios = require("axios");
 
-export default function Add_wideth_Raw() {
+export default function Add_wideth_Raw_2() {
   const [testVal1, setTestVal1] = useState([]);
   const [testVal2, setTestVal2] = useState([]);
   const [testVal3, setTestVal3] = useState([]);
@@ -38,67 +39,41 @@ export default function Add_wideth_Raw() {
   const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "cartilir1",
-    "cartilir2",
-    "cartilir3",
-    "cartilir4",
-    "cartilir5",
+    "cartilir_un6",
+    "cartilir_un7",
+    "cartilir_un8",
+    "cartilir_un9",
+    "cartilir_un10",
   ];
-  const email = localStorage.getItem("email");
+  const email = localStorage.getItem('email')
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const form = document.getElementById("Add_width1");
-  //   const data = new FormData(form);
-  //   var jsonData = {
-  //     w_wight: data.get("Add_width1"),
-  //   };
-  //   fetch("http://localhost:8888/add_weight", {
-  //     method: "POST", // or 'PUT'
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(jsonData),
-  //   })
-  //     .then((response) => response.json())
-  // .then((data) => {
-  //   if (data.status === "ok_200") {
-  //     localStorage.setItem("token", data.token);
-  //     window.location = "/dashboard";
-  //     alert(data.msg);
-  //   } else {
-  //     alert(data.msg);
-  //   }
-  //   console.log("Success:", data);
-  // })
-  // .catch((error) => {
-  //   console.error("Error:", error);
-  // });
-  // };
 
   const handleSubmit_2 = () => {
-    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length === 0)) {
+    if (
+      (testVal1.length,
+      testVal2.length,
+      testVal3.length,
+      testVal4.length,
+      testVal5.length === 0)
+    ) {
       alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
     } else if ((testVal1, testVal2, testVal3, testVal4, testVal5 === 0)) {
       alert("ไม่สามารถค่าเป็น 0 ได้โปรดกรอกอีกครั้ง");
-    } else if (localStorage.length === 2) {
-      // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
-      console.log(
-        testVal1 || testVal2 || testVal3 || testVal4 || testVal5 === 0
-      );
-      // console.log(add_weight.length)
+    }
+    else if (localStorage.length === 2 ) {
+      console.log("token ok");
       let data_ar = [];
       for (let i = 0, len = w_name.length; i < len; i++) {
         const w_data = {
           w_name: w_name[i],
           w_wight: add_weight[i],
-          email: email,
+          email: email
         };
         data_ar.push(w_data);
       }
-      window.location = '/Add_wideth_Raw_2'
+      window.location = '/Add_wideth_Unraw_3'
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -114,7 +89,7 @@ export default function Add_wideth_Raw() {
       console.log("handle !!!!");
     } else {
       alert("token expired");
-      console.log(localStorage.length);
+      console.log(localStorage.length)
       window.location = "/login";
     }
   };
@@ -156,13 +131,14 @@ export default function Add_wideth_Raw() {
           </Typography>
         </Toolbar>
       </AppBar>
+
       <main>
         <Box sx={{ flexGrow: 1, m: 6 }}>
           <Grid container spacing={6.5}>
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                  ความพร้อมในการผลิต (2)
                 </h1>
               </Item>
             </Grid>
@@ -187,14 +163,15 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ความพร้อมในการผลิต (2)
+                  การเก็บรักษา (4)
                 </h2>
               </Item>
             </Grid>
+
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                ความพร้อมในการผลิต
                 </h1>
               </Item>
             </Grid>
@@ -220,7 +197,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ผลกำไรและช่องทางการตลาด (3)
+                  สิ่งแวดล้อมและสังคม (5)
                 </h1>
               </Item>
             </Grid>
@@ -228,7 +205,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                ผลกำไรและช่องทางการตลาด (3)
                 </h1>
               </Item>
             </Grid>
@@ -262,7 +239,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                ผลกำไรและช่องทางการตลาด (3)
                 </h1>
               </Item>
             </Grid>
@@ -296,7 +273,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความพร้อมในการผลิต (2)
+                การเก็บรักษา (4)
                 </h1>
               </Item>
             </Grid>
@@ -321,7 +298,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ผลกำไรและช่องทางการตลาด (3)
+                สิ่งแวดล้อมและสังคม (5)
                 </h2>
               </Item>
             </Grid>

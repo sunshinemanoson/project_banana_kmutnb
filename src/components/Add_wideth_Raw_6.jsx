@@ -38,11 +38,12 @@ export default function Add_wideth_Raw() {
   const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "cartilir1",
-    "cartilir2",
-    "cartilir3",
-    "cartilir4",
-    "cartilir5",
+    "cartilir26",
+    "cartilir27",
+    "cartilir28",
+    "cartilir29",
+    "cartilir30",
+    "cartilir31",
   ];
   const email = localStorage.getItem("email");
 
@@ -98,7 +99,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = '/Add_wideth_Raw_2'
+      window.location = '/Add_wideth_Raw_6'
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -152,7 +153,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยหลัก
+            โปรดเลือกระดับความสำคัญของปัจจัยรอง
           </Typography>
         </Toolbar>
       </AppBar>
@@ -162,7 +163,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                    สามารถเก็บได้ที่อุณหภูมิปกติ (4.1)
                 </h1>
               </Item>
             </Grid>
@@ -187,14 +188,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ความพร้อมในการผลิต (2)
+                    ระยะเวลาในการเก็บรักษาด (4.2)
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                    สามารถเก็บได้ที่อุณหภูมิปกติ (4.1)
                 </h1>
               </Item>
             </Grid>
@@ -220,7 +221,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ผลกำไรและช่องทางการตลาด (3)
+                    สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษา (4.3)
                 </h1>
               </Item>
             </Grid>
@@ -228,7 +229,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                    ระยะเวลาในการเก็บรักษา (4.2)
                 </h1>
               </Item>
             </Grid>
@@ -254,7 +255,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  การเก็บรักษา (4)
+                    สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษา (4.3)
                 </h1>
               </Item>
             </Grid>
@@ -262,7 +263,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                    มีนโยบายส่งเสริมจากรัฐบาล (5.1)
                 </h1>
               </Item>
             </Grid>
@@ -288,7 +289,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  สิ่งแวดล้อมและสังคม (5)
+                    ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
                 </h1>
               </Item>
             </Grid>
@@ -296,7 +297,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความพร้อมในการผลิต (2)
+                    มีนโยบายส่งเสริมจากรัฐบาล (5.1)
                 </h1>
               </Item>
             </Grid>
@@ -321,7 +322,40 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ผลกำไรและช่องทางการตลาด (3)
+                    การสร้างรายได้ให้กับชุมชน (5.3)
+                </h2>
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                    ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
+                </h1>
+              </Item>
+            </Grid>
+            <Grid item xs={8} md={8}>
+              <Item>
+                <Slider
+                  aria-label="Add_width1"
+                  aria-labelledby="Add_width1"
+                  id="Add_width1"
+                  name="Add_width1"
+                  defaultValue={0}
+                  onChange={val_w5}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={1}
+                  marks
+                  min={-9}
+                  max={9}
+                />
+              </Item>
+            </Grid>
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h2 id="criteria2" name="criteria2">
+                    การสร้างรายได้ให้กับชุมชน (5.3)
                 </h2>
               </Item>
             </Grid>
