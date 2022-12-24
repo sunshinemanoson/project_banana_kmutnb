@@ -38,11 +38,11 @@ export default function Add_wideth_Raw() {
   const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "cartilir1",
-    "cartilir2",
-    "cartilir3",
-    "cartilir4",
-    "cartilir5",
+    "cartilir_un16",
+    "cartilir_un17",
+    "cartilir_un18",
+    "cartilir_un19",
+    "cartilir_un20",
   ];
   const email = localStorage.getItem("email");
 
@@ -98,7 +98,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = '/Add_wideth_Raw_2'
+      window.location = '/Add_wideth_Unraw_5'
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -152,7 +152,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยหลัก
+            โปรดเลือกระดับความสำคัญของปัจจัยรอง
           </Typography>
         </Toolbar>
       </AppBar>
@@ -162,7 +162,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                  จำนวนแรงงาน (2.1)
                 </h1>
               </Item>
             </Grid>
@@ -187,14 +187,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ความพร้อมในการผลิต (2)
+                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิต (2.4)
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                  ความสามารถของแรงงาน (2.2)
                 </h1>
               </Item>
             </Grid>
@@ -220,7 +220,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ผลกำไรและช่องทางการตลาด (3)
+                  ความสนใจของเจ้าของกิจการ (2.3)
                 </h1>
               </Item>
             </Grid>
@@ -228,7 +228,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                  ความสามารถของแรงงาน (2.2)
                 </h1>
               </Item>
             </Grid>
@@ -254,7 +254,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  การเก็บรักษา (4)
+                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิต (2.4)
                 </h1>
               </Item>
             </Grid>
@@ -262,7 +262,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  วัตถุดิบหลัก (1)
+                  ความสนใจของเจ้าของกิจการ (2.3)
                 </h1>
               </Item>
             </Grid>
@@ -288,7 +288,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  สิ่งแวดล้อมและสังคม (5)
+                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิต (2.4)
                 </h1>
               </Item>
             </Grid>
@@ -296,7 +296,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความพร้อมในการผลิต (2)
+                  กำไรต่อหน่วย (3.1)
                 </h1>
               </Item>
             </Grid>
@@ -321,7 +321,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ผลกำไรและช่องทางการตลาด (3)
+                  ต้นทุน (3.2)
                 </h2>
               </Item>
             </Grid>

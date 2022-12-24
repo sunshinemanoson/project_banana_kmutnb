@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { AiOutlineMenu, AiOutlineSearch } from 'react-icons/ai'
+import {AiOutlineSearch } from 'react-icons/ai'
 import { BsFillPersonFill } from "react-icons/bs";
 import IconButton from '@mui/material/IconButton';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between items-center p-2'>
       <div className='flex items-center'>
-        <img src='./images/img1.jpg' width={100} height={100} ></img>
+        <img src='./images/img1.jpg' width={100} height={100} onClick={handleToDashboard} ></img>
         <div>
           <div>
             {/* <AiOutlineMenu size={30} /> */}
@@ -49,7 +49,7 @@ export default function Navbar() {
       <input className='bg-transparent p-2 w-full focus:outline-none' type="text" placeholder='ค้นหาข้อมูล'/>
       </div>
       <div className='flex items-center'>
-        <BsFillPersonFill onClick={handleLoguot} size={30} className='mr-2' />
+        <BsFillPersonFill onClick={handleToinfouser} size={30} className='mr-2' />
         <h1>นายศรชัย มโนสอน</h1>
         <IconButton color="error" onClick={handleLoguot} aria-label="LogoutIcon">
         <LogoutIcon />
@@ -58,6 +58,12 @@ export default function Navbar() {
     </div>
   )
 
+}
+const handleToinfouser = (e) =>{
+  window.location = '/add_infouser';
+}
+const handleToDashboard = (e) =>{
+  window.location = '/dashboard';
 }
 
 const handleLoguot = (e) => {

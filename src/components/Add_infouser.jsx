@@ -17,7 +17,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { InputAdornment, Paper } from "@mui/material";
-import { margin } from "@mui/system";
 
 const cards = [1];
 const cards2 = [1];
@@ -25,7 +24,7 @@ const cards3 = [1];
 const cards4 = [1];
 
 const theme = createTheme();
-const options = ["นาย", "นาง", "นางสาว", "ไม่ระบุ"];
+const options = ["นาย", "นาง", "นางสาว"];
 const options2 = [
   "ระดับประถมศึกษา",
   "ระดับมัธยมต้น",
@@ -47,23 +46,92 @@ const options4 = [
 const options5 = ["ดีมาก", "ดี", "ปานกลาง", "ไม่ค่อยดี"];
 const options6 = ["ส่งออก", "กำลังริเริ่ม", "ไม่ได้ส่งออก"];
 
-const handleSubmit_userinfo = () => {
-    alert("summited");
-}
+const axios = require("axios");
 
 export default function Infouser() {
   // อันนี้ของเลือกคำนำหน้า
   const [value, setValue] = React.useState(options[0]);
-  const [inputValue, setInputValue] = React.useState("");
+  const [nameTile, setInputValuenameTile] = React.useState("");
   // อันนี้ของระดับการศึกษา
   const [value2, setValue2] = React.useState(options2[0]);
-  const [inputValue2, setInputValue2] = React.useState("");
+  const [inputValueEdu, setInputValueEdu] = React.useState("");
   // อันนี้ของชื่อ
   const [nValue, setNValue] = React.useState("");
   // อันนี้ของนามสกุล
   const [lValue, setLValue] = React.useState("");
   // อันนี้ของอายุ
   const [ageValue, setAGEValue] = React.useState("");
+  //
+  const [expperyers, setEXPvalue] = React.useState("");
+  const email = localStorage.getItem("email");
+  const info_user = [
+    email,
+    nameTile,
+    nValue,
+    lValue,
+    ageValue,
+    inputValueEdu,
+    expperyers,
+  ];
+
+  const handleSubmit_userinfo = () => {
+    // console.log("handdlesummited");
+    if (!value || !nValue || !inputValueEdu || !lValue || !ageValue) {
+      console.log(
+        nameTile,
+        nValue,
+        lValue,
+        ageValue,
+        inputValueEdu,
+        expperyers
+      );
+      alert("โปรดกรอกข่อมูลให้ครบถ้วน");
+    } else if ((ageValue || expperyers) <= 0) {
+      alert("ไม่สามารถกรอกข้อมูลเป็นเลขน้อยกว่า 0 ได้");
+      // console.log(ageValue,expperyers);
+    } else if (localStorage.length === 2) {
+      console.log(
+        nameTile,
+        nValue,
+        lValue,
+        ageValue,
+        inputValueEdu,
+        expperyers
+      );
+      //   console.log(ageValue,expperyers < 0);
+      let data_ar_info = [];
+      //   for (let i = 0, len = info_user.length; i < len; i++) {
+      const info_data = {
+        email: email,
+        nameTile: nameTile,
+        nValue: nValue,
+        lValue: lValue,
+        ageValue: ageValue,
+        inputValueEdu: inputValueEdu,
+        expperyers: expperyers,
+      };
+      data_ar_info.push(info_data);
+      // }
+      // window.location = "/Add_wideth_Raw_2";
+      // console.log(localStorage.getItem("token").length)
+      axios
+        .post("http://localhost:8888/add_userinfo", {
+          data_ar_info,
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      console.log("handle !!!!");
+    } else {
+      alert("token expired");
+      console.log(localStorage.length);
+      window.location = "/login";
+    }
+  };
 
   return (
     //<div className=' bg-[#E1F17C] h-[100rem] w-full'>
@@ -107,19 +175,20 @@ export default function Infouser() {
                         onChange={(event, newValue) => {
                           setValue(newValue);
                         }}
-                        inputValue={inputValue}
-                        onInputChange={(event, newInputValue) => {
-                          setInputValue(newInputValue);
+                        inputValue={nameTile}
+                        onInputChange={(event, newInputValuenameTile) => {
+                          setInputValuenameTile(newInputValuenameTile);
                         }}
                         id="controllable-states-demo"
                         options={options}
                         renderInput={(params) => (
-                          <TextField {...params} label="คำนำหน้า" />
+                          <TextField {...params} label="คำนำหน้า" required />
                         )}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
+                        required
                         onChange={(event) => setNValue(event.target.value)}
                         id="outlined1"
                         label="ชื่อ"
@@ -130,6 +199,7 @@ export default function Infouser() {
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
+                        required
                         onChange={(event) => setLValue(event.target.value)}
                         id="outlined2"
                         label="นามสกุล"
@@ -140,6 +210,9 @@ export default function Infouser() {
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
+                        required
+                        type="number"
+                        min={0}
                         value={ageValue}
                         onChange={(event) => setAGEValue(event.target.value)}
                         id="age"
@@ -148,6 +221,7 @@ export default function Infouser() {
                           endAdornment: (
                             <InputAdornment position="end">/ ปี</InputAdornment>
                           ),
+                          inputProps: { min: 1 },
                         }}
                         variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
@@ -160,25 +234,34 @@ export default function Infouser() {
                         onChange={(event, newValue) => {
                           setValue2(newValue);
                         }}
-                        inputValue={inputValue2}
-                        onInputChange={(event, newInputValue2) => {
-                          setInputValue2(newInputValue2);
+                        inputValue={inputValueEdu}
+                        onInputChange={(event, newInputValueEdu) => {
+                          setInputValueEdu(newInputValueEdu);
                         }}
                         id="controllable-states-demo2"
                         options={options2}
                         renderInput={(params) => (
-                          <TextField {...params} label="ระดับการศึกษา" />
+                          <TextField
+                            {...params}
+                            label="ระดับการศึกษา"
+                            required
+                          />
                         )}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="ex"
+                        required
+                        type="number"
+                        value={expperyers}
+                        onChange={(event) => setEXPvalue(event.target.value)}
+                        id="expperyers"
                         label="ประสบการณ์ในการแปรรูป"
                         InputProps={{
                           endAdornment: (
                             <InputAdornment position="end">/ ปี</InputAdornment>
                           ),
+                          inputProps: { min: 0 },
                         }}
                         variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
@@ -220,6 +303,14 @@ export default function Infouser() {
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
+                        id="address4"
+                        label="จังหวัด"
+                        variant="outlined"
+                        className="w-[28rem] md:w-full sm:w-full"
+                      />
+                    </Grid>
+                    <Grid className="flex space-x-5 mt-4">
+                      <TextField
                         id="address2"
                         label="ตำบล / แขวง"
                         variant="outlined"
@@ -232,14 +323,7 @@ export default function Infouser() {
                         className="w-[28rem] md:w-full sm:w-full"
                       />
                     </Grid>
-                    <Grid className="flex space-x-5 mt-4">
-                      <TextField
-                        id="address4"
-                        label="จังหวัด"
-                        variant="outlined"
-                        className="w-[28rem] md:w-full sm:w-full"
-                      />
-                    </Grid>
+                    
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
                         id="address5"
@@ -577,23 +661,19 @@ export default function Infouser() {
             ))}
           </Grid>
         </Container>
-        <Grid item xs={10} md={10}></Grid>
-          <Grid item xs={2} md={2}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              onClick={handleSubmit_userinfo}
-            >
-              ตกลง
-            </Button>
-          </Grid>
       </main>
 
       {/* Footer */}
       <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
+        <Typography variant="h6" align="right" gutterBottom>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={handleSubmit_userinfo}
+          >
+            ตกลง
+          </Button>
         </Typography>
         <Typography
           variant="subtitle1"

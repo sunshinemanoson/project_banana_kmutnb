@@ -38,11 +38,11 @@ export default function Add_wideth_Raw() {
   const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "cartilir1",
-    "cartilir2",
-    "cartilir3",
-    "cartilir4",
-    "cartilir5",
+    "cartilir_un1",
+    "cartilir_un2",
+    "cartilir_un3",
+    "cartilir_un4",
+    "cartilir_un5",
   ];
   const email = localStorage.getItem("email");
 
@@ -98,7 +98,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      // window.location = '/Add_wideth_Raw_2'
+      window.location = '/Add_wideth_Unraw_2'
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
