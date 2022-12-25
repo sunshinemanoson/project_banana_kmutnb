@@ -46,22 +46,20 @@ const options4 = [
 const options5 = ["ดีมาก", "ดี", "ปานกลาง", "ไม่ค่อยดี"];
 const options6 = ["ส่งออก", "กำลังริเริ่ม", "ไม่ได้ส่งออก"];
 
-
 // let BE = myFunction(BE);   // Function is called, return value will end up in x
 
 // function myFunction(BE) {
 // for (let i = 2400; i < 2600; i++) {
 //         const BE = [i];
-//         return 
+//         return
 // }
 //   // Function returns the product of a and b
 // }
-let BE = [];
+// let BE = [];
 
-const optionsBE = [BE];
+const optionsBE = ["2565"];
 
 const axios = require("axios");
-
 
 export default function Infouser() {
   //กรอกข้อมูลผู้ใช้
@@ -86,10 +84,18 @@ export default function Infouser() {
   const [district, setdistrict] = React.useState("");
   const [amphur, setamphur] = React.useState("");
   const [zipcode, setzipcode] = React.useState("");
-  
   const [valueyersBegin, setValueyersBegin] = React.useState(optionsBE[0]);
   const [yersBegin, setyersBegin] = React.useState("");
-
+  //
+  const [valueproraw, setValueproraw] = React.useState(options3[0]);
+  const [proraw, setproraw] = React.useState("");
+  const [valueproUnraw, setValueproUnraw] = React.useState(options4[0]);
+  const [proUnraw, setproUnraw] = React.useState("");
+  const [source, setsource] = React.useState("");
+  const [valuequlity, setValuequlity] = React.useState(options5[0]);
+  const [qulity, setqulity] = React.useState("");
+  const [amount, setamount] = React.useState("");
+  //
   const email = localStorage.getItem("email");
   const info_user = [
     email,
@@ -115,7 +121,12 @@ export default function Infouser() {
       !district ||
       !amphur ||
       !zipcode ||
-      !yersBegin
+      !yersBegin ||
+      !proraw ||
+      !proUnraw ||
+      !source ||
+      !qulity ||
+      !amount
     ) {
       console.log(
         nameTile,
@@ -130,6 +141,11 @@ export default function Infouser() {
         amphur,
         zipcode,
         yersBegin,
+        proraw,
+        proUnraw,
+        source,
+        qulity,
+        amount,
       );
       alert("โปรดกรอกข่อมูลให้ครบถ้วน");
     } else if ((ageValue || expperyers) <= 0) {
@@ -142,7 +158,18 @@ export default function Infouser() {
         lValue,
         ageValue,
         inputValueEdu,
-        expperyers
+        expperyers,
+        comName,
+        comAddress,
+        province,
+        amphur,
+        zipcode,
+        yersBegin,
+        proraw,
+        proUnraw,
+        source,
+        qulity,
+        amount,
       );
       //   console.log(ageValue,expperyers < 0);
       let data_ar_info = [];
@@ -155,6 +182,18 @@ export default function Infouser() {
         ageValue: ageValue,
         inputValueEdu: inputValueEdu,
         expperyers: expperyers,
+        comname: comName,
+        comaddress: comAddress,
+        province: province,
+        district: district,
+        amphur: amphur,
+        zipcode: zipcode,
+        yersbegin: yersBegin,
+        proraw: proraw,
+        proUnraw: proUnraw,
+        source: source,
+        qulity: qulity,
+        amount: amount,
       };
       data_ar_info.push(info_data);
       // }
@@ -342,27 +381,8 @@ export default function Infouser() {
                         value={comName}
                       />
                     </Grid>
-<<<<<<< HEAD
-                </Container>
-                <Grid className='mt-10 p-12' align="right">
-                        <Button variant="contained" >Submit</Button>
-                </Grid>
-            </main>
-
-           
-            {/* Footer */}
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-=======
                     <Grid className="flex space-x-5 mt-4">
-                    <TextField
+                      <TextField
                         required
                         onChange={(event) => setcomAddress(event.target.value)}
                         id="comaddress"
@@ -374,33 +394,46 @@ export default function Infouser() {
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address4"
+                        required
+                        onChange={(event) => setprovince(event.target.value)}
+                        id="comprovince"
                         label="จังหวัด"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={province}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address2"
+                        required
+                        onChange={(event) => setdistrict(event.target.value)}
+                        id="comdistrict"
                         label="ตำบล / แขวง"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={district}
                       />
                       <TextField
-                        id="address3"
+                        required
+                        onChange={(event) => setamphur(event.target.value)}
+                        id="comamphur"
                         label="อำเภอ / เขต"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={amphur}
                       />
                     </Grid>
 
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address5"
+                        required
+                        type="number"
+                        onChange={(event) => setzipcode(event.target.value)}
+                        id="comaddress"
                         label="รหัสไปรษณีย์"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={zipcode}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
@@ -408,11 +441,11 @@ export default function Infouser() {
                         className="w-[28rem] md:w-full sm:w-full"
                         value={valueyersBegin}
                         onChange={(event, newValue) => {
-                            setValueyersBegin(newValue);
+                          setValueyersBegin(newValue);
                         }}
                         inputValue={yersBegin}
                         onInputChange={(event, newInputyersBegin) => {
-                            setyersBegin(newInputyersBegin);
+                          setyersBegin(newInputyersBegin);
                         }}
                         id="controllable-states-demo2"
                         options={optionsBE}
@@ -439,7 +472,6 @@ export default function Infouser() {
                     flexDirection: "column",
                     margin: 3,
                   }}
->>>>>>> 9595a9a2542955ce0af195f86b46c90a78c3aba5
                 >
                   <CardContent sx={{ flexGrow: 2 }}>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -448,34 +480,42 @@ export default function Infouser() {
                     <Grid className="flex space-x-5 mt-4">
                       <Autocomplete
                         className="w-[28rem] md:w-full sm:w-full"
-                        // value={value}
-                        // onChange={(event, newValue) => {
-                        //     setValue(newValue);
-                        // }}
-                        // inputValue={inputValue}
-                        // onInputChange={(event, newInputValue) => {
-                        //     setInputValue(newInputValue);
-                        // }}
-                        id="controllable-states-demo"
+                        value={valueproraw}
+                        onChange={(event, newValue) => {
+                          setValueproraw(newValue);
+                        }}
+                        inputValue={proraw}
+                        onInputChange={(event, newInputsetproraw) => {
+                          setproraw(newInputsetproraw);
+                        }}
+                        id="controllable-states-demo2"
                         options={options3}
                         renderInput={(params) => (
-                          <TextField {...params} label="การแปรรูปกล้วยดิบ" />
+                          <TextField
+                            {...params}
+                            label="การแปรรูปกล้วยดิบ"
+                            required
+                          />
                         )}
                       />
                       <Autocomplete
                         className="w-[28rem] md:w-full sm:w-full"
-                        // value={value}
-                        // onChange={(event, newValue) => {
-                        //     setValue(newValue);
-                        // }}
-                        // inputValue={inputValue}
-                        // onInputChange={(event, newInputValue) => {
-                        //     setInputValue(newInputValue);
-                        // }}
-                        id="controllable-states-demo"
+                        value={valueproUnraw}
+                        onChange={(event, newValue) => {
+                          setValueproUnraw(newValue);
+                        }}
+                        inputValue={proUnraw}
+                        onInputChange={(event, newInputsetproUnraw) => {
+                          setproUnraw(newInputsetproUnraw);
+                        }}
+                        id="controllable-states-demo2"
                         options={options4}
                         renderInput={(params) => (
-                          <TextField {...params} label="การแปรรูปกล้วยสุก" />
+                          <TextField
+                            {...params}
+                            label="การแปรรูปกล้วยดิบ"
+                            required
+                          />
                         )}
                       />
                     </Grid>
@@ -491,36 +531,47 @@ export default function Infouser() {
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address2"
+                        required
+                        onChange={(event) => setsource(event.target.value)}
+                        id="source"
                         label="กล้วยมาจากแหล่งใด"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={source}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <Autocomplete
                         className="w-[28rem] md:w-full sm:w-full"
-                        // value={value}
-                        // onChange={(event, newValue) => {
-                        //     setValue(newValue);
-                        // }}
-                        // inputValue={inputValue}
-                        // onInputChange={(event, newInputValue) => {
-                        //     setInputValue(newInputValue);
-                        // }}
-                        id="controllable-states-demo"
+                        value={valuequlity}
+                        onChange={(event, newValuequlity) => {
+                          setValuequlity(newValuequlity);
+                        }}
+                        inputValue={qulity}
+                        onInputChange={(event, newInputsetqulity) => {
+                          setqulity(newInputsetqulity);
+                        }}
+                        id="controllable-states-demo2"
                         options={options5}
                         renderInput={(params) => (
-                          <TextField {...params} label="คุณภาพของกล้วย" />
+                          <TextField
+                            {...params}
+                            label="คุณภาพของกล้วย"
+                            required
+                          />
                         )}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address2"
+                        required
+                        type="number"
+                        onChange={(event) => setamount(event.target.value)}
+                        id="amount"
                         label="ปริมาณของกล้วย"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={amount}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
