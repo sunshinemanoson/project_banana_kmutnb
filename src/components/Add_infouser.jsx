@@ -494,11 +494,10 @@ export default function Infouser() {
                             </Grid>
                         ))}
                     </Grid>
-
-                    <div className='flex space-x-5 mt-10'>
-                        <Button variant="contained">Submit</Button>
-                    </div>
                 </Container>
+                <Grid className='mt-10 p-12' align="right">
+                        <Button variant="contained" >Submit</Button>
+                </Grid>
             </main>
 
            

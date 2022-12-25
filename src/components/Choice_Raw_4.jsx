@@ -38,12 +38,12 @@ export default function Add_wideth_Raw() {
   const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "cartilir26",
-    "cartilir27",
-    "cartilir28",
-    "cartilir29",
-    "cartilir30",
-    "cartilir31",
+    "raw_u19",
+    "raw_u20",
+    "raw_u21",
+    "raw_u22",
+    "raw_u23",
+    "raw_u24",
   ];
   const email = localStorage.getItem("email");
 
@@ -99,7 +99,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = '/Choice_Raw'
+      window.location = '/Choice_Raw_5'
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -153,7 +153,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยรอง
+            กรณีเป็นการแปรรูปกล้วยดิบ
           </Typography>
         </Toolbar>
       </AppBar>
@@ -163,7 +163,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                    สามารถเก็บได้ที่อุณหภูมิปกติ (4.1)
+                    กล้วยฉาบ (U1)
                 </h1>
               </Item>
             </Grid>
@@ -188,14 +188,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                    ระยะเวลาในการเก็บรักษาด (4.2)
+                    กล้วยอบเนย (U2)
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                    สามารถเก็บได้ที่อุณหภูมิปกติ (4.1)
+                    กล้วยฉาบ (U1)
                 </h1>
               </Item>
             </Grid>
@@ -221,7 +221,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                    สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษา (4.3)
+                    กล้วยเบรคแตก (U3)
                 </h1>
               </Item>
             </Grid>
@@ -229,7 +229,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                    ระยะเวลาในการเก็บรักษา (4.2)
+                    กล้วยอบเนย (U2)
                 </h1>
               </Item>
             </Grid>
@@ -255,7 +255,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                    สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษา (4.3)
+                    กล้วยเบรคแตก (U3)
                 </h1>
               </Item>
             </Grid>
@@ -263,7 +263,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                    มีนโยบายส่งเสริมจากรัฐบาล (5.1)
+                    กล้วยฉาบ (U1)
                 </h1>
               </Item>
             </Grid>
@@ -275,41 +275,7 @@ export default function Add_wideth_Raw() {
                   id="Add_width1"
                   name="Add_width1"
                   defaultValue={0}
-                  onChange={val_w4}
-                  getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
-                  step={1}
-                  marks
-                  min={-9}
-                  max={9}
-                />
-              </Item>
-            </Grid>
-
-            <Grid item xs={2} md={2}>
-              <Item>
-                <h1 id="criteria1" name="criteria1">
-                    ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
-                </h1>
-              </Item>
-            </Grid>
-
-            <Grid item xs={2} md={2}>
-              <Item>
-                <h1 id="criteria1" name="criteria1">
-                    มีนโยบายส่งเสริมจากรัฐบาล (5.1)
-                </h1>
-              </Item>
-            </Grid>
-            <Grid item xs={8} md={8}>
-              <Item>
-                <Slider
-                  aria-label="Add_width1"
-                  aria-labelledby="Add_width1"
-                  id="Add_width1"
-                  name="Add_width1"
-                  defaultValue={0}
-                  onChange={val_w5}
+                  onChange={val_w1}
                   getAriaValueText={valuetext}
                   valueLabelDisplay="auto"
                   step={1}
@@ -322,15 +288,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                    การสร้างรายได้ให้กับชุมชน (5.3)
+                    กล้วยอบเนย (U2)
                 </h2>
               </Item>
             </Grid>
-
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                    ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
+                    กล้วยฉาบ (U1)
                 </h1>
               </Item>
             </Grid>
@@ -342,7 +307,7 @@ export default function Add_wideth_Raw() {
                   id="Add_width1"
                   name="Add_width1"
                   defaultValue={0}
-                  onChange={val_w5}
+                  onChange={val_w2}
                   getAriaValueText={valuetext}
                   valueLabelDisplay="auto"
                   step={1}
@@ -352,14 +317,49 @@ export default function Add_wideth_Raw() {
                 />
               </Item>
             </Grid>
+
             <Grid item xs={2} md={2}>
               <Item>
-                <h2 id="criteria2" name="criteria2">
-                    การสร้างรายได้ให้กับชุมชน (5.3)
-                </h2>
+                <h1 id="criteria1" name="criteria1">
+                    กล้วยเบรคแตก (U3)
+                </h1>
               </Item>
             </Grid>
 
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                    กล้วยอบเนย (U2)
+                </h1>
+              </Item>
+            </Grid>
+            <Grid item xs={8} md={8}>
+              <Item>
+                <Slider
+                  aria-label="Add_width1"
+                  aria-labelledby="Add_width1"
+                  id="Add_width1"
+                  name="Add_width1"
+                  defaultValue={0}
+                  onChange={val_w3}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={1}
+                  marks
+                  min={-9}
+                  max={9}
+                />
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                    กล้วยเบรคแตก (U3)
+                </h1>
+              </Item>
+            </Grid>
+            
             <Grid item xs={10} md={10}></Grid>
             <Grid item xs={2} md={2}>
               <Button
