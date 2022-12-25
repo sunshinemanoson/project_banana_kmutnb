@@ -12,10 +12,24 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 const theme = createTheme();
 
 export default function SignInSide() {
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -23,11 +37,14 @@ export default function SignInSide() {
     //   email: data.get("email"),
     //   password: data.get("password"),
     // });
+    let input_email = data.get("email");
+    let input_password = data.get("password");
+
     var jsonData = {
-      email: data.get("email"),
-      password: data.get("password"),
+      email: input_email,
+      password: input_password,
     };
-    let email = data.get("email")
+    
     fetch("http://localhost:8888/login", {
       method: "POST", // or 'PUT'
       headers: {
@@ -37,9 +54,12 @@ export default function SignInSide() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.status === "ok_200") {
+        if(!input_email || !input_password){
+          alert("โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน")
+        }
+        else if (data.status === "ok_200") {
           localStorage.setItem("token", data.token);
-          localStorage.setItem("email", email);
+          localStorage.setItem("email", input_email);
           window.location = "/dashboard";
           alert(data.msg);
         } else {
@@ -48,6 +68,7 @@ export default function SignInSide() {
         console.log("Success:", data);
       })
       .catch((error) => {
+      
         console.error("Error:", error);
       });
   };
@@ -105,16 +126,30 @@ export default function SignInSide() {
                 autoComplete="email"
                 autoFocus
               />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+             
+                <FormControl sx={{ width: "100%" }} variant="outlined">
+                  <InputLabel htmlFor="outlined-adornment-password">
+                    Password
+                  </InputLabel>
+                  <OutlinedInput
+                    id="password"
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    label="Password"
+                  />
+                </FormControl>
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"

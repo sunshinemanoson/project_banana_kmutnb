@@ -46,9 +46,25 @@ const options4 = [
 const options5 = ["ดีมาก", "ดี", "ปานกลาง", "ไม่ค่อยดี"];
 const options6 = ["ส่งออก", "กำลังริเริ่ม", "ไม่ได้ส่งออก"];
 
+
+// let BE = myFunction(BE);   // Function is called, return value will end up in x
+
+// function myFunction(BE) {
+// for (let i = 2400; i < 2600; i++) {
+//         const BE = [i];
+//         return 
+// }
+//   // Function returns the product of a and b
+// }
+let BE = [];
+
+const optionsBE = [BE];
+
 const axios = require("axios");
 
+
 export default function Infouser() {
+  //กรอกข้อมูลผู้ใช้
   // อันนี้ของเลือกคำนำหน้า
   const [value, setValue] = React.useState(options[0]);
   const [nameTile, setInputValuenameTile] = React.useState("");
@@ -63,6 +79,17 @@ export default function Infouser() {
   const [ageValue, setAGEValue] = React.useState("");
   //
   const [expperyers, setEXPvalue] = React.useState("");
+  // ข้อมูลเกี่ยวกับสถานประกอบการ
+  const [comName, setcomName] = React.useState("");
+  const [comAddress, setcomAddress] = React.useState("");
+  const [province, setprovince] = React.useState("");
+  const [district, setdistrict] = React.useState("");
+  const [amphur, setamphur] = React.useState("");
+  const [zipcode, setzipcode] = React.useState("");
+  
+  const [valueyersBegin, setValueyersBegin] = React.useState(optionsBE[0]);
+  const [yersBegin, setyersBegin] = React.useState("");
+
   const email = localStorage.getItem("email");
   const info_user = [
     email,
@@ -76,14 +103,33 @@ export default function Infouser() {
 
   const handleSubmit_userinfo = () => {
     // console.log("handdlesummited");
-    if (!value || !nValue || !inputValueEdu || !lValue || !ageValue) {
+    if (
+      !value ||
+      !nValue ||
+      !inputValueEdu ||
+      !lValue ||
+      !ageValue ||
+      !comName ||
+      !comAddress ||
+      !province ||
+      !district ||
+      !amphur ||
+      !zipcode ||
+      !yersBegin
+    ) {
       console.log(
         nameTile,
         nValue,
         lValue,
         ageValue,
         inputValueEdu,
-        expperyers
+        expperyers,
+        comName,
+        comAddress,
+        province,
+        amphur,
+        zipcode,
+        yersBegin,
       );
       alert("โปรดกรอกข่อมูลให้ครบถ้วน");
     } else if ((ageValue || expperyers) <= 0) {
@@ -287,18 +333,24 @@ export default function Infouser() {
                     </Typography>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="busname"
+                        required
+                        onChange={(event) => setcomName(event.target.value)}
+                        id="comname"
                         label="ชื่อกิจการ"
                         className="w-[28rem] md:w-full sm:w-full"
                         variant="outlined"
+                        value={comName}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
-                      <TextField
-                        id="address"
+                    <TextField
+                        required
+                        onChange={(event) => setcomAddress(event.target.value)}
+                        id="comaddress"
                         label="ที่อยู่ของสถานประกอบการ"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={comAddress}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
@@ -323,7 +375,7 @@ export default function Infouser() {
                         className="w-[28rem] md:w-full sm:w-full"
                       />
                     </Grid>
-                    
+
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
                         id="address5"
@@ -333,11 +385,26 @@ export default function Infouser() {
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
-                      <TextField
-                        id="address6"
-                        label="ปี พ.ศ.ที่เริ่มการธุรกิจ"
-                        variant="outlined"
+                      <Autocomplete
                         className="w-[28rem] md:w-full sm:w-full"
+                        value={valueyersBegin}
+                        onChange={(event, newValue) => {
+                            setValueyersBegin(newValue);
+                        }}
+                        inputValue={yersBegin}
+                        onInputChange={(event, newInputyersBegin) => {
+                            setyersBegin(newInputyersBegin);
+                        }}
+                        id="controllable-states-demo2"
+                        options={optionsBE}
+                        renderInput={(params) => (
+                          <TextField
+                            type="number"
+                            {...params}
+                            label="ปี พ.ศ. ที่เริ่มการธุรกิจ"
+                            required
+                          />
+                        )}
                       />
                     </Grid>
                   </CardContent>

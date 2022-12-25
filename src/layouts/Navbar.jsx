@@ -46,11 +46,11 @@ export default function Navbar() {
       </div>
       <div className='bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]'>
       <AiOutlineSearch size={30} />
-      <input className='bg-transparent p-2 w-full focus:outline-none' type="text" placeholder='ค้นหาข้อมูล'/>
+      <input className='bg-transparent p-1 w-full focus:outline-none' type="text" placeholder='ค้นหาข้อมูล'/>
       </div>
       <div className='flex items-center'>
-        <BsFillPersonFill onClick={handleToinfouser} size={30} className='mr-2' />
-        <h1>นายศรชัย มโนสอน</h1>
+        <BsFillPersonFill onClick={handleToinfouser} size={30} className='mr-2' color='blue' />
+        <h1>{handlegetname}</h1>
         <IconButton color="error" onClick={handleLoguot} aria-label="LogoutIcon">
         <LogoutIcon />
       </IconButton>
@@ -59,7 +59,12 @@ export default function Navbar() {
   )
 
 }
+const handlegetname = (e) => {
+  localStorage.getItem("email");
+  console.log(localStorage.getItem("email"))
+}
 const handleToinfouser = (e) =>{
+
   window.location = '/add_infouser';
 }
 const handleToDashboard = (e) =>{
