@@ -9,6 +9,15 @@ import Add_wideth_Raw_3 from "./components/Add_wideth_Raw_3";
 import Add_wideth_Raw_4 from "./components/Add_wideth_Raw_4";
 import Add_wideth_Raw_5 from "./components/Add_wideth_Raw_5";
 import Add_wideth_Raw_6 from "./components/Add_wideth_Raw_6";
+import Choice_Raw from "./components/Choice_Raw";
+import Choice_Raw_2 from "./components/Choice_Raw_2";
+import Choice_Raw_3 from "./components/Choice_Raw_3";
+import Choice_Raw_4 from "./components/Choice_Raw_4";
+import Choice_Raw_5 from "./components/Choice_Raw_5";
+import Choice_Raw_6 from "./components/Choice_Raw_6";
+import Choice_Raw_7 from "./components/Choice_Raw_7";
+import Choice_Raw_8 from "./components/Choice_Raw_8";
+import Choice_Raw_9 from "./components/Choice_Raw_9";
 import Add_wideth_Unraw from "./components/Add_wideth_Unraw";
 import Add_wideth_Unraw_2 from "./components/Add_wideth_Unraw_2";
 import Add_wideth_Unraw_3 from "./components/Add_wideth_Unraw_3";
@@ -33,6 +42,15 @@ function App() {
           <Route path="Add_wideth_Raw_4" element={<Add_wideth_Raw_4 />} />
           <Route path="Add_wideth_Raw_5" element={<Add_wideth_Raw_5 />} />
           <Route path="Add_wideth_Raw_6" element={<Add_wideth_Raw_6 />} />
+          <Route path="Choice_Raw" element={<Choice_Raw />} />
+          <Route path="Choice_Raw_2" element={<Choice_Raw_2 />} />
+          <Route path="Choice_Raw_3" element={<Choice_Raw_3 />} />
+          <Route path="Choice_Raw_4" element={<Choice_Raw_4 />} />
+          <Route path="Choice_Raw_5" element={<Choice_Raw_5 />} />
+          <Route path="Choice_Raw_6" element={<Choice_Raw_6 />} />
+          <Route path="Choice_Raw_7" element={<Choice_Raw_7 />} />
+          <Route path="Choice_Raw_8" element={<Choice_Raw_8 />} />
+          <Route path="Choice_Raw_9" element={<Choice_Raw_9 />} />
 
           {/* unraw route */}
           {/* unraw route */}

@@ -342,6 +342,25 @@ export default function Infouser() {
                         value={comName}
                       />
                     </Grid>
+<<<<<<< HEAD
+                </Container>
+                <Grid className='mt-10 p-12' align="right">
+                        <Button variant="contained" >Submit</Button>
+                </Grid>
+            </main>
+
+           
+            {/* Footer */}
+            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
+                <Typography variant="h6" align="center" gutterBottom>
+                    Footer
+                </Typography>
+                <Typography
+                    variant="subtitle1"
+                    align="center"
+                    color="text.secondary"
+                    component="p"
+=======
                     <Grid className="flex space-x-5 mt-4">
                     <TextField
                         required
@@ -420,6 +439,7 @@ export default function Infouser() {
                     flexDirection: "column",
                     margin: 3,
                   }}
+>>>>>>> 9595a9a2542955ce0af195f86b46c90a78c3aba5
                 >
                   <CardContent sx={{ flexGrow: 2 }}>
                     <Typography gutterBottom variant="h5" component="h2">
