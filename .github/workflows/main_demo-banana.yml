@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'demo-Banana'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_51E43677FD474A7A8EA59D147B90F594 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_835625AC4EF44F4694068A699F76CBF7 }}
           package: .
