@@ -86,7 +86,7 @@ export default function Infouser() {
   const [zipcode, setzipcode] = React.useState("");
   const [valueyersBegin, setValueyersBegin] = React.useState(optionsBE[0]);
   const [yersBegin, setyersBegin] = React.useState("");
-  //
+  //ด้านวัตถุดิบ
   const [valueproraw, setValueproraw] = React.useState(options3[0]);
   const [proraw, setproraw] = React.useState("");
   const [valueproUnraw, setValueproUnraw] = React.useState(options4[0]);
@@ -95,17 +95,30 @@ export default function Infouser() {
   const [valuequlity, setValuequlity] = React.useState(options5[0]);
   const [qulity, setqulity] = React.useState("");
   const [amount, setamount] = React.useState("");
+  //กำลังการผลิต
+  const [numWorkers, setnumWorkers] = React.useState("");
+  const [proCapPerTime, setproCapPerTime] = React.useState("");
+  const [laborWagePerD, setlaborWagePerD] = React.useState("");
+  const [laborWagePerM, setlaborWagePerM] = React.useState("");
+  const [tools, settools] = React.useState("");
+  //ช่องทางการตลาด
+  const [bestSell, setbestSell] = React.useState("");
+  const [productChanal, setproductChanal] = React.useState("");
+
+  //การเก็บรักษา
+
   //
+
   const email = localStorage.getItem("email");
-  const info_user = [
-    email,
-    nameTile,
-    nValue,
-    lValue,
-    ageValue,
-    inputValueEdu,
-    expperyers,
-  ];
+  // const info_user = [
+  //   email,
+  //   nameTile,
+  //   nValue,
+  //   lValue,
+  //   ageValue,
+  //   inputValueEdu,
+  //   expperyers,
+  // ];
 
   const handleSubmit_userinfo = () => {
     // console.log("handdlesummited");
@@ -145,7 +158,7 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
-        amount,
+        amount
       );
       alert("โปรดกรอกข่อมูลให้ครบถ้วน");
     } else if ((ageValue || expperyers) <= 0) {
@@ -169,7 +182,7 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
-        amount,
+        amount
       );
       //   console.log(ageValue,expperyers < 0);
       let data_ar_info = [];
@@ -586,54 +599,62 @@ export default function Infouser() {
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address2"
+                        required
+                        type="number"
+                        onChange={(event) => setnumWorkers(event.target.value)}
+                        id="numWorkers"
+                        label="จำนวนแรงงานในสถานประกอบการ จำนวนคน"
+                        className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={numWorkers}
+                      />
+                    </Grid>
+                    <Grid className="flex space-x-5 mt-4">
+                      <TextField
+                        required
+                        type="number"
+                        onChange={(event) =>
+                          setproCapPerTime(event.target.value)
+                        }
+                        id="proCapPerTime"
                         label="กำลังการผลิต / ครั้ง"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={proCapPerTime}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address2"
-                        label="จำนวนแรงงานในสถานประกอบการ"
-                        variant="outlined"
+                        type="number"
+                        onChange={(event) =>
+                          setlaborWagePerD(event.target.value)
+                        }
+                        id="laborWagePerD"
+                        label="ค่าจ้างแรงงาน / วัน"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={laborWagePerD}
+                      />
+                      <TextField
+                        type="number"
+                        onChange={(event) =>
+                          setlaborWagePerM(event.target.value)
+                        }
+                        id="laborWagePerM"
+                        label="ค่าจ้างแรงงาน / เดือน"
+                        className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={laborWagePerM}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address2"
-                        label="ค่าจ้างแรงงาน"
-                        variant="outlined"
-                        className="w-[28rem] md:w-full sm:w-full"
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              / ต่อวัน
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                      <TextField
-                        id="address2"
-                        label="ค่าจ้างแรงงาน"
-                        variant="outlined"
-                        className="w-[28rem] md:w-full sm:w-full"
-                        InputProps={{
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              / เดือน
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                    </Grid>
-                    <Grid className="flex space-x-5 mt-4">
-                      <TextField
-                        id="address2"
+                        onChange={(event) => settools(event.target.value)}
+                        id="tools"
                         label="เครื่องมือและอุปกรณ์หลักที่ใช้ในการแปรรูป"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={tools}
                       />
                     </Grid>
                   </CardContent>
@@ -656,10 +677,16 @@ export default function Infouser() {
                     </Typography>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="busname"
+                        required
+                        type="number"
+                        onChange={(event) =>
+                          setproductChanal(event.target.value)
+                        }
+                        id="productChanal"
                         label="ส่งขายช่องทางไหนบ้าง"
                         className="w-[28rem] md:w-full sm:w-full"
                         variant="outlined"
+                        value={productChanal}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
@@ -706,22 +733,40 @@ export default function Infouser() {
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
                       <TextField
-                        id="address2"
+                        required
+                        onChange={(event) =>
+                          setbestSell(event.target.value)
+                        }
+                        id="bestSell"
                         label="สินค้าที่ขายดีที่สุดคือ"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
-                      />
-                      <TextField
-                        id="address3"
-                        label="กำไรต่อหน่วย"
                         variant="outlined"
-                        className="w-[28rem] md:w-full sm:w-full"
+                        value={bestSell}
                       />
+                      
                       <TextField
-                        id="address3"
+                        required
+                        type="number"
+                        onChange={(event) =>
+                          setproCapPerTime(event.target.value)
+                        }
+                        id="proCapPerTime"
                         label="ต้นทุน"
-                        variant="outlined"
                         className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={proCapPerTime}
+                      />
+                      <TextField
+                        required
+                        type="number"
+                        onChange={(event) =>
+                          setproCapPerTime(event.target.value)
+                        }
+                        id="proCapPerTime"
+                        label="กำไรต่อหน่วย"
+                        className="w-[28rem] md:w-full sm:w-full"
+                        variant="outlined"
+                        value={proCapPerTime}
                       />
                     </Grid>
                     <Grid className="flex space-x-5 mt-4">
