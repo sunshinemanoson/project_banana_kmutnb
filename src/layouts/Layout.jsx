@@ -5,6 +5,9 @@ import Navbar from "./Navbar";
 
 
 export default function Layout() {
+  if(localStorage.length === 0){
+    window.location.href = "/login";
+  }else{
     return (
       <div>
         <Navbar />
@@ -13,4 +16,5 @@ export default function Layout() {
         </main>
       </div>
     );
+  }
   }

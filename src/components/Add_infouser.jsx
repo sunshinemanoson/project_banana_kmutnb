@@ -124,6 +124,41 @@ export default function Infouser() {
   const [valuestorageTran, setValuestorageTran] = useState(options5[0]);
   const [storageTran, setstorageTran] = useState("");
   //
+<<<<<<< HEAD
+=======
+  const [expperyers, setEXPvalue] = React.useState("");
+  // ข้อมูลเกี่ยวกับสถานประกอบการ
+  const [comName, setcomName] = React.useState("");
+  const [comAddress, setcomAddress] = React.useState("");
+  const [province, setprovince] = React.useState("");
+  const [district, setdistrict] = React.useState("");
+  const [amphur, setamphur] = React.useState("");
+  const [zipcode, setzipcode] = React.useState("");
+  const [valueyersBegin, setValueyersBegin] = React.useState(optionsBE[0]);
+  const [yersBegin, setyersBegin] = React.useState("");
+  //ด้านวัตถุดิบ
+  const [valueproraw, setValueproraw] = React.useState(options3[0]);
+  const [proraw, setproraw] = React.useState("");
+  const [valueproUnraw, setValueproUnraw] = React.useState(options4[0]);
+  const [proUnraw, setproUnraw] = React.useState("");
+  const [source, setsource] = React.useState("");
+  const [valuequlity, setValuequlity] = React.useState(options5[0]);
+  const [qulity, setqulity] = React.useState("");
+  const [amount, setamount] = React.useState("");
+  //กำลังการผลิต
+  const [numWorkers, setnumWorkers] = React.useState("");
+  const [proCapPerTime, setproCapPerTime] = React.useState("");
+  const [laborWagePerD, setlaborWagePerD] = React.useState("");
+  const [laborWagePerM, setlaborWagePerM] = React.useState("");
+  const [tools, settools] = React.useState("");
+  //ช่องทางการตลาด
+  const [bestSell, setbestSell] = React.useState("");
+  const [productChanal, setproductChanal] = React.useState("");
+
+  //การเก็บรักษา
+
+  //
+>>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
 
   const email = localStorage.getItem("email");
   // const info_user = [
@@ -155,6 +190,7 @@ export default function Infouser() {
       !proUnraw ||
       !source ||
       !qulity ||
+<<<<<<< HEAD
       !amount ||
       !numWorkers ||
       !proCapPerTime ||
@@ -176,6 +212,9 @@ export default function Infouser() {
       !storageQuality ||
       !valuestorageTran ||
       !storageTran
+=======
+      !amount
+>>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
     ) {
       console.log(
         nameTile,
@@ -194,6 +233,7 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
+<<<<<<< HEAD
         amount,
         numWorkers,
         proCapPerTime,
@@ -215,6 +255,9 @@ export default function Infouser() {
         storageQuality,
         valuestorageTran,
         storageTran
+=======
+        amount
+>>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       );
       alert("โปรดกรอกข่อมูลให้ครบถ้วน");
     } else if ((ageValue || expperyers) <= 0) {
@@ -238,6 +281,7 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
+<<<<<<< HEAD
         amount,
         numWorkers,
         proCapPerTime,
@@ -259,6 +303,9 @@ export default function Infouser() {
         storageQuality,
         valuestorageTran,
         storageTran
+=======
+        amount
+>>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       );
       //   console.log(ageValue,expperyers < 0);
       let data_ar_info = [];
@@ -283,6 +330,7 @@ export default function Infouser() {
         source: source,
         qulity: qulity,
         amount: amount,
+<<<<<<< HEAD
         numWorkers: numWorkers,
         proCapPerTime: proCapPerTime,
         laborWagePerD: laborWagePerD,
@@ -303,6 +351,8 @@ export default function Infouser() {
         storageQuality: storageQuality,
         valuestorageTran: valuestorageTran,
         storageTran: storageTran,
+=======
+>>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       };
       data_ar_info.push(info_data);
       // }
