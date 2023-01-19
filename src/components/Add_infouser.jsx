@@ -124,8 +124,6 @@ export default function Infouser() {
   const [valuestorageTran, setValuestorageTran] = useState(options5[0]);
   const [storageTran, setstorageTran] = useState("");
   //
-<<<<<<< HEAD
-=======
   const [expperyers, setEXPvalue] = React.useState("");
   // ข้อมูลเกี่ยวกับสถานประกอบการ
   const [comName, setcomName] = React.useState("");
@@ -158,7 +156,6 @@ export default function Infouser() {
   //การเก็บรักษา
 
   //
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
 
   const email = localStorage.getItem("email");
   // const info_user = [
@@ -190,31 +187,7 @@ export default function Infouser() {
       !proUnraw ||
       !source ||
       !qulity ||
-<<<<<<< HEAD
-      !amount ||
-      !numWorkers ||
-      !proCapPerTime ||
-      !laborWagePerD ||
-      !laborWagePerM ||
-      !tools ||
-      !productChanal ||
-      !valueproductExport ||
-      !productExport ||
-      !valuemarketShare ||
-      !marketShare ||
-      !bestSell ||
-      !cost ||
-      !proFit ||
-      !stoRageR ||
-      !stoRagePro ||
-      !storageArea ||
-      !valuestorageQuality ||
-      !storageQuality ||
-      !valuestorageTran ||
-      !storageTran
-=======
       !amount
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
     ) {
       console.log(
         nameTile,
@@ -233,31 +206,7 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
-<<<<<<< HEAD
-        amount,
-        numWorkers,
-        proCapPerTime,
-        laborWagePerD,
-        laborWagePerM,
-        tools,
-        productChanal,
-        valueproductExport,
-        productExport,
-        valuemarketShare,
-        marketShare,
-        bestSell,
-        cost,
-        proFit,
-        stoRageR,
-        stoRagePro,
-        storageArea,
-        valuestorageQuality,
-        storageQuality,
-        valuestorageTran,
-        storageTran
-=======
         amount
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       );
       alert("โปรดกรอกข่อมูลให้ครบถ้วน");
     } else if ((ageValue || expperyers) <= 0) {
@@ -281,31 +230,7 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
-<<<<<<< HEAD
-        amount,
-        numWorkers,
-        proCapPerTime,
-        laborWagePerD,
-        laborWagePerM,
-        tools,
-        productChanal,
-        valueproductExport,
-        productExport,
-        valuemarketShare,
-        marketShare,
-        bestSell,
-        cost,
-        proFit,
-        stoRageR,
-        stoRagePro,
-        storageArea,
-        valuestorageQuality,
-        storageQuality,
-        valuestorageTran,
-        storageTran
-=======
         amount
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       );
       //   console.log(ageValue,expperyers < 0);
       let data_ar_info = [];
@@ -330,29 +255,6 @@ export default function Infouser() {
         source: source,
         qulity: qulity,
         amount: amount,
-<<<<<<< HEAD
-        numWorkers: numWorkers,
-        proCapPerTime: proCapPerTime,
-        laborWagePerD: laborWagePerD,
-        laborWagePerM: laborWagePerM,
-        tools: tools,
-        productChanal: productChanal,
-        valueproductExport: valueproductExport,
-        productExport: productExport,
-        valuemarketShare: valuemarketShare,
-        marketShare: marketShare,
-        bestSell: bestSell,
-        cost: cost,
-        proFit: proFit,
-        stoRageR: stoRageR,
-        stoRagePro: stoRagePro,
-        storageArea: storageArea,
-        valuestorageQuality: valuestorageQuality,
-        storageQuality: storageQuality,
-        valuestorageTran: valuestorageTran,
-        storageTran: storageTran,
-=======
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       };
       data_ar_info.push(info_data);
       // }
