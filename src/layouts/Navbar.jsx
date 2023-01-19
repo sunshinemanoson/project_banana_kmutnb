@@ -7,30 +7,30 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 
 export default function Navbar() {
-  useEffect(() => {
-		var token = localStorage.getItem('token')
-		fetch("http://localhost:8888/authen", {
-			method: "POST", // or 'PUT'
-			headers: {
-			  'Content-Type': 'application/json',
-				'Authorization': 'Bearer '+token
-			},
-		  })
-			.then((response) => response.json())
-			.then((data) => {
-			  if(data.status === 'ok_200'){
-				// alert('auten Succeesed.')
-			  }else{
-				// alert('auten Failed.')
-				localStorage.removeItem('token')
-				window.location = '/login'
-			  }
-			  console.log("Success:", data);
-			})
-			.catch((error) => {
-			  console.error("Error:", error);
-			});
-	},[])
+  // useEffect(() => {
+	// 	var token = localStorage.getItem('token')
+	// 	fetch("http://localhost:8888/authen", {
+	// 		method: "POST", // or 'PUT'
+	// 		headers: {
+	// 		  'Content-Type': 'application/json',
+	// 			'Authorization': 'Bearer '+token
+	// 		},
+	// 	  })
+	// 		.then((response) => response.json())
+	// 		.then((data) => {
+	// 		  if(data.status === 'ok_200'){
+	// 			// alert('auten Succeesed.')
+	// 		  }else{
+	// 			// alert('auten Failed.')
+	// 			localStorage.removeItem('token')
+	// 			window.location = '/login'
+	// 		  }
+	// 		  console.log("Success:", data);
+	// 		})
+	// 		.catch((error) => {
+	// 		  console.error("Error:", error);
+	// 		});
+	// },[])
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between items-center p-2'>
       <div className='flex items-center'>
