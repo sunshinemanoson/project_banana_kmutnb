@@ -758,8 +758,6 @@ export default function Infouser() {
             </Grid>
             <Grid item xs={12} sm={12} md={12} pd={12}>
               <Accordion
-              //   expanded={expanded === "panel1"}
-              //   onChange={handleChange("panel1")}
               >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
