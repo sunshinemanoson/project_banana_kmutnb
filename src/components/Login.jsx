@@ -33,10 +33,10 @@ export default function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
     let input_email = data.get("email");
     let input_password = data.get("password");
 
@@ -71,6 +71,7 @@ export default function SignInSide() {
       
         console.error("Error:", error);
       });
+     
   };
 
   return (
@@ -164,7 +165,7 @@ export default function SignInSide() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="dashboard" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>

@@ -31,7 +31,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="dashboard" element={<Dashboard />} />
+        
         {/* raw route */}
         <Route path="Add_wideth_Raw" element={<Add_wideth_Raw />} />
         <Route path="Add_wideth_Raw_2" element={<Add_wideth_Raw_2 />} />
@@ -64,6 +64,8 @@ function App() {
       </Route>
       <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} />
+      // อย่าลืมใส่กลับ
+      <Route path="dashboard" element={<Dashboard />} />
     </Routes>
   );
 }

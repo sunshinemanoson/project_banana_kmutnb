@@ -77,7 +77,13 @@ export default function Add_wideth_Raw() {
   // };
 
   const handleSubmit_2 = () => {
-    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length === 0)) {
+    if (
+      (testVal1.length,
+      testVal2.length,
+      testVal3.length,
+      testVal4.length,
+      testVal5.length === 0)
+    ) {
       alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
@@ -98,7 +104,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = '/Add_wideth_Raw_2'
+      window.location = "/Add_wideth_Raw_2";
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -152,7 +158,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยหลัก
+            โปรดเลือกระดับความสำค๊ญเปรียบเทียบระหว่างสองอย่าง
           </Typography>
         </Toolbar>
       </AppBar>
