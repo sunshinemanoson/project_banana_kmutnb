@@ -124,35 +124,7 @@ export default function Infouser() {
   const [valuestorageTran, setValuestorageTran] = useState(options5[0]);
   const [storageTran, setstorageTran] = useState("");
   //
-  const [expperyers, setEXPvalue] = React.useState("");
-  // ข้อมูลเกี่ยวกับสถานประกอบการ
-  const [comName, setcomName] = React.useState("");
-  const [comAddress, setcomAddress] = React.useState("");
-  const [province, setprovince] = React.useState("");
-  const [district, setdistrict] = React.useState("");
-  const [amphur, setamphur] = React.useState("");
-  const [zipcode, setzipcode] = React.useState("");
-  const [valueyersBegin, setValueyersBegin] = React.useState(optionsBE[0]);
-  const [yersBegin, setyersBegin] = React.useState("");
-  //ด้านวัตถุดิบ
-  const [valueproraw, setValueproraw] = React.useState(options3[0]);
-  const [proraw, setproraw] = React.useState("");
-  const [valueproUnraw, setValueproUnraw] = React.useState(options4[0]);
-  const [proUnraw, setproUnraw] = React.useState("");
-  const [source, setsource] = React.useState("");
-  const [valuequlity, setValuequlity] = React.useState(options5[0]);
-  const [qulity, setqulity] = React.useState("");
-  const [amount, setamount] = React.useState("");
-  //กำลังการผลิต
-  const [numWorkers, setnumWorkers] = React.useState("");
-  const [proCapPerTime, setproCapPerTime] = React.useState("");
-  const [laborWagePerD, setlaborWagePerD] = React.useState("");
-  const [laborWagePerM, setlaborWagePerM] = React.useState("");
-  const [tools, settools] = React.useState("");
-  //ช่องทางการตลาด
-  const [bestSell, setbestSell] = React.useState("");
-  const [productChanal, setproductChanal] = React.useState("");
-
+  
   //การเก็บรักษา
 
   //
