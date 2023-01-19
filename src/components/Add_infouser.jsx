@@ -936,7 +936,7 @@ export default function Infouser() {
             {/* {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={6} pd={6}>
                 <Card
-                  sx={{
+                  sx={{555555
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
