@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
+import Stack from "@mui/material/Stack";
 
 const theme = createTheme();
 const Item = styled(Paper)(({ theme }) => ({
@@ -77,7 +78,13 @@ export default function Add_wideth_Raw() {
   // };
 
   const handleSubmit_2 = () => {
-    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length === 0)) {
+    if (
+      (testVal1.length,
+      testVal2.length,
+      testVal3.length,
+      testVal4.length,
+      testVal5.length === 0)
+    ) {
       alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
@@ -98,7 +105,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = '/Add_wideth_Raw_2'
+      window.location = "/Add_wideth_Raw_2";
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -165,6 +172,9 @@ export default function Add_wideth_Raw() {
                   วัตถุดิบหลัก (1)
                 </h1>
               </Item>
+              <Stack className="mt-4">
+                <Button color="secondary" variant="contained" href="Add_wideth_Raw_3">ปัจจัยลอง</Button>
+              </Stack>
             </Grid>
             <Grid item xs={8} md={8}>
               <Item>
@@ -190,6 +200,9 @@ export default function Add_wideth_Raw() {
                   ความพร้อมในการผลิต (2)
                 </h2>
               </Item>
+              <Stack className="mt-4">
+                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
+              </Stack>
             </Grid>
             <Grid item xs={2} md={2}>
               <Item>
@@ -223,6 +236,9 @@ export default function Add_wideth_Raw() {
                   ผลกำไรและช่องทางการตลาด (3)
                 </h1>
               </Item>
+              <Stack className="mt-4">
+                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
+              </Stack>
             </Grid>
 
             <Grid item xs={2} md={2}>
@@ -257,6 +273,9 @@ export default function Add_wideth_Raw() {
                   การเก็บรักษา (4)
                 </h1>
               </Item>
+              <Stack className="mt-4">
+                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
+              </Stack>
             </Grid>
 
             <Grid item xs={2} md={2}>
@@ -291,6 +310,9 @@ export default function Add_wideth_Raw() {
                   สิ่งแวดล้อมและสังคม (5)
                 </h1>
               </Item>
+              <Stack className="mt-4">
+                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
+              </Stack>
             </Grid>
 
             <Grid item xs={2} md={2}>
