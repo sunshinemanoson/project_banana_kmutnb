@@ -80,7 +80,51 @@ export default function Infouser() {
   // อันนี้ของอายุ
   const [ageValue, setAGEValue] = useState("");
   //
-  const [expperyers, setEXPvalue] = React.useState("");
+  const [expperyers, setEXPvalue] = useState("");
+  // ข้อมูลเกี่ยวกับสถานประกอบการ
+  const [comName, setcomName] = useState("");
+  const [comAddress, setcomAddress] = useState("");
+  const [province, setprovince] = useState("");
+  const [district, setdistrict] = useState("");
+  const [amphur, setamphur] = useState("");
+  const [zipcode, setzipcode] = useState("");
+  const [valueyersBegin, setValueyersBegin] = useState(optionsBE[0]);
+  const [yersBegin, setyersBegin] = useState("");
+  //ด้านวัตถุดิบ
+  const [valueproraw, setValueproraw] = useState(options3[0]);
+  const [proraw, setproraw] = useState("");
+  const [valueproUnraw, setValueproUnraw] = useState(options4[0]);
+  const [proUnraw, setproUnraw] = useState("");
+  const [source, setsource] = useState("");
+  const [valuequlity, setValuequlity] = useState(options5[0]);
+  const [qulity, setqulity] = useState("");
+  const [amount, setamount] = useState("");
+  //กำลังการผลิต
+  const [numWorkers, setnumWorkers] = useState("");
+  const [proCapPerTime, setproCapPerTime] = useState("");
+  const [laborWagePerD, setlaborWagePerD] = useState("");
+  const [laborWagePerM, setlaborWagePerM] = useState("");
+  const [tools, settools] = useState("");
+  //ช่องทางการตลาด
+  const [productChanal, setproductChanal] = useState("");
+  const [valueproductExport, setValueproductExport] = useState(options6[0]);
+  const [productExport, setproductExport] = useState("");
+  const [valuemarketShare, setValuemarketShare] = useState(options5[0]);
+  const [marketShare, setmarketShare] = useState("");
+  const [bestSell, setbestSell] = useState("");
+  const [cost, setCost] = useState("");
+  const [proFit, setproFit] = useState("");
+
+  //การเก็บรักษา
+  const [stoRageR, setstoRageR] = useState("");
+  const [stoRagePro, setstoRagePro] = useState("");
+  const [storageArea, setstorageArea] = useState("");
+  const [valuestorageQuality, setValuestorageQuality] = useState(options5[0]);
+  const [storageQuality, setstorageQuality] = useState("");
+  const [valuestorageTran, setValuestorageTran] = useState(options5[0]);
+  const [storageTran, setstorageTran] = useState("");
+  //
+
   const email = localStorage.getItem("email");
   // const info_user = [
   //   email,
@@ -111,7 +155,6 @@ export default function Infouser() {
       !proUnraw ||
       !source ||
       !qulity ||
-<<<<<<< HEAD
       !amount ||
       !numWorkers ||
       !proCapPerTime ||
@@ -133,9 +176,6 @@ export default function Infouser() {
       !storageQuality ||
       !valuestorageTran ||
       !storageTran
-=======
-      !amount
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
     ) {
       console.log(
         nameTile,
@@ -154,7 +194,6 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
-<<<<<<< HEAD
         amount,
         numWorkers,
         proCapPerTime,
@@ -176,9 +215,6 @@ export default function Infouser() {
         storageQuality,
         valuestorageTran,
         storageTran
-=======
-        amount
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       );
       alert("โปรดกรอกข่อมูลให้ครบถ้วน");
     } else if ((ageValue || expperyers) <= 0) {
@@ -202,7 +238,6 @@ export default function Infouser() {
         proUnraw,
         source,
         qulity,
-<<<<<<< HEAD
         amount,
         numWorkers,
         proCapPerTime,
@@ -224,9 +259,6 @@ export default function Infouser() {
         storageQuality,
         valuestorageTran,
         storageTran
-=======
-        amount
->>>>>>> be42c0af9043e7551ed01804960169bfd8fa7a5a
       );
       //   console.log(ageValue,expperyers < 0);
       let data_ar_info = [];
@@ -239,6 +271,38 @@ export default function Infouser() {
         ageValue: ageValue,
         inputValueEdu: inputValueEdu,
         expperyers: expperyers,
+        comname: comName,
+        comaddress: comAddress,
+        province: province,
+        district: district,
+        amphur: amphur,
+        zipcode: zipcode,
+        yersbegin: yersBegin,
+        proraw: proraw,
+        proUnraw: proUnraw,
+        source: source,
+        qulity: qulity,
+        amount: amount,
+        numWorkers: numWorkers,
+        proCapPerTime: proCapPerTime,
+        laborWagePerD: laborWagePerD,
+        laborWagePerM: laborWagePerM,
+        tools: tools,
+        productChanal: productChanal,
+        valueproductExport: valueproductExport,
+        productExport: productExport,
+        valuemarketShare: valuemarketShare,
+        marketShare: marketShare,
+        bestSell: bestSell,
+        cost: cost,
+        proFit: proFit,
+        stoRageR: stoRageR,
+        stoRagePro: stoRagePro,
+        storageArea: storageArea,
+        valuestorageQuality: valuestorageQuality,
+        storageQuality: storageQuality,
+        valuestorageTran: valuestorageTran,
+        storageTran: storageTran,
       };
       data_ar_info.push(info_data);
       // }

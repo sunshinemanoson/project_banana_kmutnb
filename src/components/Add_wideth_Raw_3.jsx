@@ -259,7 +259,7 @@ export default function Add_wideth_Raw() {
               </Item>
             </Grid>
 
-            <Grid item xs={2} md={2}>
+            {/* <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
                   จำนวนแรงงาน (2.1)
@@ -324,7 +324,7 @@ export default function Add_wideth_Raw() {
                   ความสนใจของเจ้าของกิจการ (2.3)
                 </h2>
               </Item>
-            </Grid>
+            </Grid> */}
 
             <Grid item xs={10} md={10}></Grid>
             <Grid item xs={2} md={2}>
