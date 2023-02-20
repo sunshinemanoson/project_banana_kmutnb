@@ -1,55 +1,83 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, IconButton, Toolbar, Collapse } from "@material-ui/core";
-import SortIcon from "@material-ui/icons/Sort";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { styled } from '@mui/material/styles';
+import { AppBar, IconButton, Toolbar, Collapse } from "@mui/material";
+import SortIcon from '@mui/icons-material/Sort';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link as Scroll } from "react-scroll";
-import Button from "@mui/material/Button";
-import { fontSize } from "@mui/system";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+
+const PREFIX = 'Header';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  appbar: `${PREFIX}-appbar`,
+  appbarWrapper: `${PREFIX}-appbarWrapper`,
+  appbarTitle: `${PREFIX}-appbarTitle`,
+  icon: `${PREFIX}-icon`,
+  colorText: `${PREFIX}-colorText`,
+  container: `${PREFIX}-container`,
+  title: `${PREFIX}-title`,
+  TexttitleColor: `${PREFIX}-TexttitleColor`,
+  goDown: `${PREFIX}-goDown`,
+  button: `${PREFIX}-button`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh",
+    height: "80vh",
     fontFamily: "Kanit",
   },
 
-  appbar: {
+  [`& .${classes.appbar}`]: {
     background: "none",
     fontFamilyt: "Kanit",
   },
-  appbarWrapper: {
+
+  [`& .${classes.appbarWrapper}`]: {
     width: "80%",
     margin: "0 auto",
     fontSize: "1.5rem",
   },
-  appbarTitle: {
+
+  [`& .${classes.appbarTitle}`]: {
     flexGrow: "1",
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     color: "#fff",
     fontSize: "2rem",
   },
-  colorText: {
+
+  [`& .${classes.colorText}`]: {
     color: "#ffcc11",
   },
-  container: {
+
+  [`& .${classes.container}`]: {
     textAlign: "center",
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     color: "#fff",
-    fontSize: "4.5rem",
+    fontSize: "3.5rem",
   },
-  TexttitleColor: {
+
+  [`& .${classes.TexttitleColor}`]: {
     color: "#00ff00",
   },
-  goDown: {
+
+  [`& .${classes.goDown}`]: {
     color: "#00ff00",
-    fontSize: "4rem",
+    fontSize: 40,
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     fontFamily: "Kanit",
     // background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     border: 2,
@@ -61,17 +89,19 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px",
     fontSize: "20px",
 
-  },
+  }
 }));
+
 export default function Header() {
-  const classes = useStyles();
+
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(true);
   }, []);
   const goToLogin = () => {window.location = "/login";}
+  const OnHover = () => {}
   return (
-    <div className={classes.root} id="header">
+    <Root className={classes.root} id="header">
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <h1 className={classes.appbarTitle}>
@@ -97,7 +127,7 @@ export default function Header() {
           </h1>
           <IconButton>
             
-            <span className={classes.button} href="login" onClick={goToLogin}><b>เข้าสู่ระบบ</b></span>
+            <span className={classes.button} href="login" onmouseenter={OnHover} onClick={goToLogin}><b>เข้าสู่ระบบ</b></span>
           </IconButton>
           <br></br>
           <Scroll to="place-to-visit" smooth={true}>
@@ -107,6 +137,6 @@ export default function Header() {
           </Scroll>
         </div>
       </Collapse>
-    </div>
+    </Root>
   );
 }

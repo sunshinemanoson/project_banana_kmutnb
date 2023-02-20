@@ -21,7 +21,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
+import Layout from "../layouts/Layout";
 // const cards = [1];
 // const cards2 = [1];
 // const cards3 = [1];
@@ -254,6 +254,7 @@ export default function Infouser() {
   return (
     //<div className=' bg-[#E1F17C] h-[100rem] w-full'>
     <ThemeProvider theme={theme}>
+      <Layout />
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>

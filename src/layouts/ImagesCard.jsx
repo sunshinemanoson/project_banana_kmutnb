@@ -1,27 +1,32 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
-import { Collapse } from '@material-ui/core';
+import {Card,CardContent,CardMedia,Typography} from '@mui/material';
+import { Collapse,styled } from '@mui/material';
 
-const useStyles = makeStyles({
-  root: {
+const PREFIX = 'ImagesCard';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  media: `${PREFIX}-media`,
+  title: `${PREFIX}-title`,
+  desc: `${PREFIX}-desc`
+};
+
+const StyledCollapse = styled(Collapse)({
+  [`& .${classes.root}`]: {
     maxWidth: 645,
     background: 'rgba(0,0,0,0.5)',
     margin: '20px',
   },
-  media: {
+  [`& .${classes.media}`]: {
     height: 440,
   },
-  title: {
+  [`& .${classes.title}`]: {
     fontFamily: 'Kanit',
     fontWeight: 'bold',
     fontSize: '2rem',
     color: '#fff',
   },
-  desc: {
+  [`& .${classes.desc}`]: {
     fontFamily: 'Kanit',
     fontSize: '1.1rem',
     color: '#ddd',
@@ -29,10 +34,10 @@ const useStyles = makeStyles({
 });
 
 export default function ImageCard({ place, checked }) {
-  const classes = useStyles();
+
 
   return (
-    <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
+    <StyledCollapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
       <Card className={classes.root}>
         <CardMedia
           className={classes.media}
@@ -58,6 +63,6 @@ export default function ImageCard({ place, checked }) {
           </Typography>
         </CardContent>
       </Card>
-    </Collapse>
+    </StyledCollapse>
   );
 }

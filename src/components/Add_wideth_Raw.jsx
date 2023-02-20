@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Layout from "../layouts/Layout";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -154,19 +155,17 @@ export default function Add_wideth_Raw() {
   };
   return (
     <ThemeProvider theme={theme}>
+      <Layout />
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำค๊ญเปรียบเทียบระหว่างสองอย่าง
-          </Typography>
-          <Typography xs={10} variant="h8" color="inherit" noWrap>
-           หน้า 1/5
+            โปรดเลือกระดับความสำคัญเปรียบเทียบระหว่างสองอย่าง
           </Typography>
         </Toolbar>
       </AppBar>
       <main>
-        <Box sx={{ flexGrow: 1, m: 6 }}>
+        <Box sx={{ flexGrow: 1, m: 3 }}>
           <Grid container spacing={6.5}>
             <Grid item xs={2} md={2}>
               <Item>
@@ -178,6 +177,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -210,6 +210,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -244,6 +245,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -278,6 +280,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -312,6 +315,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -334,18 +338,33 @@ export default function Add_wideth_Raw() {
                 </h2>
               </Item>
             </Grid>
+            <Grid item xs={12} md={12}></Grid>
+            <Box sx={{ flexGrow: 7 }}>
+              <Grid container spacing={12}>
+                <Grid item xs={12} md={9}></Grid>
+                <Grid item xs={2} md={1}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    onClick={"sd"}
+                  >
+                    กลับ
+                  </Button>
+                </Grid>
+                <Grid item xs={12} md={2}>
+                  <Button
+                    variant="contained"
 
-            <Grid item xs={10} md={10}></Grid>
-            <Grid item xs={2} md={2}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                onClick={handleSubmit_2}
-              >
-                ตกลง
-              </Button>
-            </Grid>
+                    color="primary"
+                    size="large"
+                    onClick={handleSubmit_2}
+                  >
+                    ต่อไป
+                  </Button>
+                </Grid>
+              </Grid>
+            </Box>
           </Grid>
         </Box>
         <Container>
