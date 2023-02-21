@@ -11,7 +11,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
-
+import Layout from "../layouts/Layout";
 
 const theme = createTheme();
 const Item = styled(Paper)(({ theme }) => ({
@@ -123,6 +123,7 @@ export default function Add_wideth_Raw_2() {
   };
   return (
     <ThemeProvider theme={theme}>
+      <Layout />
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
