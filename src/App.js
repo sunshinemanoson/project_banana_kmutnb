@@ -25,7 +25,8 @@ import Add_wideth_Unraw_4 from "./components/Add_wideth_Unraw_4";
 import Add_wideth_Unraw_5 from "./components/Add_wideth_Unraw_5";
 import Add_wideth_Unraw_6 from "./components/Add_wideth_Unraw_6";
 import Add_infouser from "./components/Add_infouser";
-import Test from "./components/Test";
+import Output from "./components/Output";
+import Ad_layout from "./layouts/admin/Ad_layout";
 
 
 
@@ -34,8 +35,24 @@ import Test from "./components/Test";
 function App() {
   return (
     <Routes>
+      <Route path="login" element={<Login />} /> 
+      <Route path="register" element={<Register />} /> 
+      <Route path="goBlaFunc" element={<goBlaFunc />} /> 
+      // อย่าลืมใส่กลับ
+        {/* <Route path="/" element={<Layout />} /> */}
+      <Route path="dashboard" element={<Dashboard />} />
       <Route path="/" element={<Layout />}>
-        <Route path="dashboard" element={<Dashboard />} />
+      
+      {/* r */}
+      
+      {/* <Route path="/IndexBody" element={<IndexBody />}></Route> */}
+      {/* <Route path="login" element={<Login />} /> 
+      <Route path="register" element={<Register />} /> 
+      <Route path="goBlaFunc" element={<goBlaFunc />} />  */}
+      // อย่าลืมใส่กลับ
+        {/* <Route path="/" element={<Layout />} /> */}
+        {/* <Route path="dashboard" element={<Dashboard />} /> */}
+       
         {/* raw route */}
         <Route path="Add_wideth_Raw" element={<Add_wideth_Raw />} />
         <Route path="Add_wideth_Raw_2" element={<Add_wideth_Raw_2 />} />
@@ -64,10 +81,13 @@ function App() {
 
         {/* unraw route */}
         <Route path="Add_infouser" element={<Add_infouser />} />
-        <Route path="Test" element={<Test />} />
+        <Route path="output" element={<Output/>} />
       </Route>
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
+
+      <Route path="Ad_layout" element={<Ad_layout />}>
+
+        
+      </Route>
     </Routes>
   );
 }

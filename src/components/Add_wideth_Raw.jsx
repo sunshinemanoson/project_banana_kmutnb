@@ -159,7 +159,10 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยหลัก
+            โปรดเลือกระดับความสำค๊ญเปรียบเทียบระหว่างสองอย่าง
+          </Typography>
+          <Typography xs={10} variant="h8" color="inherit" noWrap>
+           หน้า 1/5
           </Typography>
         </Toolbar>
       </AppBar>

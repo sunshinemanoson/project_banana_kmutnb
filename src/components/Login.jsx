@@ -20,6 +20,7 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
+
 const theme = createTheme();
 
 export default function SignInSide() {
@@ -33,10 +34,10 @@ export default function SignInSide() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
     let input_email = data.get("email");
     let input_password = data.get("password");
 
@@ -44,33 +45,44 @@ export default function SignInSide() {
       email: input_email,
       password: input_password,
     };
-    
-    fetch("http://localhost:8888/login", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(jsonData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if(!input_email || !input_password){
-          alert("โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน")
-        }
-        else if (data.status === "ok_200") {
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("email", input_email);
-          window.location = "/dashboard";
-          alert(data.msg);
-        } else {
-          alert(data.msg);
-        }
-        console.log("Success:", data);
-      })
-      .catch((error) => {
+    if(!input_email || !input_password){
+            alert("โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน")
+          }
+           else {
+            window.location = "/dashboard";
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("email", input_email);
+            // localStorage.setItem("Page", 1);
+            // localStorage.setItem("Status", 1);
+            // console.log(localStorage.getItem("Status"));
+          }
+    // fetch("http://localhost:8888/login", {
+    //   method: "POST", // or 'PUT'
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(jsonData),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if(!input_email || !input_password){
+    //       alert("โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน")
+    //     }
+    //     else if (data.status === "ok_200") {
+    //       localStorage.setItem("token", data.token);
+    //       localStorage.setItem("email", input_email);
+    //       window.location = "/dashboard";
+    //       alert(data.msg);
+    //     } else {
+    //       alert(data.msg);
+    //     }
+    //     console.log("Success:", data);
+    //   })
+    //   .catch((error) => {
       
-        console.error("Error:", error);
-      });
+    //     console.error("Error:", error);
+    //   });
+     
   };
 
   return (
@@ -164,7 +176,7 @@ export default function SignInSide() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link href="dashboard" variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>

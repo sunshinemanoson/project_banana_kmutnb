@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c122b7de-3f08-47cd-bee9-d394a295283b/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/demo-ProBanana-app",
+    "appService.deploySubpath": "."
+}
