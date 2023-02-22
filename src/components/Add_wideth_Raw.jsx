@@ -174,9 +174,6 @@ export default function Add_wideth_Raw() {
                   วัตถุดิบหลัก (1)
                 </h1>
               </Item>
-              <Stack className="mt-4">
-                <Button color="secondary" variant="contained" href="Add_wideth_Raw_3">ปัจจัยลอง</Button>
-              </Stack>
             </Grid>
             <Grid item xs={8} md={8}>
               <Item>
@@ -203,9 +200,6 @@ export default function Add_wideth_Raw() {
                   ความพร้อมในการผลิต (2)
                 </h2>
               </Item>
-              <Stack className="mt-4">
-                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
-              </Stack>
             </Grid>
             <Grid item xs={2} md={2}>
               <Item>
@@ -240,9 +234,6 @@ export default function Add_wideth_Raw() {
                   ผลกำไรและช่องทางการตลาด (3)
                 </h1>
               </Item>
-              <Stack className="mt-4">
-                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
-              </Stack>
             </Grid>
 
             <Grid item xs={2} md={2}>
@@ -278,9 +269,6 @@ export default function Add_wideth_Raw() {
                   การเก็บรักษา (4)
                 </h1>
               </Item>
-              <Stack className="mt-4">
-                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
-              </Stack>
             </Grid>
 
             <Grid item xs={2} md={2}>
@@ -316,9 +304,6 @@ export default function Add_wideth_Raw() {
                   สิ่งแวดล้อมและสังคม (5)
                 </h1>
               </Item>
-              <Stack className="mt-4">
-                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
-              </Stack>
             </Grid>
 
             <Grid item xs={2} md={2}>
@@ -354,33 +339,28 @@ export default function Add_wideth_Raw() {
                 </h2>
               </Item>
             </Grid>
-            <Grid item xs={12} md={12}></Grid>
-            <Box sx={{ flexGrow: 7 }}>
-              <Grid container spacing={12}>
-                <Grid item xs={12} md={9}></Grid>
-                <Grid item xs={2} md={1}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    onClick={"sd"}
-                  >
-                    กลับ
-                  </Button>
-                </Grid>
-                <Grid item xs={12} md={2}>
-                  <Button
-                    variant="contained"
-
-                    color="primary"
-                    size="large"
-                    onClick={handleSubmit_2}
-                  >
-                    ต่อไป
-                  </Button>
-                </Grid>
+            <Grid container spacing={2} mt={4} justifyContent="flex-end">
+              <Grid item xs={3} md={1}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={"sd"}
+                >
+                  กลับ
+                </Button>
               </Grid>
-            </Box>
+              <Grid item xs={3} md={1}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={handleSubmit_2}
+                >
+                  ตกลง
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
         </Box>
         <Container>

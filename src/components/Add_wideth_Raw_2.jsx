@@ -146,6 +146,7 @@ export default function Add_wideth_Raw_2() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -179,6 +180,7 @@ export default function Add_wideth_Raw_2() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -213,6 +215,7 @@ export default function Add_wideth_Raw_2() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -247,6 +250,7 @@ export default function Add_wideth_Raw_2() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -281,6 +285,7 @@ export default function Add_wideth_Raw_2() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -304,16 +309,27 @@ export default function Add_wideth_Raw_2() {
               </Item>
             </Grid>
 
-            <Grid item xs={10} md={10}></Grid>
-            <Grid item xs={2} md={2}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                onClick={handleSubmit_2}
-              >
-                ตกลง
-              </Button>
+            <Grid container spacing={2} mt={4} justifyContent="flex-end">
+              <Grid item xs={3} md={1}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={"sd"}
+                >
+                  กลับ
+                </Button>
+              </Grid>
+              <Grid item xs={3} md={1}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={handleSubmit_2}
+                >
+                  ตกลง
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Box>

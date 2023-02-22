@@ -33,17 +33,17 @@ export default function Add_wideth_Raw() {
   const [testVal1, setTestVal1] = useState([]);
   const [testVal2, setTestVal2] = useState([]);
   const [testVal3, setTestVal3] = useState([]);
-  const [testVal4, setTestVal4] = useState([]);
-  const [testVal5, setTestVal5] = useState([]);
+  // const [testVal4, setTestVal4] = useState([]);
+  // const [testVal5, setTestVal5] = useState([]);
 
-  const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
+  const add_weight = [testVal1, testVal2, testVal3];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
     "cartilir11",
     "cartilir12",
     "cartilir13",
-    "cartilir14",
-    "cartilir15",
+    // "cartilir14",
+    // "cartilir15",
   ];
   const email = localStorage.getItem("email");
 
@@ -78,17 +78,15 @@ export default function Add_wideth_Raw() {
   // };
 
   const handleSubmit_2 = () => {
-    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length === 0)) {
+    if ((testVal1.length, testVal2.length, testVal3.length === 0)) {
       alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
-      console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
-    } else if ((testVal1, testVal2, testVal3, testVal4, testVal5 === 0)) {
+      console.log(testVal1, testVal2, testVal3);
+    } else if ((testVal1, testVal2, testVal3 === 0)) {
       alert("ไม่สามารถค่าเป็น 0 ได้โปรดกรอกอีกครั้ง");
     } else if (localStorage.length === 2) {
       // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
-      console.log(
-        testVal1 || testVal2 || testVal3 || testVal4 || testVal5 === 0
-      );
+      console.log(testVal1 || testVal2 || testVal3 === 0);
       // console.log(add_weight.length)
       let data_ar = [];
       for (let i = 0, len = w_name.length; i < len; i++) {
@@ -99,7 +97,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = '/Add_wideth_Raw_4'
+      window.location = "/Add_wideth_Raw_4";
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -139,14 +137,14 @@ export default function Add_wideth_Raw() {
     setTestVal3(num);
     console.log(num);
   };
-  const val_w4 = (e, num) => {
-    setTestVal4(num);
-    console.log(num);
-  };
-  const val_w5 = (e, num) => {
-    setTestVal5(num);
-    console.log(num);
-  };
+  // const val_w4 = (e, num) => {
+  //   setTestVal4(num);
+  //   console.log(num);
+  // };
+  // const val_w5 = (e, num) => {
+  //   setTestVal5(num);
+  //   console.log(num);
+  // };
   return (
     <ThemeProvider theme={theme}>
       <Layout />
@@ -171,6 +169,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -203,6 +202,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -237,6 +237,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={8} md={8}>
               <Item>
                 <Slider
+                  track={false}
                   aria-label="Add_width1"
                   aria-labelledby="Add_width1"
                   id="Add_width1"
@@ -328,16 +329,27 @@ export default function Add_wideth_Raw() {
               </Item>
             </Grid> */}
 
-            <Grid item xs={10} md={10}></Grid>
-            <Grid item xs={2} md={2}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                onClick={handleSubmit_2}
-              >
-                ตกลง
-              </Button>
+            <Grid container spacing={2} mt={4} justifyContent="flex-end">
+              <Grid item xs={3} md={1}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={"sd"}
+                >
+                  กลับ
+                </Button>
+              </Grid>
+              <Grid item xs={3} md={1}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  onClick={handleSubmit_2}
+                >
+                  ตกลง
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Box>
