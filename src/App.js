@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Layout from "./layouts/Layout";
+import IndexBody from "./layouts/Indexbody";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -25,8 +26,7 @@ import Add_wideth_Unraw_4 from "./components/Add_wideth_Unraw_4";
 import Add_wideth_Unraw_5 from "./components/Add_wideth_Unraw_5";
 import Add_wideth_Unraw_6 from "./components/Add_wideth_Unraw_6";
 import Add_infouser from "./components/Add_infouser";
-import Output from "./components/Output";
-import Ad_layout from "./layouts/admin/Ad_layout";
+
 
 
 
@@ -35,23 +35,17 @@ import Ad_layout from "./layouts/admin/Ad_layout";
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<IndexBody />}>
+      
+      {/* r */}
+      </Route>
+      {/* <Route path="/IndexBody" element={<IndexBody />}></Route> */}
       <Route path="login" element={<Login />} /> 
       <Route path="register" element={<Register />} /> 
       <Route path="goBlaFunc" element={<goBlaFunc />} /> 
       // อย่าลืมใส่กลับ
         {/* <Route path="/" element={<Layout />} /> */}
-      <Route path="dashboard" element={<Dashboard />} />
-      <Route path="/" element={<Layout />}>
-      
-      {/* r */}
-      
-      {/* <Route path="/IndexBody" element={<IndexBody />}></Route> */}
-      {/* <Route path="login" element={<Login />} /> 
-      <Route path="register" element={<Register />} /> 
-      <Route path="goBlaFunc" element={<goBlaFunc />} />  */}
-      // อย่าลืมใส่กลับ
-        {/* <Route path="/" element={<Layout />} /> */}
-        {/* <Route path="dashboard" element={<Dashboard />} /> */}
+        <Route path="dashboard" element={<Dashboard />} />
        
         {/* raw route */}
         <Route path="Add_wideth_Raw" element={<Add_wideth_Raw />} />
@@ -81,13 +75,6 @@ function App() {
 
         {/* unraw route */}
         <Route path="Add_infouser" element={<Add_infouser />} />
-        <Route path="output" element={<Output/>} />
-      </Route>
-
-      <Route path="Ad_layout" element={<Ad_layout />}>
-
-        
-      </Route>
     </Routes>
   );
 }
