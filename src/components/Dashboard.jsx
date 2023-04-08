@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -21,6 +22,23 @@ const cards2 = [1];
 const theme = createTheme();
 
 export default function Dashboard() {
+  const add_Raw_page = () => {
+    if (localStorage.length === 2) {
+      window.location = "/Add_wideth_Raw_1";
+      sessionStorage.setItem("status_weight",'raw');
+    } else {
+      alert("หมดเวลา");
+    }
+  };
+  const add_Unraw_page = () => {
+    if (localStorage.length === 2) {
+      window.location = "/Add_wideth_Raw_1";
+      sessionStorage.setItem("status_weight",'unraw');
+    } else {
+      alert("หมดเวลา");
+    }
+  };
+
 	// useEffect(() => {
 	// 	var token = localStorage.getItem('token')
 	// 	fetch("http://localhost:8888/authen", {
@@ -91,7 +109,7 @@ export default function Dashboard() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button  variant="contained" color="success" size="large" href='Add_wideth_Raw'>เลือก</Button>
+                    <Button  variant="contained" color="success" size="large" onClick={add_Raw_page}>เลือก</Button>
                   </CardActions>
                 </Card>
 				
@@ -115,7 +133,7 @@ export default function Dashboard() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button  variant="contained" color="warning" size="large" href='Add_wideth_Unraw'>เลือก</Button>
+                    <Button  variant="contained" color="warning" size="large" onClick={add_Unraw_page} >เลือก</Button>
                   </CardActions>
                 </Card>
               </Grid>

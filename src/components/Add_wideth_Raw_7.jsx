@@ -250,23 +250,22 @@ export default function Add_wideth_Raw() {
   let CR_Val = CI_Val / RI_set_val;
   console.log("CR_val =", CR_Val);
 
-
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 1;
-  const page = 3;
+  const add_w_crigroup = 5;
+  const page = 7;
   const add_w_eigen = [critri_sum_Eig_1_5,critri_sum_Eig_2_5,critri_sum_Eig_3_5];
-  const add_subgroup = [1,2,3];
+  const add_subgroup = [20,21,22];
   const status = sessionStorage.getItem("status_weight");
   const add_result = 0.00000000000001;
   const add_result_group = 0.1;
   const add_type = status;
   const add_weight = [testVal1, testVal2, testVal3];
+  // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
+  const w_name = [ 
+  "sub5_criteria5.1#5.2",
+  "sub5_criteria5.1#5.3",
+  "sub5_criteria5.2#5.3",];
 
-  const w_name = [
-    "sub1_criteria1.1#1.2",
-    "sub1_criteria1.1#1.3",
-    "sub1_criteria1.2#1.3",
-  ];
 
   const balck_page = () => {
     if (localStorage.length === 2) {
@@ -293,7 +292,7 @@ export default function Add_wideth_Raw() {
       let data_ar = [];
       for (let i = 0, len = w_name.length; i < len; i++) {
         const w_data = {
-          w_name: w_name[i],
+            w_name: w_name[i],
           email: email,
           w_crigroup: add_w_crigroup,
           w_subgroup: add_subgroup[i],
@@ -306,7 +305,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Add_wideth_Raw_4";
+      window.location = "/Choice_Raw_1";
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -320,6 +319,25 @@ export default function Add_wideth_Raw() {
         });
 
       console.log("handle !!!!");
+      sessionStorage.removeItem("valcriterial_colum1#2");
+      sessionStorage.removeItem("valcriterial_colum1#3");
+      sessionStorage.removeItem("valcriterial_colum1#4");
+      sessionStorage.removeItem("valcriterial_colum1#5");
+      sessionStorage.removeItem("valcriterial_colum2#3");
+      sessionStorage.removeItem("recriterial_colum1#2");
+      sessionStorage.removeItem("recriterial_colum1#3");
+      sessionStorage.removeItem("recriterial_colum1#4");
+      sessionStorage.removeItem("recriterial_colum1#5");
+      sessionStorage.removeItem("recriterial_colum2#3");
+      sessionStorage.removeItem("cal_sum1");
+      sessionStorage.removeItem("cal_sum2");
+      sessionStorage.removeItem("cal_sum3");
+      sessionStorage.removeItem("cal_sum4");
+      sessionStorage.removeItem("cal_sum5");
+      sessionStorage.removeItem("w_colum1#3");
+      sessionStorage.removeItem("w_colum1#4");
+      sessionStorage.removeItem("w_colum1#5");
+      sessionStorage.removeItem("w_colum2#3");
     } else {
       alert("token expired");
       console.log(localStorage.length);
@@ -354,7 +372,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง วัตถุดิบหลัก 1/5
+            โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง สิ่งแวดล้อมและสังคม 5/5
           </Typography>
         </Toolbar>
       </AppBar>
@@ -371,7 +389,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ระดับความสุกของวัตถุดิบ (1.1)
+                มีนโยบายส่งเสริมจากรัฐบาล (5.1)
                 </h1>
               </Item>
             </Grid>
@@ -397,14 +415,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ปริมาณกล้วยที่เพียงพอ (1.2)
+                ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ระดับความสุกของวัตถุดิบ (1.1)
+                มีนโยบายส่งเสริมจากรัฐบาล (5.1)
                 </h1>
               </Item>
             </Grid>
@@ -431,7 +449,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  การขนส่งวัตถุดิบ (1.3)
+                การสร้างรายได้ให้กับชุมชน (5.3)
                 </h1>
               </Item>
             </Grid>
@@ -439,7 +457,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ปริมาณกล้วยที่เพียงพอ (1.2)
+                ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
                 </h1>
               </Item>
             </Grid>
@@ -466,7 +484,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  การขนส่งวัตถุดิบ (1.3)
+                การสร้างรายได้ให้กับชุมชน (5.3)
                 </h1>
               </Item>
             </Grid>

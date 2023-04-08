@@ -21,12 +21,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-<<<<<<< HEAD
-
-
-=======
 import Layout from "../layouts/Layout";
->>>>>>> 24a0015d0806fc3c669207cccf11d7d0985e17c2
 // const cards = [1];
 // const cards2 = [1];
 // const cards3 = [1];
@@ -634,7 +629,7 @@ export default function Infouser() {
                       renderInput={(params) => (
                         <TextField
                           {...params}
-                          label="การแปรรูปกล้วยดิบ"
+                          label="การแปรรูปกล้วยสุก"
                           required
                         />
                       )}

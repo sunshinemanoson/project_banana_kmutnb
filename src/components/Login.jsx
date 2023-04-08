@@ -19,16 +19,48 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 const theme = createTheme();
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function SignInSide() {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
+  const [open, setOpen] = React.useState(false);
+  const [openEmtry, setOpenEmtry] = React.useState(false);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const handleLogNotPass = () => {
+    setOpen(true);
+  };
+
+  const handleEmtry = () => {
+    setOpenEmtry(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const handleCloseEmtry = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenEmtry(false);
   };
 
   const handleSubmit = (event) => {
@@ -41,48 +73,50 @@ export default function SignInSide() {
     let input_email = data.get("email");
     let input_password = data.get("password");
 
-    var jsonData = {
-      email: input_email,
-      password: input_password,
-    };
-    if(!input_email || !input_password){
-            alert("โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน")
-          }
-           else {
+    const axios = require("axios");
+    // var jsonData = {
+    //   email: input_email,
+    //   password: input_password,
+    // };
+    const email = data.get("email");
+    const password = data.get("password");
+    if (!input_email || !input_password) {
+      handleEmtry();
+      alert("โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน");
+      // <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      //   <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+      //     โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน
+      //   </Alert>
+      // </Snackbar>;
+    } else {
+      // window.location = "/dashboard";
+      // localStorage.setItem("token", data.token);
+      // localStorage.setItem("email", input_email);
+      // localStorage.setItem("Page", 1);
+      // localStorage.setItem("Status", 1);
+      // console.log(localStorage.getItem("Status"));
+      axios
+        .post("http://localhost:8888/login", {
+          email,
+          password,
+        })
+        .then((res) => {
+          if (res.data.status === "ok_200") {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("email", email);
+            // alert(res.data.msg);
             window.location = "/dashboard";
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("email", input_email);
-            // localStorage.setItem("Page", 1);
-            // localStorage.setItem("Status", 1);
-            // console.log(localStorage.getItem("Status"));
+          } else {
+            handleLogNotPass();
+            // alert(res.data.msg);
           }
-    // fetch("http://localhost:8888/login", {
-    //   method: "POST", // or 'PUT'
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(jsonData),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if(!input_email || !input_password){
-    //       alert("โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน")
-    //     }
-    //     else if (data.status === "ok_200") {
-    //       localStorage.setItem("token", data.token);
-    //       localStorage.setItem("email", input_email);
-    //       window.location = "/dashboard";
-    //       alert(data.msg);
-    //     } else {
-    //       alert(data.msg);
-    //     }
-    //     console.log("Success:", data);
-    //   })
-    //   .catch((error) => {
-      
-    //     console.error("Error:", error);
-    //   });
-     
+          console.log(res.data.msg);
+         
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -106,6 +140,18 @@ export default function SignInSide() {
             backgroundPosition: "center",
           }}
         />
+    
+    
+
+        {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            This is a success message!
+          </Alert>
+        </Snackbar> */}
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -119,9 +165,11 @@ export default function SignInSide() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
+            <Stack spacing={2} sx={{ width: "100%" }}></Stack>
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
+            
             <Box
               component="form"
               noValidate
@@ -138,30 +186,30 @@ export default function SignInSide() {
                 autoComplete="email"
                 autoFocus
               />
-             
-                <FormControl sx={{ width: "100%" }} variant="outlined">
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Password
-                  </InputLabel>
-                  <OutlinedInput
-                    id="password"
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                          edge="end"
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                    label="Password"
-                  />
-                </FormControl>
+
+              <FormControl sx={{ width: "100%" }} variant="outlined">
+                <InputLabel htmlFor="outlined-adornment-password">
+                  Password
+                </InputLabel>
+                <OutlinedInput
+                  id="password"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </FormControl>
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
@@ -170,6 +218,7 @@ export default function SignInSide() {
                 type="submit"
                 fullWidth
                 variant="contained"
+                // onClick={handleClick}
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
@@ -191,40 +240,25 @@ export default function SignInSide() {
           </Box>
         </Grid>
       </Grid>
+      <Snackbar openEmtry={openEmtry} autoHideDuration={12000} onClose={handleEmtry}>
+            <Alert
+              onClose={handleCloseEmtry}
+              severity="warning"
+              sx={{ width: "100%" }}
+            >
+             โปรดกรอก Eamil เเละ Pasword ให้ครบถ้วน.
+            </Alert>
+          </Snackbar>
+      <Snackbar open={open} autoHideDuration={12000} onClose={handleClose}>
+            <Alert
+              onClose={handleClose}
+              severity="error"
+              sx={{ width: "100%" }}
+            >
+              User or Password not corected.
+            </Alert>
+          </Snackbar>
     </ThemeProvider>
+    
   );
 }
-
-// export default function () {
-//   return (
-//     <div className='relative w-full h-screen bg-zinc-900/100'>
-//       <img className='absolute w-full h-full object-cover mix-blend-overlay' src='./images/banana.jpg' alt="/" />
-//       <div className='flex justify-center items-center h-full'>
-//         <form className='max-w-[400px] w-full mx-auto bg-white p-8'>
-//           <h2 className='text-3xl font-bold text-center py-8'>เข้าสู่ระบบ</h2>
-//           <div className='flex flex-col mb-4'>
-//             <label className='font-bold'>Username</label>
-//             <input
-//               className='border relative bg-gray-100 p-2'
-//               placeholder='Enter your username'
-//               type="text"
-//             />
-//           </div>
-//           <div className='flex flex-col mb-4'>
-//             <label className='font-bold'>Password</label>
-//             <input
-//               className='border relative bg-gray-100 p-2'
-//               placeholder='Enter your password'
-//               type="password"
-//             />
-//           </div>
-//           <button className='w-full py-3 mt-8 bg-indigo-300 hover:bg-indigo-200 relative text-white'>Sign In</button>
-//           <div className='text-center mt-8'>
-//             <label className='text-black'>กรุณาสมัครเข้าใช้งาน !</label>
-//             <p className='text-red-400  hover:text-red-200 relative'>Sign Up</p>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   )
-// }

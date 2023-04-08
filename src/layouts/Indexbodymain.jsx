@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import ImageCard from './ImagesCard';
 import bananafild from '../static/bananafild';
-import useWindowPosition from '../hook/useWindowPosition';
+import useWindowPosition from '../hook/useWindowPosition.jsx';
 
 const PREFIX = 'Indexbodymain';
 
