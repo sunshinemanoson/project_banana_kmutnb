@@ -329,9 +329,6 @@ export default function Add_wideth_Raw() {
                   วัตถุดิบหลัก (1)
                 </h1>
               </Item>
-              {/* <Stack className="mt-4">
-                <Button color="secondary" variant="contained" href="Add_wideth_Raw_3">ปัจจัยลอง</Button>
-              </Stack> */}
             </Grid>
             <Grid item xs={7} md={7}>
               <Item>
@@ -427,9 +424,6 @@ export default function Add_wideth_Raw() {
                   การเก็บรักษา (4)
                 </h1>
               </Item>
-              {/* <Stack className="mt-4">
-                <Button color="secondary" variant="contained">ปัจจัยลอง</Button>
-              </Stack> */}
             </Grid>
 
             <Grid item xs={2.5} md={2.5}>
