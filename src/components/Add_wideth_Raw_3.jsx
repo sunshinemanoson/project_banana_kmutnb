@@ -151,9 +151,18 @@ export default function Add_wideth_Raw() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยรอง
-          </Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={11}>
+              <Typography variant="h6" color="inherit" noWrap>
+                โปรดเลือกระดับความสำคัญของปัจจัยรอง (ด้านวัตถุดิบหลัก)
+              </Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography variant="h6" color="inherit" noWrap>
+                3/100
+              </Typography>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <main>

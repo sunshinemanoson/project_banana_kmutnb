@@ -160,13 +160,22 @@ export default function Add_wideth_Raw() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญเปรียบเทียบระหว่างสองอย่าง
-          </Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={11}>
+              <Typography variant="h6" color="inherit" noWrap>
+                โปรดเลือกระดับความสำคัญของปัจจัยหลัก
+              </Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography variant="h6" color="inherit" noWrap>
+                1/100
+              </Typography>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <main>
-        <Box sx={{ flexGrow: 1, m: 3 }}>
+        <Box sx={{ flexGrow: 1, m: 6 }}>
           <Grid container spacing={6.5}>
             <Grid item xs={2} md={2}>
               <Item>

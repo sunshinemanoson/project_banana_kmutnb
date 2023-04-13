@@ -35,8 +35,9 @@ export default function Add_wideth_Raw() {
   const [testVal3, setTestVal3] = useState([]);
   const [testVal4, setTestVal4] = useState([]);
   const [testVal5, setTestVal5] = useState([]);
+  const [testVal6, setTestVal6] = useState([]);
 
-  const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
+  const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5, testVal6];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
     "cartilir21",
@@ -44,6 +45,7 @@ export default function Add_wideth_Raw() {
     "cartilir23",
     "cartilir24",
     "cartilir25",
+    "cartilir26",
   ];
   const email = localStorage.getItem("email");
 
@@ -78,16 +80,16 @@ export default function Add_wideth_Raw() {
   // };
 
   const handleSubmit_2 = () => {
-    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length === 0)) {
+    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length, testVal6.length === 0)) {
       alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
-      console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
-    } else if ((testVal1, testVal2, testVal3, testVal4, testVal5 === 0)) {
+      console.log(testVal1, testVal2, testVal3, testVal4, testVal5, testVal6);
+    } else if ((testVal1, testVal2, testVal3, testVal4, testVal5, testVal6 === 0)) {
       alert("ไม่สามารถค่าเป็น 0 ได้โปรดกรอกอีกครั้ง");
     } else if (localStorage.length === 2) {
       // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
       console.log(
-        testVal1 || testVal2 || testVal3 || testVal4 || testVal5 === 0
+        testVal1 || testVal2 || testVal3 || testVal4 || testVal5 || testVal6 === 0
       );
       // console.log(add_weight.length)
       let data_ar = [];
@@ -147,15 +149,28 @@ export default function Add_wideth_Raw() {
     setTestVal5(num);
     console.log(num);
   };
+  const val_w6 = (e, num) => {
+    setTestVal6(num);
+    console.log(num);
+  };
   return (
     <ThemeProvider theme={theme}>
       <Layout />
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยรอง
-          </Typography>
+        <Grid container spacing={2}>
+            <Grid item xs={11}>
+              <Typography variant="h6" color="inherit" noWrap>
+                โปรดเลือกระดับความสำคัญของปัจจัยรอง (ด้านผลกำไรและช่องทางการตลาด)
+              </Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography variant="h6" color="inherit" noWrap>
+                5/100
+              </Typography>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <main>
@@ -190,7 +205,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ความต้องการของตลาด (3.3)
+                  ต้นทุน (3.2)
                 </h2>
               </Item>
             </Grid>
@@ -220,19 +235,17 @@ export default function Add_wideth_Raw() {
                 />
               </Item>
             </Grid>
-
             <Grid item xs={2} md={2}>
               <Item>
-                <h1 id="criteria1" name="criteria1">
-                  แนวโน้มการส่งออก (3.4)
-                </h1>
+                <h2 id="criteria2" name="criteria2">
+                  ความต้องการของตลาด (3.3)
+                </h2>
               </Item>
             </Grid>
-
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ต้นทุน (3.2)
+                  กำไรต่อหน่วย (3.1)
                 </h1>
               </Item>
             </Grid>
@@ -259,7 +272,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความต้องการของตลาด (3.3)
+                  แนวโน้มการส่งออก (3.4)
                 </h1>
               </Item>
             </Grid>
@@ -294,6 +307,41 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
+                  ความต้องการของตลาด (3.3)
+                </h1>
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
+                  ต้นทุน (3.2)
+                </h1>
+              </Item>
+            </Grid>
+            <Grid item xs={8} md={8}>
+              <Item>
+                <Slider
+                  track={false}
+                  aria-label="Add_width1"
+                  aria-labelledby="Add_width1"
+                  id="Add_width1"
+                  name="Add_width1"
+                  defaultValue={0}
+                  onChange={val_w5}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={1}
+                  marks
+                  min={-9}
+                  max={9}
+                />
+              </Item>
+            </Grid>
+
+            <Grid item xs={2} md={2}>
+              <Item>
+                <h1 id="criteria1" name="criteria1">
                   แนวโน้มการส่งออก (3.4)
                 </h1>
               </Item>
@@ -315,7 +363,7 @@ export default function Add_wideth_Raw() {
                   id="Add_width1"
                   name="Add_width1"
                   defaultValue={0}
-                  onChange={val_w5}
+                  onChange={val_w6}
                   getAriaValueText={valuetext}
                   valueLabelDisplay="auto"
                   step={1}

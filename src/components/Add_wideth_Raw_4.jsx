@@ -34,16 +34,16 @@ export default function Add_wideth_Raw() {
   const [testVal2, setTestVal2] = useState([]);
   const [testVal3, setTestVal3] = useState([]);
   const [testVal4, setTestVal4] = useState([]);
-  const [testVal5, setTestVal5] = useState([]);
+  // const [testVal5, setTestVal5] = useState([]);
 
-  const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
+  const add_weight = [testVal1, testVal2, testVal3, testVal4];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
     "cartilir16",
     "cartilir17",
     "cartilir18",
     "cartilir19",
-    "cartilir20",
+    // "cartilir20",
   ];
   const email = localStorage.getItem("email");
 
@@ -78,16 +78,16 @@ export default function Add_wideth_Raw() {
   // };
 
   const handleSubmit_2 = () => {
-    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length,testVal5.length === 0)) {
+    if ((testVal1.length,testVal2.length,testVal3.length,testVal4.length === 0)) {
       alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
-      console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
-    } else if ((testVal1, testVal2, testVal3, testVal4, testVal5 === 0)) {
+      console.log(testVal1, testVal2, testVal3, testVal4);
+    } else if ((testVal1, testVal2, testVal3, testVal4 === 0)) {
       alert("ไม่สามารถค่าเป็น 0 ได้โปรดกรอกอีกครั้ง");
     } else if (localStorage.length === 2) {
       // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
       console.log(
-        testVal1 || testVal2 || testVal3 || testVal4 || testVal5 === 0
+        testVal1 || testVal2 || testVal3 || testVal4  === 0
       );
       // console.log(add_weight.length)
       let data_ar = [];
@@ -143,19 +143,28 @@ export default function Add_wideth_Raw() {
     setTestVal4(num);
     console.log(num);
   };
-  const val_w5 = (e, num) => {
-    setTestVal5(num);
-    console.log(num);
-  };
+  // const val_w5 = (e, num) => {
+  //   setTestVal5(num);
+  //   console.log(num);
+  // };
   return (
     <ThemeProvider theme={theme}>
       <Layout />
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญของปัจจัยรอง
-          </Typography>
+        <Grid container spacing={2}>
+            <Grid item xs={11}>
+              <Typography variant="h6" color="inherit" noWrap>
+                โปรดเลือกระดับความสำคัญของปัจจัยรอง (ด้านความพร้อมในการผลิต)
+              </Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography variant="h6" color="inherit" noWrap>
+                4/100
+              </Typography>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       <main>
@@ -299,7 +308,7 @@ export default function Add_wideth_Raw() {
               </Item>
             </Grid>
 
-            <Grid item xs={2} md={2}>
+            {/* <Grid item xs={2} md={2}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
                   กำไรต่อหน่วย (3.1)
@@ -331,7 +340,7 @@ export default function Add_wideth_Raw() {
                   ต้นทุน (3.2)
                 </h2>
               </Item>
-            </Grid>
+            </Grid> */}
 
             <Grid container spacing={2} mt={4} justifyContent="flex-end">
               <Grid item xs={3} md={1}>
