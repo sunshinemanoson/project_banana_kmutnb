@@ -629,7 +629,7 @@ export default function Infouser() {
                       renderInput={(params) => (
                         <TextField
                           {...params}
-                          label="การแปรรูปกล้วยดิบ"
+                          label="การแปรรูปกล้วยสุก"
                           required
                         />
                       )}

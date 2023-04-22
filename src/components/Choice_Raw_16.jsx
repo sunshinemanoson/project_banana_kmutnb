@@ -251,19 +251,19 @@ export default function Add_wideth_Raw() {
   console.log("CR_val =", CR_Val);
 
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 3;
-  const page = 15;
+  const add_w_crigroup = 5;
+  const page = 23;
   const add_w_eigen = [critri_sum_Eig_1_5,critri_sum_Eig_2_5,critri_sum_Eig_3_5];
   const add_weight = [testVal1, testVal2, testVal3];
-  const add_subgroup = 8;
+  const add_subgroup = 16;
   const status = sessionStorage.getItem("status_weight");
   const add_result_group = [1,2,3];
   const add_type = status;
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [ 
-  "raw8_criteriaU1#U2",
-  "raw8_criteriaU1#U3",
-  "raw8_criteriaU2#U3",];
+  "raw16_criteriaU1#U2",
+  "raw16_criteriaU1#U3",
+  "raw16_criteriaU2#U3",];
 
   const balck_page = () => {
     if (localStorage.length === 2) {
@@ -273,7 +273,6 @@ export default function Add_wideth_Raw() {
     }
   };
 
-
   const handleSubmit = async () => {
     try {
       const res = await axios.post("http://localhost:8888/getEigenResult", {
@@ -282,7 +281,7 @@ export default function Add_wideth_Raw() {
       });
       const result = res.data.result;
       const EigenVal1 = result[0].w_eigen;
-      const EigenVal2 = result[1].w_eigen;
+      const EigenVal2 = result[2].w_eigen;
       const EigenVal3 = critri_sum_Eig_1_5;
       const EigenVal4 = critri_sum_Eig_2_5;
       const EigenVal5 = critri_sum_Eig_3_5;
@@ -302,7 +301,6 @@ export default function Add_wideth_Raw() {
   sessionStorage.setItem("result2", Result2);
   sessionStorage.setItem("result3", Result3);
 })();
-
 
   const handleSubmit_2 = () => {
     const Result1 = parseFloat(sessionStorage.getItem("result1"));
@@ -329,20 +327,20 @@ export default function Add_wideth_Raw() {
       let data_ar = [];
       for (let i = 0, len = w_name.length; i < len; i++) {
         const w_data = {
-          w_name: w_name[i],
-          email: email,
-          w_crigroup: add_w_crigroup,
-          w_subgroup: add_subgroup,
-          w_type: add_type,
-          w_eigen: add_w_eigen[i],
-          w_wight: add_weight[i],
-          w_result: add_result[i],
-          w_result_group: add_result_group[i],
-          w_page: page,
+            w_name: w_name[i],
+            email: email,
+            w_crigroup: add_w_crigroup,
+            w_subgroup: add_subgroup,
+            w_type: add_type,
+            w_eigen: add_w_eigen[i],
+            w_wight: add_weight[i],
+            w_result: add_result[i],
+            w_result_group: add_result_group[i],
+            w_page: page,
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_Raw_9";
+      window.location = "/Choice_Raw_17";
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -390,7 +388,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับกำไรต่อหน่วย (3.1) 8/17
+            โปรดเลือกระดับผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2) 16/17
           </Typography>
         </Toolbar>
       </AppBar>

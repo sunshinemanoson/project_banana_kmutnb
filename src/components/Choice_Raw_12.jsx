@@ -251,20 +251,20 @@ export default function Add_wideth_Raw() {
   console.log("CR_val =", CR_Val);
 
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 3;
-  const page = 15;
+  const add_w_crigroup = 4;
+  const page = 19;
   const add_w_eigen = [critri_sum_Eig_1_5,critri_sum_Eig_2_5,critri_sum_Eig_3_5];
   const add_weight = [testVal1, testVal2, testVal3];
-  const add_subgroup = 8;
+  const add_subgroup = 12;
   const status = sessionStorage.getItem("status_weight");
   const add_result_group = [1,2,3];
   const add_type = status;
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [ 
-  "raw8_criteriaU1#U2",
-  "raw8_criteriaU1#U3",
-  "raw8_criteriaU2#U3",];
-
+  "raw12_criteriaU1#U2",
+  "raw12_criteriaU1#U3",
+  "raw12_criteriaU2#U3",];
+  
   const balck_page = () => {
     if (localStorage.length === 2) {
       window.history.back();
@@ -272,7 +272,6 @@ export default function Add_wideth_Raw() {
       alert("หมดเวลา");
     }
   };
-
 
   const handleSubmit = async () => {
     try {
@@ -302,7 +301,6 @@ export default function Add_wideth_Raw() {
   sessionStorage.setItem("result2", Result2);
   sessionStorage.setItem("result3", Result3);
 })();
-
 
   const handleSubmit_2 = () => {
     const Result1 = parseFloat(sessionStorage.getItem("result1"));
@@ -342,7 +340,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_Raw_9";
+      window.location = "/Choice_Raw_13";
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -390,7 +388,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับกำไรต่อหน่วย (3.1) 8/17
+            โปรดเลือกระดับสามารถเก็บได้ที่อุณหภูมิปกติ (4.1) 12/17
           </Typography>
         </Toolbar>
       </AppBar>

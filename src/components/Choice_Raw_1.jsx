@@ -30,6 +30,8 @@ function valuetext(value) {
 
 const axios = require("axios");
 
+
+
 export default function Add_wideth_Raw() {
   const [state, setState] = React.useState({
     open: false,
@@ -251,19 +253,19 @@ export default function Add_wideth_Raw() {
   console.log("CR_val =", CR_Val);
 
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 3;
-  const page = 15;
+  const add_w_crigroup = 1;
+  const page = 8;
   const add_w_eigen = [critri_sum_Eig_1_5,critri_sum_Eig_2_5,critri_sum_Eig_3_5];
-  const add_weight = [testVal1, testVal2, testVal3];
-  const add_subgroup = 8;
+  const add_subgroup = 1;
   const status = sessionStorage.getItem("status_weight");
   const add_result_group = [1,2,3];
   const add_type = status;
+  const add_weight = [testVal1, testVal2, testVal3];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [ 
-  "raw8_criteriaU1#U2",
-  "raw8_criteriaU1#U3",
-  "raw8_criteriaU2#U3",];
+  "raw1_criteriaU1#U2",
+  "raw1_criteriaU1#U3",
+  "raw1_criteriaU2#U3",];
 
   const balck_page = () => {
     if (localStorage.length === 2) {
@@ -273,6 +275,8 @@ export default function Add_wideth_Raw() {
     }
   };
 
+  // let resultEig = 0;
+ 
 
   const handleSubmit = async () => {
     try {
@@ -303,16 +307,17 @@ export default function Add_wideth_Raw() {
   sessionStorage.setItem("result3", Result3);
 })();
 
+// console.log("Results2", add_result[0].toFixed(3), add_result[1].toFixed(3), add_result[2].toFixed(3));
 
   const handleSubmit_2 = () => {
-    const Result1 = parseFloat(sessionStorage.getItem("result1"));
-    const Result2 = parseFloat(sessionStorage.getItem("result2"));
-    const Result3 = parseFloat(sessionStorage.getItem("result3"));
-    if (isNaN(Result1) || isNaN(Result2) || isNaN(Result3)) {
-      alert("Invalid results");
-      return;
-    }
-    const add_result = [Result1, Result2, Result3];
+  const Result1 = parseFloat(sessionStorage.getItem("result1"));
+  const Result2 = parseFloat(sessionStorage.getItem("result2"));
+  const Result3 = parseFloat(sessionStorage.getItem("result3"));
+  if (isNaN(Result1) || isNaN(Result2) || isNaN(Result3)) {
+    alert("Invalid results");
+    return;
+  }
+  const add_result = [Result1, Result2, Result3];
     if ((testVal1.length, testVal2.length, testVal3.length === 0)) {
       alert("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
       console.log("ได้โปรดกรอกอีกครั้งให้ครบถ้วน");
@@ -341,9 +346,11 @@ export default function Add_wideth_Raw() {
           w_page: page,
         };
         data_ar.push(w_data);
+        console.log(add_result[i]);
+       
       }
-      window.location = "/Choice_Raw_9";
-      // console.log(localStorage.getItem("token").length)
+      window.location = "/Choice_Raw_2";
+      console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
           data_ar,
@@ -356,6 +363,11 @@ export default function Add_wideth_Raw() {
         });
 
       console.log("handle !!!!");
+      sessionStorage.removeItem("result1");
+      sessionStorage.removeItem("result2");
+      sessionStorage.removeItem("result3");
+     
+
     } else {
       alert("token expired");
       console.log(localStorage.length);
@@ -390,7 +402,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับกำไรต่อหน่วย (3.1) 8/17
+            โปรดเลือกระดับความสุกของวัตถุดิบ (1.1)  1/17
           </Typography>
         </Toolbar>
       </AppBar>

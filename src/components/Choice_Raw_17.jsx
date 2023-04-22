@@ -251,19 +251,24 @@ export default function Add_wideth_Raw() {
   console.log("CR_val =", CR_Val);
 
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 3;
-  const page = 15;
-  const add_w_eigen = [critri_sum_Eig_1_5,critri_sum_Eig_2_5,critri_sum_Eig_3_5];
+  const add_w_crigroup = 5;
+  const page = 24;
+  const add_w_eigen = [
+    critri_sum_Eig_1_5,
+    critri_sum_Eig_2_5,
+    critri_sum_Eig_3_5,
+  ];
   const add_weight = [testVal1, testVal2, testVal3];
-  const add_subgroup = 8;
+  const add_subgroup = 17;
   const status = sessionStorage.getItem("status_weight");
-  const add_result_group = [1,2,3];
+  const add_result_group = [1, 2, 3];
   const add_type = status;
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
-  const w_name = [ 
-  "raw8_criteriaU1#U2",
-  "raw8_criteriaU1#U3",
-  "raw8_criteriaU2#U3",];
+  const w_name = [
+    "raw17_criteriaU1#U2",
+    "raw17_criteriaU1#U3",
+    "raw17_criteriaU2#U3",
+  ];
 
   const balck_page = () => {
     if (localStorage.length === 2) {
@@ -273,7 +278,6 @@ export default function Add_wideth_Raw() {
     }
   };
 
-
   const handleSubmit = async () => {
     try {
       const res = await axios.post("http://localhost:8888/getEigenResult", {
@@ -282,11 +286,11 @@ export default function Add_wideth_Raw() {
       });
       const result = res.data.result;
       const EigenVal1 = result[0].w_eigen;
-      const EigenVal2 = result[1].w_eigen;
+      const EigenVal2 = result[3].w_eigen;
       const EigenVal3 = critri_sum_Eig_1_5;
       const EigenVal4 = critri_sum_Eig_2_5;
       const EigenVal5 = critri_sum_Eig_3_5;
-  
+
       const Result1 = EigenVal1 * EigenVal2 * EigenVal3;
       const Result2 = EigenVal1 * EigenVal2 * EigenVal4;
       const Result3 = EigenVal1 * EigenVal2 * EigenVal5;
@@ -296,20 +300,19 @@ export default function Add_wideth_Raw() {
       console.log(err);
     }
   };
- (async () => {
-  const [Result1, Result2, Result3] = await handleSubmit();
-  sessionStorage.setItem("result1", Result1);
-  sessionStorage.setItem("result2", Result2);
-  sessionStorage.setItem("result3", Result3);
-})();
-
+  (async () => {
+    const [Result1, Result2, Result3] = await handleSubmit();
+    sessionStorage.setItem("result1", Result1);
+    sessionStorage.setItem("result2", Result2);
+    sessionStorage.setItem("result3", Result3);
+  })();
 
   const handleSubmit_2 = () => {
     const Result1 = parseFloat(sessionStorage.getItem("result1"));
     const Result2 = parseFloat(sessionStorage.getItem("result2"));
     const Result3 = parseFloat(sessionStorage.getItem("result3"));
     if (isNaN(Result1) || isNaN(Result2) || isNaN(Result3)) {
-      alert("Invalid results");
+      alert("ค่าผิดพลาด results");
       return;
     }
     const add_result = [Result1, Result2, Result3];
@@ -342,7 +345,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_Raw_9";
+      window.location = "/Output";
       // console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
@@ -390,7 +393,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับกำไรต่อหน่วย (3.1) 8/17
+            โปรดเลือกระดับการสร้างรายได้ให้กับชุมชน (5.3) 17/17
           </Typography>
         </Toolbar>
       </AppBar>
@@ -407,7 +410,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                กล้วยฉาบ (U1)
+                  กล้วยฉาบ (U1)
                 </h1>
               </Item>
             </Grid>
@@ -433,14 +436,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                กล้วยอบเนย (U2)
+                  กล้วยอบเนย (U2)
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                กล้วยฉาบ (U1)
+                  กล้วยฉาบ (U1)
                 </h1>
               </Item>
             </Grid>
@@ -467,7 +470,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                กล้วยเบรคแตก (U3)
+                  กล้วยเบรคแตก (U3)
                 </h1>
               </Item>
             </Grid>
@@ -475,7 +478,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                กล้วยอบเนย (U2)
+                  กล้วยอบเนย (U2)
                 </h1>
               </Item>
             </Grid>
@@ -502,7 +505,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                กล้วยเบรคแตก (U3)
+                  กล้วยเบรคแตก (U3)
                 </h1>
               </Item>
             </Grid>
