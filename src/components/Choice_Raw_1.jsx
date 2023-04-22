@@ -276,12 +276,12 @@ export default function Add_wideth_Raw() {
   };
 
   // let resultEig = 0;
- 
 
   const handleSubmit = async () => {
     try {
       const res = await axios.post("http://localhost:8888/getEigenResult", {
         email,
+        status,
         add_w_crigroup,
       });
       const result = res.data.result;
@@ -294,7 +294,7 @@ export default function Add_wideth_Raw() {
       const Result1 = EigenVal1 * EigenVal2 * EigenVal3;
       const Result2 = EigenVal1 * EigenVal2 * EigenVal4;
       const Result3 = EigenVal1 * EigenVal2 * EigenVal5;
-      // console.log("resdataCal", Result1.toFixed(3), Result2.toFixed(3), Result3.toFixed(3));
+      console.log("resdataCal", Result1.toFixed(3), Result2.toFixed(3), Result3.toFixed(3));
       return [Result1, Result2, Result3];
     } catch (err) {
       console.log(err);
@@ -402,7 +402,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสุกของวัตถุดิบ (1.1)  1/17
+          โปรดเลือกระดับความสําคัญความสุกของวัตถุดิบ (1.1)  1/17
           </Typography>
         </Toolbar>
       </AppBar>

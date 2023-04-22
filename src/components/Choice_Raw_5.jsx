@@ -277,6 +277,7 @@ export default function Add_wideth_Raw() {
     try {
       const res = await axios.post("http://localhost:8888/getEigenResult", {
         email,
+        status,
         add_w_crigroup,
       });
       const result = res.data.result;

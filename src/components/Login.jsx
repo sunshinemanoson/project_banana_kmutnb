@@ -140,8 +140,6 @@ export default function SignInSide() {
             backgroundPosition: "center",
           }}
         />
-    
-    
 
         {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert

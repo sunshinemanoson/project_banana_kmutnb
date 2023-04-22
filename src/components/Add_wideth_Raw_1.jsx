@@ -183,13 +183,8 @@ export default function Add_wideth_Raw() {
   // console.log(critri_sum_Eig_1_5);
  
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 0.1;
-  const add_subgroup = 0.1;
   const page = 1;
-  const add_w_eigen = [critri_sum_Eig_1_5,critri_sum_Eig_2_5,critri_sum_Eig_3_5,critri_sum_Eig_4_5,critri_sum_Eig_5_5];
   const status = sessionStorage.getItem("status_weight");
-  const add_result = 0.00000000000001;
-  const add_result_group = 0.1;
   const add_type = status;
   const add_weight = [testVal1, testVal2, testVal3, testVal4, testVal5];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
@@ -236,13 +231,8 @@ export default function Add_wideth_Raw() {
         const w_data = {
           w_name: w_name[i],
           email: email,
-          w_crigroup: add_w_crigroup,
-          w_subgroup: add_subgroup,
           w_type: add_type,
-          w_eigen: add_w_eigen[i],
           w_wight: add_weight[i],
-          w_result: add_result,
-          w_result_group: add_result_group,
           w_page: page,
         };
         data_ar.push(w_data);
@@ -250,7 +240,7 @@ export default function Add_wideth_Raw() {
       window.location = "/Add_wideth_Raw_2";
       // console.log(localStorage.getItem("token").length)
       axios
-        .post("http://localhost:8888/add_weight", {
+        .post("http://localhost:8888/add_weight_choice", {
           data_ar,
         })
         .then((res) => {
