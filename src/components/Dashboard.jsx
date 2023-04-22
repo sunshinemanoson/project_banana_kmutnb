@@ -28,6 +28,7 @@ export default function Dashboard() {
       sessionStorage.setItem("status_weight",'raw');
     } else {
       alert("หมดเวลา");
+      window.location = "/login";
     }
   };
   const add_Unraw_page = () => {
@@ -36,6 +37,7 @@ export default function Dashboard() {
       sessionStorage.setItem("status_weight",'unraw');
     } else {
       alert("หมดเวลา");
+      window.location = "/login";
     }
   };
 

@@ -22,7 +22,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const theme = createTheme();
 
 const email = localStorage.getItem("email");
-const status = sessionStorage.getItem("status_weight");
+const status = 'raw'
 
 export default function Output() {
   const [nameProduct, setNameproduct] = useState([]);
@@ -30,7 +30,7 @@ export default function Output() {
   // handleSubmit = ();
   function handleSubmit() {
     axios
-      .post("http://localhost:8888/getEigenResult", {
+      .post("http://localhost:8888/getEigenResultOutput", {
         email,
         status,
       })
@@ -73,7 +73,6 @@ export default function Output() {
     banana_id = 3;
   }
   console.log("banana_id=", 2);
-
 
   // useEffect( ()=>{
   //   const getdata = async()=>{

@@ -305,8 +305,13 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_Raw_1";
-      // console.log(localStorage.getItem("token").length)
+      if(status == 'raw'){
+        window.location = "/Choice_Raw_1";
+      }
+      else{
+        window.location = "/Choice_Unraw_1";
+      }
+      console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight", {
           data_ar,
