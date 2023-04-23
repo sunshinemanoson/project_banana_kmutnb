@@ -708,7 +708,7 @@ export default function Add_wideth_Raw() {
     0.0000000000001,
     0.0000000000001,
   ];
-  const add_subgroup = 12;
+  const add_subgroup = 5;
   const status = sessionStorage.getItem("status_weight");
   const add_result_group = [1, 2, 3, 4, 5, 6, 7, 0.1, 0.1, 0.1, 0.1];
   const add_type = status;

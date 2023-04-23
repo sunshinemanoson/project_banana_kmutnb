@@ -693,8 +693,8 @@ export default function Add_wideth_Raw() {
   console.log("CR_val =", CR_Val);
 
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 2;
-  const page = 11;
+  const add_w_crigroup = 3;
+  const page = 18;
   const add_w_eigen = [
     critri_sum_Eig_1_5,
     critri_sum_Eig_2_5,
@@ -708,7 +708,7 @@ export default function Add_wideth_Raw() {
     0.0000000000001,
     0.0000000000001,
   ];
-  const add_subgroup = 12;
+  const add_subgroup = 11;
   const status = sessionStorage.getItem("status_weight");
   const add_result_group = [1, 2, 3, 4, 5, 6, 7, 0.1, 0.1, 0.1, 0.1];
   const add_type = status;

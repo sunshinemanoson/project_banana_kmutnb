@@ -210,7 +210,7 @@ export default function Add_wideth_Raw() {
   var val_re3_11 = re / Math.abs(val_3_11);
 
   const email = localStorage.getItem("email");
-  const page = 8;
+  const page = 22;
   const status = sessionStorage.getItem("status_weight");
   const add_type = status;
   const add_weight = [testVal1, testVal2, testVal3,testVal4, testVal5, testVal6,testVal7,testVal8, testVal9,testVal10];

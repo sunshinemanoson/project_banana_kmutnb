@@ -30,29 +30,6 @@ import Choice_Raw_15 from "./components/Choice_Raw_15";
 import Choice_Raw_16 from "./components/Choice_Raw_16";
 import Choice_Raw_17 from "./components/Choice_Raw_17";
 
-<<<<<<< HEAD
-// import Add_wideth_Unraw from "./components/Add_wideth_Unraw";
-// import Add_wideth_Unraw_2 from "./components/Add_wideth_Unraw_2";
-// import Add_wideth_Unraw_3 from "./components/Add_wideth_Unraw_3";
-// import Add_wideth_Unraw_4 from "./components/Add_wideth_Unraw_4";
-// import Add_wideth_Unraw_5 from "./components/Add_wideth_Unraw_5";
-// import Add_wideth_Unraw_6 from "./components/Add_wideth_Unraw_6";
-import Add_infouser from "./components/Add_infouser";
-import Sidebar from "./components/admin/Sidebar";
-import Feed from "./layouts/admin/Feed";
-import Navbars from "./components/admin/Navbars";
-import Report_Admin from "./layouts/admin/Report_Admin";
-import Mylist_Admin from "./layouts/admin/report_admin/Mylist_Admin";
-import Add_Admin  from "./layouts/admin/report_admin/Add_Admin";
-import Report_User from "./layouts/admin/Report_User";
-import Mylist from "./layouts/admin/report_user/Mylist";
-
-import Test from "./components/Test";
-
-
-
-
-=======
 import Choice_Unraw_1 from "./components/Choice_Unraw_1";
 import Choice_Unraw_2 from "./components/Choice_Unraw_2";
 import Choice_Unraw_3 from "./components/Choice_Unraw_3";
@@ -70,7 +47,17 @@ import Choice_Unraw_14 from "./components/Choice_Unraw_14";
 import Choice_Unraw_15 from "./components/Choice_Unraw_15";
 import Choice_Unraw_16 from "./components/Choice_Unraw_16";
 import Choice_Unraw_17 from "./components/Choice_Unraw_17";
->>>>>>> 8dcddc6b0b6a145ca84db6c35fc040151a5c4498
+
+import Sidebar from "./components/admin/Sidebar";
+import Feed from "./layouts/admin/Feed";
+import Navbars from "./components/admin/Navbars";
+import Report_Admin from "./layouts/admin/Report_Admin";
+import Mylist_Admin from "./layouts/admin/report_admin/Mylist_Admin";
+import Add_Admin  from "./layouts/admin/report_admin/Add_Admin";
+import Report_User from "./layouts/admin/Report_User";
+import Mylist from "./layouts/admin/report_user/Mylist";
+
+
 
 import Add_infouser from "./components/Add_infouser";
 

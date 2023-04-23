@@ -693,8 +693,8 @@ export default function Add_wideth_Raw() {
   console.log("CR_val =", CR_Val);
 
   const email = localStorage.getItem("email");
-  const add_w_crigroup = 2;
-  const page = 11;
+  const add_w_crigroup = 4;
+  const page = 19;
   const add_w_eigen = [
     critri_sum_Eig_1_5,
     critri_sum_Eig_2_5,
