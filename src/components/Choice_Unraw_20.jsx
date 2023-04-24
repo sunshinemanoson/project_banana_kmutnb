@@ -727,17 +727,17 @@ export default function Add_wideth_Raw() {
   ];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "Unraw5_criteriaR2#R7",
-    "Unraw5_criteriaR3#R4",
-    "Unraw5_criteriaR3#R5",
-    "Unraw5_criteriaR3#R6",
-    "Unraw5_criteriaR3#R7",
-    "Unraw5_criteriaR4#R5",
-    "Unraw5_criteriaR4#R6",
-    "Unraw5_criteriaR4#R7",
-    "Unraw5_criteriaR5#R6",
-    "Unraw5_criteriaR5#R7",
-    "Unraw5_criteriaR6#R7",
+    "Unraw10_criteriaR2#R7",
+    "Unraw10_criteriaR3#R4",
+    "Unraw10_criteriaR3#R5",
+    "Unraw10_criteriaR3#R6",
+    "Unraw10_criteriaR3#R7",
+    "Unraw10_criteriaR4#R5",
+    "Unraw10_criteriaR4#R6",
+    "Unraw10_criteriaR4#R7",
+    "Unraw10_criteriaR5#R6",
+    "Unraw10_criteriaR5#R7",
+    "Unraw10_criteriaR6#R7",
   ];
   const balck_page = () => {
     if (localStorage.length === 2) {
@@ -864,7 +864,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_UnRaw_9";
+      window.location = "/Choice_UnRaw_21";
       console.log(localStorage.getItem("token").length);
         axios
           .post("http://localhost:8888/add_weight", {
@@ -942,7 +942,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสําคัญจำนวนแรงงาน (2.1) 8/34
+            โปรดเลือกระดับความสําคัญความต้องการของตลาด (3.3) 20/34
           </Typography>
         </Toolbar>
       </AppBar>

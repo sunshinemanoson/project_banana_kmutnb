@@ -864,7 +864,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_UnRaw_9";
+      window.location = "/Choice_UnRaw_13";
       console.log(localStorage.getItem("token").length);
         axios
           .post("http://localhost:8888/add_weight", {

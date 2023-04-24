@@ -216,16 +216,16 @@ export default function Add_wideth_Raw() {
   const add_weight = [testVal1, testVal2, testVal3,testVal4, testVal5, testVal6,testVal7,testVal8, testVal9,testVal10];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [ 
-  "Unraw1_criteriaR1#R2",
-  "Unraw1_criteriaR1#R3",
-  "Unraw1_criteriaR1#R4",
-  "Unraw1_criteriaR1#R5",
-  "Unraw1_criteriaR1#R6",
-  "Unraw1_criteriaR1#R7",
-  "Unraw1_criteriaR2#R3",
-  "Unraw1_criteriaR2#R4",
-  "Unraw1_criteriaR2#R5",
-  "Unraw1_criteriaR2#R6",
+  "Unraw13_criteriaR1#R2",
+  "Unraw13_criteriaR1#R3",
+  "Unraw13_criteriaR1#R4",
+  "Unraw13_criteriaR1#R5",
+  "Unraw13_criteriaR1#R6",
+  "Unraw13_criteriaR1#R7",
+  "Unraw13_criteriaR2#R3",
+  "Unraw13_criteriaR2#R4",
+  "Unraw13_criteriaR2#R5",
+  "Unraw13_criteriaR2#R6",
   ];
 
   const balck_page = () => {
@@ -282,7 +282,7 @@ export default function Add_wideth_Raw() {
         data_ar.push(w_data);
        
       }
-      window.location = "/Choice_UnRaw_18";
+      window.location = "/Choice_UnRaw_26";
       console.log(localStorage.getItem("token").length)
       axios
         .post("http://localhost:8888/add_weight_choice", {
@@ -358,7 +358,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-          โปรดเลือกระดับความสําคัญความสุกของวัตถุดิบ (1.1)  1/34
+          โปรดเลือกระดับความสําคัญระยะเวลาในการเก็บรักษา (4.2) 25/34
           </Typography>
         </Toolbar>
       </AppBar>
