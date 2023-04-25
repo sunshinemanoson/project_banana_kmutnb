@@ -40,6 +40,24 @@ export default function Dashboard() {
       window.location = "/login";
     }
   };
+  const add_RawAI_page = () => {
+    if (localStorage.length === 2) {
+      window.location = "/Add_wideth_Raw_1";
+      sessionStorage.setItem("status_weight",'rawAI');
+    } else {
+      alert("หมดเวลา");
+      window.location = "/login";
+    }
+  };
+  const add_UnrawAI_page = () => {
+    if (localStorage.length === 2) {
+      window.location = "/Add_wideth_Raw_1";
+      sessionStorage.setItem("status_weight",'unrawAI');
+    } else {
+      alert("หมดเวลา");
+      window.location = "/login";
+    }
+  };
 
 	// useEffect(() => {
 	// 	var token = localStorage.getItem('token')
@@ -112,11 +130,13 @@ export default function Dashboard() {
                   </CardContent>
                   <CardActions>
                     <Button  variant="contained" color="success" size="large" onClick={add_Raw_page}>เลือก</Button>
+                    <Button  variant="contained" color="info" size="large" onClick={add_RawAI_page} >AI</Button>
                   </CardActions>
                 </Card>
 				
               </Grid>
             ))}
+            
 			{cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={6} pd={6}>
                 <Card
@@ -136,11 +156,15 @@ export default function Dashboard() {
                   </CardContent>
                   <CardActions>
                     <Button  variant="contained" color="warning" size="large" onClick={add_Unraw_page} >เลือก</Button>
+                    <Button  variant="contained" color="info" size="large" onClick={add_UnrawAI_page} >AI</Button>
                   </CardActions>
                 </Card>
               </Grid>
+              
             ))}
+          
           </Grid>
+          
         </Container>
       </main>
       {/* Footer */}

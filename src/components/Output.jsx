@@ -73,27 +73,7 @@ export default function Output() {
     banana_id = 3;
   }
   console.log("banana_id=", 2);
-
-
-  // useEffect( ()=>{
-  //   const getdata = async()=>{
-  //     const nameProduct =[];
-  //     const weight =[];
-
-  //   const reqData = await fetch("http://localhost:8888/getEigenResult");
-  //   const resData = await reqData.json();
-  //   for(let i=0; i<resData.length; i++)
-  //   {
-  //     nameProduct.push(resData[i].nameproducts);
-  //     weight.push(resData[i].weights)
-  //   }
-  //   setNameproduct(nameProduct);
-  //   setWeight(weight);
-
-  //   }
-  //   getdata();
-  // });
-
+  
   const data = {
     labels: ["กล้วยฉาบ", "กล้วยอบเนย", "กล้วยเบรคแตก"], // ใส่ nameProduct
     datasets: [
