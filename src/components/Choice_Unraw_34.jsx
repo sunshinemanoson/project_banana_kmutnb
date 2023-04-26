@@ -727,17 +727,17 @@ export default function Add_wideth_Raw() {
   ];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "Unraw5_criteriaR2#R7",
-    "Unraw5_criteriaR3#R4",
-    "Unraw5_criteriaR3#R5",
-    "Unraw5_criteriaR3#R6",
-    "Unraw5_criteriaR3#R7",
-    "Unraw5_criteriaR4#R5",
-    "Unraw5_criteriaR4#R6",
-    "Unraw5_criteriaR4#R7",
-    "Unraw5_criteriaR5#R6",
-    "Unraw5_criteriaR5#R7",
-    "Unraw5_criteriaR6#R7",
+    "Unraw17_criteriaR2#R7",
+    "Unraw17_criteriaR3#R4",
+    "Unraw17_criteriaR3#R5",
+    "Unraw17_criteriaR3#R6",
+    "Unraw17_criteriaR3#R7",
+    "Unraw17_criteriaR4#R5",
+    "Unraw17_criteriaR4#R6",
+    "Unraw17_criteriaR4#R7",
+    "Unraw17_criteriaR5#R6",
+    "Unraw17_criteriaR5#R7",
+    "Unraw17_criteriaR6#R7",
   ];
   const balck_page = () => {
     if (localStorage.length === 2) {
@@ -942,7 +942,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสําคัญจำนวนแรงงาน (2.1) 8/34
+            โปรดเลือกระดับความสําคัญการสร้างรายได้ให้กับชุมชน (5.3) 34/34
           </Typography>
         </Toolbar>
       </AppBar>

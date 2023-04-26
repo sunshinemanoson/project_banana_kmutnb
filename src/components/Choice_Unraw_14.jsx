@@ -727,17 +727,17 @@ export default function Add_wideth_Raw() {
   ];
   // const add_weight = [{"cartilir1":testVal },{"cartilir2":testVal2},{"cartilir3":testVal3},{"cartilir4":testVal4},{"cartilir5":testVal5}]
   const w_name = [
-    "Unraw5_criteriaR2#R7",
-    "Unraw5_criteriaR3#R4",
-    "Unraw5_criteriaR3#R5",
-    "Unraw5_criteriaR3#R6",
-    "Unraw5_criteriaR3#R7",
-    "Unraw5_criteriaR4#R5",
-    "Unraw5_criteriaR4#R6",
-    "Unraw5_criteriaR4#R7",
-    "Unraw5_criteriaR5#R6",
-    "Unraw5_criteriaR5#R7",
-    "Unraw5_criteriaR6#R7",
+    "Unraw7_criteriaR2#R7",
+    "Unraw7_criteriaR3#R4",
+    "Unraw7_criteriaR3#R5",
+    "Unraw7_criteriaR3#R6",
+    "Unraw7_criteriaR3#R7",
+    "Unraw7_criteriaR4#R5",
+    "Unraw7_criteriaR4#R6",
+    "Unraw7_criteriaR4#R7",
+    "Unraw7_criteriaR5#R6",
+    "Unraw7_criteriaR5#R7",
+    "Unraw7_criteriaR6#R7",
   ];
   const balck_page = () => {
     if (localStorage.length === 2) {
@@ -864,18 +864,18 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_UnRaw_9";
+      window.location = "/Choice_UnRaw_15";
       console.log(localStorage.getItem("token").length);
-        axios
-          .post("http://localhost:8888/add_weight", {
-            data_ar,
-          })
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+      axios
+        .post("http://localhost:8888/add_weight", {
+          data_ar,
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
       console.log("handle !!!!");
     } else {
@@ -942,7 +942,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสําคัญจำนวนแรงงาน (2.1) 8/34
+            โปรดเลือกระดับความสําคัญความพร้อมของอุปกรณ์ในการผลิต (2.4) 14/34
           </Typography>
         </Toolbar>
       </AppBar>
