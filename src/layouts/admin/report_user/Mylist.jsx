@@ -18,7 +18,8 @@ import Stack from "@mui/material/Stack";
 import Swal from "sweetalert2";
 import { Box, Button, TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
-
+import Edit from "./Edit";
+import Modal from "@mui/material/Modal";
 
 
 const style = {
@@ -38,8 +39,10 @@ export default function Mylist() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
   const [formid, setFormid] = useState("");
-  // const [open, setOpen] 
-  // const handleopen = () => setOpen(true);
+  const [editopen, setEditOpen] = useState(false);
+  const handleEditOpen = () => setEditOpen(true);
+  const handleEditClose = () => setEditOpen(false);
+  
   // const empCollectionRef = collection(db, "######");
 
   // useEffect(() => {
@@ -94,13 +97,24 @@ export default function Mylist() {
   const editData = () => {
     const data = {
 
-    }
+    };
     setFormid(data);
-    // handleEditOpen();
+    handleEditOpen();
   };
 
   return (
     <>
+    <div>
+        <Modal
+          open={editopen}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Edit CloseEvent = {handleEditClose} />
+          </Box>
+        </Modal>
+      </div>
       {/* {rows.length > 0 && ( */}
       <Paper sx={{ width: "100%", overflow: "hidden", padding: "12px" }}>
         <Typography

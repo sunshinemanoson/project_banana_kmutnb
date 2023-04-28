@@ -21,7 +21,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Modal from "@mui/material/Modal";
 import Add_Admin from "./Add_Admin";
 import { useAppStore } from "../appStore";
-
+import Edit_Admin from "./Edit_Admin";
 
 const style = {
   position: "absolute",
@@ -40,8 +40,12 @@ export default function Mylist_Admin() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   // const [rows, setRows] = useState([]);
   const [open, setOpen] = useState(false);
+  const [editadminopen, setEditAdminOpen] = useState(false);
+  const [adminformid, setAdminFormid] = useState("");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleEditAdminOpen = () => setEditAdminOpen(true);
+  const handleEditAdminClose = () => setEditAdminOpen(false);
   const setRows = useAppStore((state) => state.setRows);
   const rows = useAppStore((state) => state.rows);
   // const empCollectionRef = collection(db, "######");
@@ -95,6 +99,18 @@ export default function Mylist_Admin() {
     }
   };
 
+  const editAdmin = (id, fname, lname, email, password) => {
+    const data = {
+      id : id,
+      fname : fname,
+      lname : lname,
+      email : email,
+      password : password
+    };
+    setAdminFormid(data);
+    handleEditAdminOpen();
+  };
+
   return (
     <>
       <div>
@@ -104,7 +120,16 @@ export default function Mylist_Admin() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <Add_Admin CloseEvent = {handleClose} />
+            <Add_Admin CloseEvent={handleClose} fid={adminformid} />
+          </Box>
+        </Modal>
+        <Modal
+          open={editadminopen}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Edit_Admin CloseEvent={handleEditAdminClose} />
           </Box>
         </Modal>
       </div>
@@ -137,7 +162,11 @@ export default function Mylist_Admin() {
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
-          <Button variant="contained" endIcon={<AddCircleIcon />} onClick={handleOpen}>
+          <Button
+            variant="contained"
+            endIcon={<AddCircleIcon />}
+            onClick={handleOpen}
+          >
             Add
           </Button>
         </Stack>
@@ -147,7 +176,10 @@ export default function Mylist_Admin() {
             <TableHead>
               <TableRow>
                 <TableCell align="left" style={{ minWidth: "100px" }}>
-                  ชื่อ - นามสกุล
+                  ชื่อ
+                </TableCell>
+                <TableCell align="left" style={{ minWidth: "100px" }}>
+                  นามสกุล
                 </TableCell>
                 <TableCell align="left" style={{ minWidth: "100px" }}>
                   อีเมล
@@ -167,13 +199,16 @@ export default function Mylist_Admin() {
                   return (
                     <TableRow hover role="checkbox" tabIndex={-1}>
                       <TableCell key={row.id} align="left">
-                        {row}
+                        {row.fname}
                       </TableCell>
                       <TableCell key={row.id} align="left">
-                        {row}
+                        {row.lname}
                       </TableCell>
                       <TableCell key={row.id} align="left">
-                        {row}
+                        {row.email}
+                      </TableCell>
+                      <TableCell key={row.id} align="left">
+                        {row.password}
                       </TableCell>
                       <TableCell align="left">
                         <Stack spacing={2} direction="row">
@@ -184,7 +219,9 @@ export default function Mylist_Admin() {
                               cursor: "pointer",
                             }}
                             className="cursor-pointer"
-                            // onClick={() => editUser(row.id)}
+                            // onClick={() => {
+                            //   editAdmin(row.id, row.fname, row.lname, row.email, row.password);
+                            // }}
                           />
                           <DeleteIcon
                             style={{

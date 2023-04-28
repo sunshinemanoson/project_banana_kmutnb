@@ -71,9 +71,13 @@ import Feed from "./layouts/admin/Feed";
 import Navbars from "./components/admin/Navbars";
 import Report_Admin from "./layouts/admin/Report_Admin";
 import Mylist_Admin from "./layouts/admin/report_admin/Mylist_Admin";
+import Edit_Admin from "./layouts/admin/report_admin/Edit_Admin";
 import Add_Admin  from "./layouts/admin/report_admin/Add_Admin";
+
+
 import Report_User from "./layouts/admin/Report_User";
 import Mylist from "./layouts/admin/report_user/Mylist";
+import Edit from "./layouts/admin/report_user/Edit";
 
 import Add_infouser from "./components/Add_infouser";
 
@@ -91,7 +95,7 @@ function App() {
 
       <Route path="login" element={<Login />} /> 
       <Route path="register" element={<Register />} /> 
-      <Route path="goBlaFunc" element={<goBlaFunc />} /> 3b
+      <Route path="goBlaFunc" element={<goBlaFunc />} /> 
       <Route path="dashboard" element={<Dashboard />} />
       <Route path="OutputRaw" element={<OutputRaw />} />
       <Route path="OutputUnRaw" element={<OutputUnRaw />} />
@@ -103,11 +107,13 @@ function App() {
       
       <Route path="Report_user" element={<Report_User />} />
       <Route path="mylist"  element={<Mylist/>} />
+      <Route path="edit"  element={<Edit/>} />
 
 
       <Route path="Report_admin" element={<Report_Admin />} />
       <Route path="mylist_admin" element={< Mylist_Admin />} />
       <Route path="add_admin" element={< Add_Admin />} />
+      <Route path="edit_admin" element={< Edit_Admin />} />
       
      
 

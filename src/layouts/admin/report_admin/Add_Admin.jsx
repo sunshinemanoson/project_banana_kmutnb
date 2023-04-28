@@ -10,13 +10,17 @@ import { useAppStore } from "../appStore";
 
 
 export default function Add_Admin({ CloseEvent }) {
-  const [nameadmin, setNameAdmin] = useState("");
+  const [fnameadmin, setFnameAdmin] = useState("");
+  const [lnameadmin, setLnameAdmin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const setRows = useAppStore((state) => state.setRows);
 
-  const handleNameadminChange = (event) => {
-    setNameAdmin(event.target.value);
+  const handleFnameadminChange = (event) => {
+    setFnameAdmin(event.target.value);
+  };
+  const handleLnameadminChange = (event) => {
+    setLnameAdmin(event.target.value);
   };
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -26,19 +30,8 @@ export default function Add_Admin({ CloseEvent }) {
   };
 
   const createAdmin = () => {
-    // if (
-    //     !name ||
-    //     !shop ||
-    //     !position ||
-    //     !sales ||
-    //     !workage
-    // ) {
-    //     name,
-    //     shop,
-    //     position,
-    //     sales,
-    //     workage
-    // }
+    
+    
     getAdmin();
     CloseEvent();
     Swal.fire("Submitted!", "Your file has been Submitted.", "success");
@@ -66,11 +59,22 @@ export default function Add_Admin({ CloseEvent }) {
         <Grid item xs={12}>
           <TextField
             id="outlined-basic"
-            label="ชื่อ - นามสกุล"
+            label="ชื่อ"
             variant="outlined"
             size="small"
-            onChange={handleNameadminChange}
-            value={nameadmin}
+            onChange={handleFnameadminChange}
+            value={fnameadmin}
+            sx={{ minWidth: "100%" }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            id="outlined-basic"
+            label="นามสกุล"
+            variant="outlined"
+            size="small"
+            onChange={handleLnameadminChange}
+            value={lnameadmin}
             sx={{ minWidth: "100%" }}
           />
         </Grid>
