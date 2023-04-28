@@ -617,6 +617,7 @@ export default function Add_wideth_Raw() {
                 </h1>
               </Item>
             </Grid>
+            
             <Grid item xs={7} md={7}>
               <Item>
                 <Slider
@@ -713,6 +714,7 @@ export default function Add_wideth_Raw() {
                 </h1>
               </Item>
             </Grid>
+
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">

@@ -4,7 +4,8 @@ import IndexBody from "./layouts/Indexbody";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Output from "./components/Output";
+import OutputRaw from "./components/OutputRaw";
+import OutputUnRaw from "./components/OutputUnRaw";
 import Add_wideth_Raw_1 from "./components/Add_wideth_Raw_1";
 import Add_wideth_Raw_2 from "./components/Add_wideth_Raw_2";
 import Add_wideth_Raw_3 from "./components/Add_wideth_Raw_3";
@@ -63,7 +64,7 @@ import Choice_Unraw_31 from "./components/Choice_Unraw_31";
 import Choice_Unraw_32 from "./components/Choice_Unraw_32";
 import Choice_Unraw_33 from "./components/Choice_Unraw_33";
 import Choice_Unraw_34 from "./components/Choice_Unraw_34";
-
+import Test_Ai_api from "./components/Test_Ai_api"
 
 import Sidebar from "./components/admin/Sidebar";
 import Feed from "./layouts/admin/Feed";
@@ -92,8 +93,8 @@ function App() {
       <Route path="register" element={<Register />} /> 
       <Route path="goBlaFunc" element={<goBlaFunc />} /> 3b
       <Route path="dashboard" element={<Dashboard />} />
-      <Route path="Output" element={<Output />} />
-
+      <Route path="OutputRaw" element={<OutputRaw />} />
+      <Route path="OutputUnRaw" element={<OutputUnRaw />} />
 
       {/* Admin */}
       <Route path="Sidebar" element={<Sidebar />} />
@@ -108,9 +109,10 @@ function App() {
       <Route path="mylist_admin" element={< Mylist_Admin />} />
       <Route path="add_admin" element={< Add_Admin />} />
       
-
+     
 
       // raw
+      <Route path="Test_Ai_api" element={<Test_Ai_api />} />
       <Route path="Add_wideth_Raw_1" element={<Add_wideth_Raw_1 />} />
        <Route path="Add_wideth_Raw_2" element={<Add_wideth_Raw_2 />} />
        <Route path="Add_wideth_Raw_3" element={<Add_wideth_Raw_3 />} />

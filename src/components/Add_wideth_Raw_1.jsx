@@ -197,7 +197,7 @@ export default function Add_wideth_Raw() {
   ];
   
   const balck_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.history.back();
     } else {
       alert("หมดเวลา");

@@ -307,9 +307,12 @@ export default function Add_wideth_Raw() {
       }
       if(status == 'raw'){
         window.location = "/Choice_Raw_1";
-      }
-      else{
+      }else if(status == 'unraw'){
         window.location = "/Choice_Unraw_1";
+      } else if(status == 'rawAI'){
+        window.location = "/OutputUnRaw";
+      }else if(status == 'unrawAI'){
+        window.location = "/OutputUnRaw";
       }
       console.log(localStorage.getItem("token").length)
       axios

@@ -756,7 +756,7 @@ export default function Add_wideth_Raw() {
       });
       const result = res.data.result;
       const EigenVal1 = result[0].w_eigen;
-      const EigenVal2 = result[2].w_eigen;
+      const EigenVal2 = result[1].w_eigen;
       const EigenVal3 = critri_sum_Eig_1_5;
       const EigenVal4 = critri_sum_Eig_2_5;
       const EigenVal5 = critri_sum_Eig_3_5;
@@ -764,6 +764,8 @@ export default function Add_wideth_Raw() {
       const EigenVal7 = critri_sum_Eig_5_5;
       const EigenVal8 = critri_sum_Eig_6_5;
       const EigenVal9 = critri_sum_Eig_7_5;
+
+      console.log(EigenVal1,EigenVal2);
 
       const Result1 = EigenVal1 * EigenVal2 * EigenVal3;
       const Result2 = EigenVal1 * EigenVal2 * EigenVal4;

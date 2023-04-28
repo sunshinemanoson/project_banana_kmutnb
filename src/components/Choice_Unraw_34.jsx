@@ -756,7 +756,7 @@ export default function Add_wideth_Raw() {
       });
       const result = res.data.result;
       const EigenVal1 = result[0].w_eigen;
-      const EigenVal2 = result[2].w_eigen;
+      const EigenVal2 = result[3].w_eigen;
       const EigenVal3 = critri_sum_Eig_1_5;
       const EigenVal4 = critri_sum_Eig_2_5;
       const EigenVal5 = critri_sum_Eig_3_5;
@@ -864,7 +864,7 @@ export default function Add_wideth_Raw() {
         };
         data_ar.push(w_data);
       }
-      window.location = "/Choice_UnRaw_9";
+      window.location = "/Output";
       console.log(localStorage.getItem("token").length);
         axios
           .post("http://localhost:8888/add_weight", {
