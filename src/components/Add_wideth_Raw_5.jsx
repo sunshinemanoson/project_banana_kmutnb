@@ -568,21 +568,21 @@ export default function Add_wideth_Raw() {
                 />
               </Item>
             </Grid>
-            <Grid item xs={2} md={2}>
+            <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
                   ความต้องการของตลาด (3.3)
                 </h2>
               </Item>
             </Grid>
-            <Grid item xs={2} md={2}>
+            <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
                   กำไรต่อหน่วย (3.1)
                 </h1>
               </Item>
             </Grid>
-            <Grid item xs={8} md={8}>
+            <Grid item xs={7} md={7}>
               <Item>
                 <Slider
                   track={false}

@@ -44,10 +44,7 @@ export default function Navbar() {
           </h1>
         </div>
       </div>
-      <div className='bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[40%]'>
-      <AiOutlineSearch size={10} />
-      <input className='bg-transparent p-1 w-full focus:outline-none' type="text" placeholder='ค้นหาข้อมูล'/>
-      </div>
+      
       <div className='flex items-center'>
         <BsFillPersonFill onClick={handleToinfouser} size={30} className='mr-2' color='gray' />
         <h1>{handlegetname}</h1>
