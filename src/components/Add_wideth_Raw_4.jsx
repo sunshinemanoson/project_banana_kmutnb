@@ -400,7 +400,7 @@ export default function Add_wideth_Raw() {
   ];
 
   const balck_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.history.back();
     } else {
       alert("หมดเวลา");
@@ -424,7 +424,7 @@ export default function Add_wideth_Raw() {
         console.log("Rejected Values");
         alert("ค่าไม่ถูกต้องตามหลัก ได้โปรดกรอกอีกครั้ง");
       
-    } else if (localStorage.length === 2) {
+    } else if (localStorage.length === 3) {
       let data_ar = [];
       for (let i = 0, len = w_name.length; i < len; i++) {
         const w_data = {

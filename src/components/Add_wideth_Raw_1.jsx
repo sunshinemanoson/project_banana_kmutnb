@@ -219,7 +219,7 @@ export default function Add_wideth_Raw() {
       // console.log(testVal1, testVal2, testVal3, testVal4, testVal5);
     } else if ((testVal1, testVal2, testVal3, testVal4, testVal5 === 0)) {
       alert("ไม่สามารถค่าเป็น 0 ได้โปรดกรอกอีกครั้ง");
-    } else if (localStorage.length === 2) {
+    } else if (localStorage.length === 3) {
       // cal_re();
       // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
       // console.log(

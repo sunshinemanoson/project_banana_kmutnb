@@ -23,7 +23,7 @@ const theme = createTheme();
 
 export default function Dashboard() {
   const add_Raw_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.location = "/Add_wideth_Raw_1";
       sessionStorage.setItem("status_weight",'raw');
     } else {
@@ -32,7 +32,7 @@ export default function Dashboard() {
     }
   };
   const add_Unraw_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.location = "/Add_wideth_Raw_1";
       sessionStorage.setItem("status_weight",'unraw');
     } else {
@@ -41,7 +41,7 @@ export default function Dashboard() {
     }
   };
   const add_RawAI_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.location = "/Add_wideth_Raw_1";
       sessionStorage.setItem("status_weight",'rawAI');
     } else {
@@ -50,7 +50,7 @@ export default function Dashboard() {
     }
   };
   const add_UnrawAI_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.location = "/Add_wideth_Raw_1";
       sessionStorage.setItem("status_weight",'unrawAI');
     } else {

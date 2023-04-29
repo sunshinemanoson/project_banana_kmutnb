@@ -400,7 +400,7 @@ export default function Add_wideth_Raw() {
   ];
 
   const balck_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.history.back();
     } else {
       alert("หมดเวลา");
@@ -425,7 +425,7 @@ export default function Add_wideth_Raw() {
       console.log("Rejected Values");
       alert("ค่าไม่ถูกต้องตามหลัก ได้โปรดกรอกอีกครั้ง");
     
-    }else if (localStorage.length === 2) {
+    }else if (localStorage.length === 3) {
       let data_ar = [];
       for (let i = 0, len = w_name.length; i < len; i++) {
         const w_data = {
@@ -605,7 +605,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                ความต้องการของตลาด (3.3)
+                แนวโน้มการส่งออก (3.4)
                 </h1>
               </Item>
             </Grid>
@@ -613,11 +613,11 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                กำไรต่อหน่วย (3.1)
+                ต้นทุน (3.2)
                 </h1>
               </Item>
             </Grid>
-            
+
             <Grid item xs={7} md={7}>
               <Item>
                 <Slider
@@ -641,7 +641,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                แนวโน้มการส่งออก (3.4)
+                ความต้องการของตลาด (3.3)
                 </h1>
               </Item>
             </Grid>
@@ -663,40 +663,6 @@ export default function Add_wideth_Raw() {
                   name="Add_width1"
                   defaultValue={0}
                   onChange={val_w5}
-                  getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
-                  step={1}
-                  marks
-                  min={-9}
-                  max={9}
-                />
-              </Item>
-            </Grid>
-
-            <Grid item xs={2.5} md={2.5}>
-              <Item>
-                <h1 id="criteria1" name="criteria1">
-                ความต้องการของตลาด (3.3)
-                </h1>
-              </Item>
-            </Grid>
-            <Grid item xs={2.5} md={2.5}>
-              <Item>
-                <h1 id="criteria1" name="criteria1">
-                ต้นทุน (3.2)
-                </h1>
-              </Item>
-            </Grid>
-            <Grid item xs={7} md={7}>
-              <Item>
-                <Slider
-                  track={false}
-                  aria-label="Add_width1"
-                  aria-labelledby="Add_width1"
-                  id="Add_width1"
-                  name="Add_width1"
-                  defaultValue={0}
-                  onChange={val_w6}
                   getAriaValueText={valuetext}
                   valueLabelDisplay="auto"
                   step={1}
