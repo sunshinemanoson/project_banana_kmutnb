@@ -183,19 +183,19 @@ export default function Output() {
     let result_per3;
     
     if(count_u1 > 0) {
-      result_per1 = 17 * 100 / count_u1;
+      result_per1 = count_u1 / 17 * 100;
     } else {
       result_per1 = 0;
     }
     
     if(count_u2 > 0) {
-      result_per2 = 17 * 100 / count_u2;
+      result_per2 = count_u2 / 17 * 100;
     } else {
       result_per2 = 0;
     }
     
     if(count_u3 > 0) {
-      result_per3 = 17 * 100 / count_u3;
+      result_per3 = count_u3 / 17 * 100;
     } else {
       result_per3 = 0;
     }
@@ -239,6 +239,20 @@ export default function Output() {
     banana_id = 3;
   }
   console.log("banana_id=", banana_id);
+  const banana = ["กล้วยฉาบ", "กล้วยอบเนย", "กล้วยเบรคแตก"];
+  const result_banana = banana[banana_id-1]; // get the corresponding result
+  
+  axios.post("http://localhost:8888/updateResult_Banana_raw", {
+    email: email, // add the email parameter
+    result_banana: result_banana // send the corresponding result
+  })
+  .then((res) => {
+    console.log(res.data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  // let result_banana = 
 
   const data = {
     labels: ["กล้วยฉาบ", "กล้วยอบเนย", "กล้วยเบรคแตก"], // ใส่ nameProduct

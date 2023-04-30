@@ -229,7 +229,7 @@ export default function Add_wideth_Raw() {
   ];
 
   const balck_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.history.back();
     } else {
       alert("หมดเวลา");
@@ -245,7 +245,7 @@ export default function Add_wideth_Raw() {
     } else if ((testVal1, testVal2, testVal3 === 0)) {
       alert("ไม่สามารถค่าเป็น 0 ได้โปรดกรอกอีกครั้ง");
     } 
-    else if (localStorage.length === 2) {
+    else if (localStorage.length === 3) {
         sessionStorage.setItem("val_R1#R2",val_3_2);
         sessionStorage.setItem("re_R1#R2",val_re3_2);
         sessionStorage.setItem("val_R1#R3",val_3_3);

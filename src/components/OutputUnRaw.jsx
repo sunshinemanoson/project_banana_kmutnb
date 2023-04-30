@@ -188,10 +188,10 @@ export default function Output() {
     console.log(`U1 count: ${count_u1}`);
     console.log(`U2 count: ${count_u2}`);
     console.log(`U3 count: ${count_u3}`);
-    console.log(`U1 count: ${count_u4}`);
-    console.log(`U2 count: ${count_u5}`);
-    console.log(`U3 count: ${count_u6}`);
-    console.log(`U1 count: ${count_u7}`);
+    console.log(`U4 count: ${count_u4}`);
+    console.log(`U5 count: ${count_u5}`);
+    console.log(`U6 count: ${count_u6}`);
+    console.log(`U7 count: ${count_u7}`);
 
     if (
       count_u1 >= count_u2 &&
@@ -260,37 +260,37 @@ export default function Output() {
     let result_per7;
 
     if (count_u1 > 0) {
-      result_per1 = (17 * 100) / count_u1;
+      result_per1 = (count_u1 / 17) * 100;
     } else {
       result_per1 = 0;
     }
     if (count_u2 > 0) {
-      result_per2 = (17 * 100) / count_u2;
+      result_per2 = (count_u2 / 17) * 100;
     } else {
       result_per2 = 0;
     }
     if (count_u3 > 0) {
-      result_per3 = (17 * 100) / count_u3;
+      result_per3 = (count_u3 / 17) * 100;
     } else {
       result_per3 = 0;
     }
     if (count_u4 > 0) {
-      result_per4 = (17 * 100) / count_u4;
+      result_per4 = (count_u4 / 17) * 100;
     } else {
       result_per4 = 0;
     }
     if (count_u5 > 0) {
-      result_per5 = (17 * 100) / count_u5;
+      result_per5 = (count_u5 / 17) * 100;
     } else {
       result_per5 = 0;
     }
     if (count_u6 > 0) {
-      result_per6 = (17 * 100) / count_u6;
+      result_per6 = (count_u6 / 17) * 100;
     } else {
       result_per6 = 0;
     }
     if (count_u7 > 0) {
-      result_per7 = (17 * 100) / count_u7;
+      result_per7 = (count_u7 / 17) * 100;
     } else {
       result_per7 = 0;
     }
@@ -306,9 +306,9 @@ export default function Output() {
   }
   if (status === "unrawAI") {
     console.log("Ai algor");
-    countResults();
     sendResultsToAPI();
     handleSubmit_AI();
+    countResults();
   } else if (status === "unraw") {
     console.log("AHP algor");
     handleSubmit();
@@ -405,6 +405,29 @@ export default function Output() {
 
   console.log(banana_id);
 
+  const banana = [
+    "กล้วยตาก",
+    "กล้วยกวน",
+    "ทอฟฟี่กล้วย",
+    "ข้าวเกรียบกล้วย",
+    "น้ำกล้วย",
+    "เครื่องดื่มแอลกอฮอร์",
+    "เค้กกล้วย",
+  ];
+  const result_banana = banana[banana_id - 1]; // get the corresponding result
+
+  axios
+    .post("http://localhost:8888/updateResult_Banana_Unraw", {
+      email: email, // add the email parameter
+      result_banana: result_banana, // send the corresponding result
+    })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   const data = {
     labels: [
       "กล้วยตาก",
@@ -418,22 +441,32 @@ export default function Output() {
     datasets: [
       {
         label: "# of Votes",
-        data: [Result1_cal, Result2_cal, Result3_cal], //ใส่ weight
+        data: [
+          Result1_cal,
+          Result2_cal,
+          Result3_cal,
+          Result4_cal,
+          Result5_cal,
+          Result6_cal,
+          Result7_cal,
+        ], //ใส่ weight
         backgroundColor: [
           "rgba(255, 99, 132, 1)",
           "rgba(54, 162, 235, 1)",
           "rgba(255, 206, 86, 1)",
-          // "rgba(75, 192, 192, 1)",
-          // "rgba(153, 102, 255, 1)",
-          // "rgba(255, 159, 64, 1)",
+          "rgba(25, 99, 132, 1)",
+          "rgba(524, 162, 235, 1)",
+          "rgba(155, 206, 86, 1)",
+          "rgba(155, 26, 86, 1)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
           "rgba(54, 162, 235, 1)",
           "rgba(255, 206, 86, 1)",
-          // "rgba(75, 192, 192, 1)",
-          // "rgba(153, 102, 255, 1)",
-          // "rgba(255, 159, 64, 1)",
+          "rgba(25, 99, 132, 1)",
+          "rgba(524, 162, 235, 1)",
+          "rgba(155, 206, 86, 1)",
+          "rgba(155, 26, 86, 1)",
         ],
         borderWidth: 1,
       },

@@ -13,6 +13,9 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Autocomplete from "@mui/material/Autocomplete";
 import { InputAdornment, Paper } from "@mui/material";
+import axios from "axios";
+
+
 
 const options = ["นาย", "นาง", "นางสาว"];
 const options2 = [
@@ -37,7 +40,22 @@ const options5 = ["ดีมาก", "ดี", "ปานกลาง", "ไม�
 const options6 = ["ส่งออก", "กำลังริเริ่ม", "ไม่ได้ส่งออก"];
 const optionsBE = ["2565"];
 
-export default function Edit({ CloseEvent }) {
+export default function Edit({CloseEvent}) {
+
+  const [editopen, setEditOpen] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleEditOpen = () => setEditOpen(true);
+  const handleEditClose = () => setEditOpen(false);
+  const handleOpenModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+  };
+
+  const [userInfo, setUserInfo] = useState({});
+  
   const [value, setValue] = useState(options[0]);
   const [nameTile, setInputValuenameTile] = useState("");
   // อันนี้ของระดับการศึกษา
@@ -94,7 +112,119 @@ export default function Edit({ CloseEvent }) {
   const [valuestorageTran, setValuestorageTran] = useState(options5[0]);
   const [storageTran, setstorageTran] = useState("");
   const setRows = useAppStore((state) => state.setRows);
-
+  const email = localStorage.getItem("email");
+  
+  const handleSubmit_userinfo = () => {
+    // console.log("handdlesummited");
+    if ((ageValue || expperyers) <= 0) {
+      alert("ไม่สามารถกรอกข้อมูลเป็นเลขน้อยกว่า 0 ได้");
+      // console.log(ageValue,expperyers);
+    } else if (localStorage.length === 3) {
+      console.log(
+        nameTile,
+        nValue,
+        lValue,
+        ageValue,
+        inputValueEdu,
+        expperyers,
+        comName,
+        comAddress,
+        province,
+        amphur,
+        zipcode,
+        yersBegin,
+        proraw,
+        proUnraw,
+        source,
+        qulity,
+        amount,
+        numWorkers,
+        proCapPerTime,
+        laborWagePerD,
+        laborWagePerM,
+        tools,
+        productChanal,
+        valueproductExport,
+        productExport,
+        valuemarketShare,
+        marketShare,
+        bestSell,
+        cost,
+        proFit,
+        stoRageR,
+        stoRagePro,
+        storageArea,
+        valuestorageQuality,
+        storageQuality,
+        valuestorageTran,
+        storageTran,
+        email
+      );
+      //   console.log(ageValue,expperyers < 0);
+      let data_ar_info = [];
+      //   for (let i = 0, len = info_user.length; i < len; i++) {
+      const info_data = {
+        nameTile: nameTile,
+        nValue: nValue,
+        lValue: lValue,
+        ageValue: ageValue,
+        inputValueEdu: inputValueEdu,
+        expperyers: expperyers,
+        comname: comName,
+        comaddress: comAddress,
+        province: province,
+        district: district,
+        amphur: amphur,
+        zipcode: zipcode,
+        yersbegin: yersBegin,
+        proraw: proraw,
+        proUnraw: proUnraw,
+        source: source,
+        qulity: qulity,
+        amount: amount,
+        numWorkers: numWorkers,
+        proCapPerTime: proCapPerTime,
+        laborWagePerD: laborWagePerD,
+        laborWagePerM: laborWagePerM,
+        tools: tools,
+        productChanal: productChanal,
+        valueproductExport: valueproductExport,
+        productExport: productExport,
+        valuemarketShare: valuemarketShare,
+        marketShare: marketShare,
+        bestSell: bestSell,
+        cost: cost,
+        proFit: proFit,
+        stoRageR: stoRageR,
+        stoRagePro: stoRagePro,
+        storageArea: storageArea,
+        valuestorageQuality: valuestorageQuality,
+        storageQuality: storageQuality,
+        valuestorageTran: valuestorageTran,
+        storageTran: storageTran,
+        email:email
+      };
+      data_ar_info.push(info_data);
+      // }
+      // window.location = "/Add_wideth_Raw_2";
+      // console.log(localStorage.getItem("token").length)
+      axios
+        .post("http://localhost:8888/update_userinfo", {
+          data_ar_info,
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      console.log("handle !!!!");
+    } else {
+      alert("token expired");
+      console.log(localStorage.length);
+      window.location = "/login";
+    }
+  };
 
   const createUser = () => {
 
@@ -107,6 +237,58 @@ export default function Edit({ CloseEvent }) {
     // const data = await getDocs(empCollectionRef);
     // setRows(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
+  
+  useEffect(() => {
+    const id = sessionStorage.getItem("user_id");
+    axios
+      .post(`http://localhost:8888/getuser_info_edit/${id}`)
+      .then((res) => {
+        let data_re = [];
+        let { status, result } = res.data;
+        result.forEach((element) => {
+          data_re.push(element);
+          console.log(data_re);
+          sessionStorage.setItem("name_title", data_re[0].info_nametitle);
+          sessionStorage.setItem("info_fname", data_re[0].info_fname);
+          sessionStorage.setItem("info_lname", data_re[0].info_lname);
+          sessionStorage.setItem("info_age", data_re[0].info_age);
+          sessionStorage.setItem("info_edu", data_re[0].info_edu);
+          sessionStorage.setItem("info_expyers", data_re[0].info_expyers);
+          sessionStorage.setItem("info_comname", data_re[0].info_comname);
+          sessionStorage.setItem("info_comaddress", data_re[0].info_comaddress);
+          sessionStorage.setItem("info_province", data_re[0].info_province);
+          sessionStorage.setItem("info_district", data_re[0].info_district);
+          sessionStorage.setItem("info_amphur", data_re[0].info_amphur);
+          sessionStorage.setItem("info_zipcode", data_re[0].info_zipcode);
+          sessionStorage.setItem("info_yersbegin", data_re[0].info_yersbegin);
+          sessionStorage.setItem("info_proraw", data_re[0].info_proraw);
+          sessionStorage.setItem("info_proUnraw", data_re[0].info_proUnraw);
+          sessionStorage.setItem("info_source", data_re[0].info_source);
+          sessionStorage.setItem("info_qulity", data_re[0].info_qulity);
+          sessionStorage.setItem("info_amount", data_re[0].info_amount);
+          sessionStorage.setItem("info_numWorkers", data_re[0].info_numWorkers);
+          sessionStorage.setItem("info_proCapPerTime", data_re[0].info_proCapPerTime);
+          sessionStorage.setItem("info_laborWagePerD", data_re[0].info_laborWagePerD);
+          sessionStorage.setItem("info_laborWagePerM", data_re[0].info_laborWagePerM);
+          sessionStorage.setItem("info_productChanal", data_re[0].info_productChanal);
+          sessionStorage.setItem("info_productExport", data_re[0].info_productExport);
+          sessionStorage.setItem("info_marketShare", data_re[0].info_marketShare);
+          sessionStorage.setItem("info_bestSell", data_re[0].info_bestSell);
+          sessionStorage.setItem("info_cost", data_re[0].info_cost);
+          sessionStorage.setItem("info_proFit", data_re[0].info_proFit);
+          sessionStorage.setItem("info_stoRagePro", data_re[0].info_stoRagePro);
+          sessionStorage.setItem("info_stoRageR", data_re[0].info_stoRageR);
+          sessionStorage.setItem("info_storageArea", data_re[0].info_storageArea);
+          sessionStorage.setItem("info_storageQuality", data_re[0].info_storageQuality);
+          sessionStorage.setItem("info_storageTran", data_re[0].info_storageTran);
+          sessionStorage.setItem("info_tools", data_re[0].tools);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  
 
   return (
     <>
@@ -118,7 +300,7 @@ export default function Edit({ CloseEvent }) {
         style={{ position: "absolute", top: "0", right: "0" }}
         onClick={CloseEvent}
       >
-        <CloseIcon />
+        {/* <CloseIcon /> */}
       </IconButton>
       <Box height={20} />
       <Grid container spacing={2}>
@@ -154,16 +336,16 @@ export default function Edit({ CloseEvent }) {
                   id="controllable-states-demo"
                   options={options}
                   renderInput={(params) => (
-                    <TextField {...params} label="คำนำหน้า" required />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_title")}`}  />
                   )}
                 />
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setNValue(event.target.value)}
                   id="outlined1"
-                  label="ชื่อ"
+                  label={`${sessionStorage.getItem("info_fname")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={nValue}
@@ -171,10 +353,10 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setLValue(event.target.value)}
                   id="outlined2"
-                  label="นามสกุล"
+                  label={`${sessionStorage.getItem("info_lname")}`}
                   variant="outlined"
                   className="w-[28rem] md:w-full sm:w-full"
                   value={lValue}
@@ -182,13 +364,13 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   type="number"
                   min={0}
                   value={ageValue}
                   onChange={(event) => setAGEValue(event.target.value)}
                   id="age"
-                  label="อายุ"
+                  label={`${sessionStorage.getItem("info_age")}`}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">/ ปี</InputAdornment>
@@ -213,18 +395,18 @@ export default function Edit({ CloseEvent }) {
                   id="controllable-states-demo2"
                   options={options2}
                   renderInput={(params) => (
-                    <TextField {...params} label="ระดับการศึกษา" required />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_edu")}`}  />
                   )}
                 />
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   type="number"
                   value={expperyers}
                   onChange={(event) => setEXPvalue(event.target.value)}
                   id="expperyers"
-                  label="ประสบการณ์ในการแปรรูป"
+                  label={`${sessionStorage.getItem("info_expyers")}`}
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">/ ปี</InputAdornment>
@@ -255,10 +437,10 @@ export default function Edit({ CloseEvent }) {
             <AccordionDetails>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setcomName(event.target.value)}
                   id="comname"
-                  label="ชื่อกิจการ"
+                  label={`${sessionStorage.getItem("info_comname")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={comName}
@@ -266,10 +448,10 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setcomAddress(event.target.value)}
                   id="comaddress"
-                  label="ที่อยู่ของสถานประกอบการ"
+                  label={`${sessionStorage.getItem("info_comaddress")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={comAddress}
@@ -277,10 +459,10 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setprovince(event.target.value)}
                   id="comprovince"
-                  label="จังหวัด"
+                  label={`${sessionStorage.getItem("info_province")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={province}
@@ -288,19 +470,19 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setdistrict(event.target.value)}
                   id="comdistrict"
-                  label="ตำบล / แขวง"
+                  label={`${sessionStorage.getItem("info_district")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={district}
                 />
                 <TextField
-                  required
+                  
                   onChange={(event) => setamphur(event.target.value)}
                   id="comamphur"
-                  label="อำเภอ / เขต"
+                  label={`${sessionStorage.getItem("info_amphur")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={amphur}
@@ -309,11 +491,11 @@ export default function Edit({ CloseEvent }) {
 
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   type="number"
                   onChange={(event) => setzipcode(event.target.value)}
                   id="comaddress"
-                  label="รหัสไปรษณีย์"
+                  label={`${sessionStorage.getItem("info_zipcode")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={zipcode}
@@ -336,8 +518,8 @@ export default function Edit({ CloseEvent }) {
                     <TextField
                       type="number"
                       {...params}
-                      label="ปี พ.ศ. ที่เริ่มการธุรกิจ"
-                      required
+                      label={`${sessionStorage.getItem("info_yersbegin")}`}
+                      
                     />
                   )}
                 />
@@ -377,7 +559,7 @@ export default function Edit({ CloseEvent }) {
                   id="controllable-states-demo2"
                   options={options3}
                   renderInput={(params) => (
-                    <TextField {...params} label="การแปรรูปกล้วยดิบ" required />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_proraw")}`}  />
                   )}
                 />
                 <Autocomplete
@@ -393,7 +575,7 @@ export default function Edit({ CloseEvent }) {
                   id="controllable-states-demo2"
                   options={options4}
                   renderInput={(params) => (
-                    <TextField {...params} label="การแปรรูปกล้วยสุก" required />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_proUnraw")}`}  />
                   )}
                 />
               </Grid>
@@ -409,10 +591,10 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setsource(event.target.value)}
                   id="source"
-                  label="กล้วยมาจากแหล่งใด"
+                  label={`${sessionStorage.getItem("info_source")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={source}
@@ -432,17 +614,17 @@ export default function Edit({ CloseEvent }) {
                   id="controllable-states-demo2"
                   options={options5}
                   renderInput={(params) => (
-                    <TextField {...params} label="คุณภาพของกล้วย" required />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_qulity")}`}  />
                   )}
                 />
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   type="number"
                   onChange={(event) => setamount(event.target.value)}
                   id="amount"
-                  label="ปริมาณของกล้วย"
+                  label={`${sessionStorage.getItem("info_amount")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={amount}
@@ -460,11 +642,11 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   type="number"
                   onChange={(event) => setnumWorkers(event.target.value)}
                   id="numWorkers"
-                  label="จำนวนแรงงานในสถานประกอบการ จำนวนคน"
+                  label={`${sessionStorage.getItem("info_numWorkers")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={numWorkers}
@@ -472,11 +654,11 @@ export default function Edit({ CloseEvent }) {
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   type="number"
                   onChange={(event) => setproCapPerTime(event.target.value)}
                   id="proCapPerTime"
-                  label="กำลังการผลิต / ครั้ง"
+                  label={`${sessionStorage.getItem("info_proCapPerTime")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={proCapPerTime}
@@ -487,7 +669,7 @@ export default function Edit({ CloseEvent }) {
                   type="number"
                   onChange={(event) => setlaborWagePerD(event.target.value)}
                   id="laborWagePerD"
-                  label="ค่าจ้างแรงงาน / วัน"
+                  label={`${sessionStorage.getItem("info_laborWagePerD")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={laborWagePerD}
@@ -496,7 +678,7 @@ export default function Edit({ CloseEvent }) {
                   type="number"
                   onChange={(event) => setlaborWagePerM(event.target.value)}
                   id="laborWagePerM"
-                  label="ค่าจ้างแรงงาน / เดือน"
+                  label={`${sessionStorage.getItem("info_laborWagePerM")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={laborWagePerM}
@@ -506,7 +688,7 @@ export default function Edit({ CloseEvent }) {
                 <TextField
                   onChange={(event) => settools(event.target.value)}
                   id="tools"
-                  label="เครื่องมือและอุปกรณ์หลักที่ใช้ในการแปรรูป"
+                  label={`${sessionStorage.getItem("info_tool")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={tools}
@@ -532,11 +714,12 @@ export default function Edit({ CloseEvent }) {
             <AccordionDetails>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
+                
                   type="number"
                   onChange={(event) => setproductChanal(event.target.value)}
                   id="productChanal"
-                  label="ส่งขายช่องทางไหนบ้าง"
+                  label={`${sessionStorage.getItem("info_productChanal")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={productChanal}
@@ -558,7 +741,7 @@ export default function Edit({ CloseEvent }) {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="ส่งออกในประเทศและต่างประเทศไหม"
+                      label={`${sessionStorage.getItem("info_productExport")}`}
                     />
                   )}
                 />
@@ -577,37 +760,37 @@ export default function Edit({ CloseEvent }) {
                   id="controllable-states-demo"
                   options={options5}
                   renderInput={(params) => (
-                    <TextField {...params} label="สัดส่วนทางการตลาด/ขายดีไหม" />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_marketShare")}`} />
                   )}
                 />
               </Grid>
               <Grid className="flex space-x-5 mt-4">
                 <TextField
-                  required
+                  
                   onChange={(event) => setbestSell(event.target.value)}
                   id="bestSell"
-                  label="สินค้าที่ขายดีที่สุดคือ"
+                  label={`${sessionStorage.getItem("info_bestSell")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={bestSell}
                 />
 
                 <TextField
-                  required
+                  
                   type="number"
                   onChange={(event) => setCost(event.target.value)}
                   id="cost"
-                  label="ต้นทุน"
+                  label={`${sessionStorage.getItem("info_cost")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={cost}
                 />
                 <TextField
-                  required
+                  
                   type="number"
                   onChange={(event) => setproFit(event.target.value)}
                   id="proFit"
-                  label="กำไรต่อหน่วย"
+                  label={`${sessionStorage.getItem("info_proFit")}`}
                   className="w-[28rem] md:w-full sm:w-full"
                   variant="outlined"
                   value={proFit}
@@ -622,7 +805,7 @@ export default function Edit({ CloseEvent }) {
                 <TextField
                   id="stoRageR"
                   onChange={(event) => setstoRageR(event.target.value)}
-                  label="การเก็บรักษาวัตถุดิบ"
+                  label={`${sessionStorage.getItem("info_stoRagePro")}`}
                   variant="outlined"
                   className="w-[28rem] md:w-full sm:w-full"
                   value={stoRageR}
@@ -632,7 +815,7 @@ export default function Edit({ CloseEvent }) {
                 <TextField
                   id="stoRagePro"
                   onChange={(event) => setstoRagePro(event.target.value)}
-                  label="การเก็บรักษาตัวผลิตภัณฑ์"
+                  label={`${sessionStorage.getItem("info_stoRageR")}`}
                   variant="outlined"
                   className="w-[28rem] md:w-full sm:w-full"
                   value={stoRagePro}
@@ -642,7 +825,7 @@ export default function Edit({ CloseEvent }) {
                 <TextField
                   id="storageArea"
                   onChange={(event) => setstorageArea(event.target.value)}
-                  label="พื้นที่จัดเก็บ"
+                  label={`${sessionStorage.getItem("info_storageArea")}`}
                   variant="outlined"
                   className="w-[28rem] md:w-full sm:w-full"
                   value={storageArea}
@@ -662,7 +845,7 @@ export default function Edit({ CloseEvent }) {
                   id="storageQuality"
                   options={options5}
                   renderInput={(params) => (
-                    <TextField {...params} label="คุณภาพระหว่างการจัดเก็บ" />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_storageQuality")}`} />
                   )}
                 />
                 <Autocomplete
@@ -678,7 +861,7 @@ export default function Edit({ CloseEvent }) {
                   id="storageTran"
                   options={options5}
                   renderInput={(params) => (
-                    <TextField {...params} label="คุณภาพระหว่างการขนส่ง" />
+                    <TextField {...params} label={`${sessionStorage.getItem("info_storageTran")}`} />
                   )}
                 />
               </Grid>
@@ -687,7 +870,7 @@ export default function Edit({ CloseEvent }) {
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h5" align="center">
-            <Button variant="contained" onClick={createUser}>
+            <Button variant="contained" onClick={handleSubmit_userinfo}>
               ตกลง
             </Button>
           </Typography>

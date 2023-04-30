@@ -104,13 +104,16 @@ export default function SignInSide() {
           if (res.data.status === "ok_200") {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("email", email);
-            // alert(res.data.msg);
-            window.location = "/dashboard";
+            if (res.data.user_status === 0) {
+              window.location = "/feed";
+              sessionStorage.setItem("user_status", 0);
+            } else {
+              window.location = "/dashboard";
+            }
           } else {
             handleLogNotPass();
-            // alert(res.data.msg);
           }
-          console.log(res.data.msg);
+          console.log(res.data.msg);          
          
         })
         .catch((err) => {

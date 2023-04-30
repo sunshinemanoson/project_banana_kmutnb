@@ -220,7 +220,7 @@ export default function Infouser() {
     } else if ((ageValue || expperyers) <= 0) {
       alert("ไม่สามารถกรอกข้อมูลเป็นเลขน้อยกว่า 0 ได้");
       // console.log(ageValue,expperyers);
-    } else if (localStorage.length === 2) {
+    } else if (localStorage.length === 3) {
       console.log(
         nameTile,
         nValue,

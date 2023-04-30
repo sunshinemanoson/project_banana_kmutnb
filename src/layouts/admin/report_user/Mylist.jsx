@@ -7,14 +7,15 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import axios from "axios";
 import Swal from "sweetalert2";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import { Stack } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Modal, Box } from "@mui/material";
 import Edit from "./Edit";
 import { useAppStore } from "../appStore";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import { Button, TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -49,8 +50,12 @@ export default function Mylist() {
   const setRows = useAppStore((state) => state.setRows);
   const rows = useAppStore((state) => state.rows);
   const [selected, setSelected] = useState([]);
+  const [formid, setFormid] = useState("");
+  const [editopen, setEditOpen] = useState(false);
+  const handleEditOpen = () => setEditOpen(true);
+  const handleEditClose = () => setEditOpen(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  
   useEffect(() => {
     axios
       .post("http://localhost:8888/getuser_info")
@@ -80,12 +85,12 @@ export default function Mylist() {
     setPage(0);
   };
 
-  const handleAddAdmin = () => {
-    setOpen(true);
+  const handleOpenModal = () => {
+    setIsModalVisible(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
   };
 
   const handleEditAdminOpen = (id) => {
@@ -105,26 +110,16 @@ export default function Mylist() {
       setSelected(selected.filter((s) => s !== id));
     }
   };
-  // const handleAddAdminApi = () => {
-  //   axios
-  //     .post("http://localhost:8888/addadmin", { ids: selected })
-  //     .then((response) => {
-  //       console.log(response);
-  //       // Handle success response
-  //       showDialogBox("Success", "Admins added successfully.");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       // Handle error response
-  //       showDialogBox("Error", "Failed to add admins.");
-  //     });
-  // };
-  
+
+  const editData = () => {
+    // sessionStorage.setItem("info_id", id);
+    setIsModalVisible(true);
+  };
+
   const showDialogBox = (title, message) => {
     // Use a library like SweetAlert to show the dialog box
     swal(title, message, "success");
   };
-  
 
   const deleteApi = (id) => {
     console.log(id);
@@ -158,6 +153,43 @@ export default function Mylist() {
 
   return (
     <>
+      <div>
+        <Modal
+          open={isModalVisible}
+          onClose={handleCloseModal}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "900px",
+              backgroundColor: "#fff",
+              border: "2px solid #000",
+              boxShadow: 24,
+              p: 7,
+            }}
+          >
+            <IconButton
+              aria-label="Close"
+              onClick={handleCloseModal}
+              sx={{
+                position: "absolute",
+                top: 1,
+                right: 0,
+                margin: 1,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            <Edit CloseEvent={handleEditClose} Uid={formid} />
+          </Box>
+        </Modal>
+      </div>
+
       <Paper sx={{ width: "100%", overflow: "hidden", padding: "12px" }}>
         <Typography
           gutterBottom
@@ -282,8 +314,9 @@ export default function Mylist() {
                             cursor: "pointer",
                           }}
                           className="cursor-pointer"
-                          onClick={() => {}}
+                          onClick={() => editData(sessionStorage.setItem("user_id", row.info_id))}
                         />
+
                         <DeleteIcon
                           style={{
                             fontSize: "20px",

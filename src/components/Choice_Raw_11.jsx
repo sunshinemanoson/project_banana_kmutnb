@@ -266,7 +266,7 @@ export default function Add_wideth_Raw() {
   "raw11_criteriaU2#U3",];
   
   const balck_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.history.back();
     } else {
       alert("หมดเวลา");

@@ -740,7 +740,7 @@ export default function Add_wideth_Raw() {
     "Unraw4_criteriaR6#R7",
   ];
   const balck_page = () => {
-    if (localStorage.length === 2) {
+    if (localStorage.length === 3) {
       window.history.back();
     } else {
       alert("หมดเวลา");
@@ -844,7 +844,7 @@ export default function Add_wideth_Raw() {
     } else if (CR_Val >= 0.1) {
       console.log("Rejected Values");
       alert("ค่าไม่ถูกต้องตามหลัก ได้โปรดกรอกอีกครั้ง");
-    } else if (localStorage.length === 2) {
+    } else if (localStorage.length === 3) {
       // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
       console.log(testVal1 || testVal2 || testVal3 === 0);
       //   // console.log(add_weight.length)

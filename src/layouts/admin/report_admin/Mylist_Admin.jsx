@@ -12,20 +12,19 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import axios from "axios";
 import Swal from "sweetalert2";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import { Stack } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { Modal, Box } from '@mui/material';
-import Add_Admin from './Add_Admin';
+import { Modal, Box } from "@mui/material";
+import Add_Admin from "./Add_Admin";
 import Edit_Admin from "./Edit_Admin";
 import { useAppStore } from "../appStore";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import {  Button, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { redirect } from "react-router-dom";
-import {Checkbox} from "@material-ui/core";
-
+import { Checkbox } from "@material-ui/core";
 
 const style = {
   position: "absolute",
@@ -37,7 +36,7 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-}
+};
 export default function Mylist() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
@@ -47,7 +46,6 @@ export default function Mylist() {
   const handleOpen = () => setOpen(true);
   const setRows = useAppStore((state) => state.setRows);
   const rows = useAppStore((state) => state.rows);
-  const [selected, setSelected] = useState([]);
 
   useEffect(() => {
     axios
@@ -81,31 +79,30 @@ export default function Mylist() {
   const handleAddAdmin = () => {
     setOpen(true);
   };
-  
+
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   const handleEditAdminOpen = (id) => {
     setAdminFormId(id);
     setEditAdminOpen(true);
   };
-  
+
   const handleEditAdminClose = () => {
     setAdminFormId(null);
     setEditAdminOpen(false);
   };
-  
 
   const deleteApi = (id) => {
     console.log(id);
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'You will not be able to recover this file!',
-      icon: 'warning',
+      title: "Are you sure?",
+      text: "You will not be able to recover this file!",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
       reverseButtons: true,
       showCloseButton: false, // prevent closing on cross icon
     }).then((result) => {
@@ -126,15 +123,30 @@ export default function Mylist() {
       }
     });
   };
-   
+
   const showDialogBox = (title, message) => {
     // Use a library like SweetAlert to show the dialog box
     swal(title, message, "success");
   };
+  const [selected, setSelected] = useState([]);
+
+  const editAdmin = (id, fname, lname, email, password) => {
+    const data = {
+      id: id,
+      fname: fname,
+      lname: lname,
+      email: email,
+      password: password,
+    };
+    setAdminFormId(data);
+    handleEditAdminOpen();
+    window.location.reload();
+  };
 
   const handleAddAdminApi = (id) => {
+    console.log(id);
     axios
-      .post(`http://localhost:8888/addadmin/"${id}`)
+      .post(`http://localhost:8888/addadmin/${id}`)
       .then((response) => {
         console.log(response);
         // Handle success response
@@ -146,55 +158,56 @@ export default function Mylist() {
         showDialogBox("Error", "Failed to add admin.", "error");
       });
   };
-  
-  
 
-  const editAdmin = (id, fname, lname, email, password) => {
-    const data = {
-      id : id,
-      fname : fname,
-      lname : lname,
-      email : email,
-      password : password
-    };
-    setAdminFormId(data);
-    handleEditAdminOpen();
-    window.location.reload();
+  const handleRemoveAdminApi = (id) => {
+    console.log(id);
+    axios
+      .post(`http://localhost:8888/removeadmin/${id}`)
+      .then((response) => {
+        console.log(response);
+        // Handle success response
+        showDialogBox("Success", "Admin added successfully.", "success");
+      })
+      .catch((error) => {
+        console.log(error);
+        // Handle error response
+        showDialogBox("Error", "Failed to add admin.", "error");
+      });
   };
 
   return (
     <>
-    <div>
-      <Modal
-        open={open}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Add_Admin CloseEvent={editAdmin} fid={adminformid} />
-        </Box>
-      </Modal>
-      <Modal
-        open={editadminopen}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <Edit_Admin CloseEvent={handleEditAdminClose} />
-        </Box>
-      </Modal>
-    </div>
-    <Paper sx={{ width: "100%", overflow: "hidden", padding: "12px" }}>
-      <Typography
-        gutterBottom
-        variant="h5"
-        component="div"
-        sx={{ padding: "20px" }}
-      >
-        รายการข้อมูลผู้ดูเเลระบบ
-      </Typography>
-      <Divider />
-      <Box height={10} />
+      <div>
+        <Modal
+          open={open}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Add_Admin CloseEvent={editAdmin} fid={adminformid} />
+          </Box>
+        </Modal>
+        <Modal
+          open={editadminopen}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Edit_Admin CloseEvent={handleEditAdminClose} />
+          </Box>
+        </Modal>
+      </div>
+      <Paper sx={{ width: "100%", overflow: "hidden", padding: "12px" }}>
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          sx={{ padding: "20px" }}
+        >
+          รายการข้อมูลผู้ใช้งานในระบบ
+        </Typography>
+        <Divider />
+        <Box height={10} />
         <Stack direction="row" spacing={2} className="my-2 mb-2">
           <Autocomplete
             disablePortal
@@ -212,117 +225,136 @@ export default function Mylist() {
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
-           <Button
+          <Button
             variant="contained"
             color="success"
             endIcon={<AddCircleIcon />}
-            onClick={handleAddAdminApi}
+            onClick={() => handleAddAdminApi(selected)}
           >
             Add Admin
           </Button>
           <Button
             variant="contained"
+            color="warning"
+            endIcon={<AddCircleIcon />}
+            onClick={() => handleRemoveAdminApi(selected)}
+          >
+            Remove Admin
+          </Button>
+          {/* <Button
+            variant="contained"
             endIcon={<AddCircleIcon />}
             onClick={handleOpen}
           >
-            Add
-          </Button>
+            Add User
+          </Button> */}
         </Stack>
         <Box height={10} />
         <TableContainer sx={{ maxHeight: 440 }}>
-  <Table stickyHeader aria-label="sticky table">
-    <TableHead>
-      <TableRow>
-        <TableCell align="left" style={{ minWidth: "50px" }}>
-          <Checkbox
-            checked={selected.length === rowsPerPage}
-            onChange={(event) => {
-              const newSelected = event.target.checked
-                ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => row.user_id)
-                : [];
-              setSelected(newSelected);
-            }}
-          />
-        </TableCell>
-        <TableCell align="left" style={{ minWidth: "100px" }}>
-          ชื่อ
-        </TableCell>
-        <TableCell align="left" style={{ minWidth: "100px" }}>
-          นามสกุล
-        </TableCell>
-        <TableCell align="left" style={{ minWidth: "100px" }}>
-          ตำเเหน่ง
-        </TableCell>
-        <TableCell align="left" style={{ minWidth: "100px" }}>
-          อีเมล
-        </TableCell>
-        <TableCell align="left" style={{ minWidth: "50px" }}>
-          <SettingsIcon />
-        </TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {rows
-        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        .map((row) => (
-          <TableRow hover role="checkbox" tabIndex={-1} key={row.user_id} selected={selected.indexOf(row.user_id) !== -1}>
-            <TableCell padding="checkbox">
-              <Checkbox
-                checked={selected.indexOf(row.user_id) !== -1}
-                onChange={(event) => {
-                  const newSelected = [...selected];
-                  if (event.target.checked) {
-                    newSelected.push(row.user_id);
-                  } else {
-                    const index = newSelected.indexOf(row.user_id);
-                    if (index !== -1) {
-                      newSelected.splice(index, 1);
-                    }
-                  }
-                  setSelected(newSelected);
-                }}
-              />
-            </TableCell>
-            <TableCell align="left">{row.fname}</TableCell>
-            <TableCell align="left">{row.lname}</TableCell>
-            <TableCell align="left">{row.password}</TableCell>
-            <TableCell align="left">{row.email}</TableCell>
-            <TableCell>
-              {" "}
-              <Stack spacing={2} direction="row">
-                <DeleteIcon
-                  style={{
-                    fontSize: "20px",
-                    color: "darkred",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => {
-                    if (row.user_id) {
-                      console.log("Delete ID: ", row.user_id);
-                      deleteApi(row.user_id);
-                    } else {
-                      console.log("no id");
-                    }
-                  }}
-                />
-              </Stack>
-            </TableCell>
-          </TableRow>
-        ))}
-    </TableBody>
-  </Table>
-</TableContainer>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="left" style={{ minWidth: "50px" }}>
+                  <Checkbox
+                    checked={selected.length === rowsPerPage}
+                    onChange={(event) => {
+                      const newSelected = event.target.checked
+                        ? rows
+                            .slice(
+                              page * rowsPerPage,
+                              page * rowsPerPage + rowsPerPage
+                            )
+                            .map((row) => row.user_id)
+                        : [];
+                      setSelected(newSelected);
+                    }}
+                  />
+                </TableCell>
+                <TableCell align="left" style={{ minWidth: "100px" }}>
+                  ชื่อ
+                </TableCell>
+                <TableCell align="left" style={{ minWidth: "100px" }}>
+                  นามสกุล
+                </TableCell>
+                <TableCell align="left" style={{ minWidth: "100px" }}>
+                  ตำเเหน่ง
+                </TableCell>
+                <TableCell align="left" style={{ minWidth: "100px" }}>
+                  อีเมล
+                </TableCell>
+                <TableCell align="left" style={{ minWidth: "50px" }}>
+                  <SettingsIcon />
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => (
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    key={row.user_id}
+                    selected={selected.indexOf(row.user_id) !== -1}
+                  >
+                    <TableCell padding="checkbox">
+                      <Checkbox
+                        checked={selected.indexOf(row.user_id) !== -1}
+                        onChange={(event) => {
+                          const newSelected = [...selected];
+                          if (event.target.checked) {
+                            newSelected.push(row.user_id);
+                          } else {
+                            const index = newSelected.indexOf(row.user_id);
+                            if (index !== -1) {
+                              newSelected.splice(index, 1);
+                            }
+                          }
+                          setSelected(newSelected);
+                        }}
+                      />
+                    </TableCell>
+                    <TableCell align="left">{row.fname}</TableCell>
+                    <TableCell align="left">{row.lname}</TableCell>
+                    <TableCell align="left">{row.us}</TableCell>
+                    <TableCell align="left">{row.email}</TableCell>
+                    <TableCell>
+                      {" "}
+                      <Stack spacing={2} direction="row">
+                        <DeleteIcon
+                          style={{
+                            fontSize: "20px",
+                            color: "darkred",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => {
+                            if (row.user_id) {
+                              console.log("Delete ID: ", row.user_id);
+                              deleteApi(row.user_id);
+                            } else {
+                              console.log("no id");
+                            }
+                          }}
+                        />
+                      </Stack>
+                    </TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
-      <TablePagination
-        rowsPerPageOptions={[5, 10, 25]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 25]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
     </>
   );
 }

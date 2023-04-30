@@ -8,5 +8,5 @@ let appStore = (set) => ({
     updateOpen:(dopen) => set((state) => ({dopen:dopen})),
 });
 
-// appStore = persist(appStore, {name: "my_app"});
+appStore = persist(appStore, {name: "my_app"});
 export const useAppStore = create(appStore);

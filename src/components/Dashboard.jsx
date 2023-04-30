@@ -148,10 +148,10 @@ export default function Dashboard() {
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      กล้วยวสุก
+                    กล้วยสุก
                     </Typography>
                     <Typography>
-						กล้วยวสุก สามารถนำมาแปลรูปได้ 7 ทางเลือก ได้แก่ กล้วยตาก กล้วยกวน ทอฟฟี่กล้วย นํ้ากล้วย เครี่องดื่มแอลกอฮอร์ ผลิตภัณฑ์อื่นๆ
+                    กล้วยสุก สามารถนำมาแปลรูปได้ 7 ทางเลือก ได้แก่ กล้วยตาก กล้วยกวน ทอฟฟี่กล้วย นํ้ากล้วย เครี่องดื่มแอลกอฮอร์ ผลิตภัณฑ์อื่นๆ
                     </Typography>
                   </CardContent>
                   <CardActions>
