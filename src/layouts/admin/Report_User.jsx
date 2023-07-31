@@ -11,7 +11,7 @@ export default function Feed() {
 
   return (
     <>
-     window.location.reload;
+    {/* {handleRefresh } */}
     <Navbars />
     <Box height={70} />
       <Box sx={{ display: "flex" }}>

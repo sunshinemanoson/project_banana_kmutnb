@@ -23,9 +23,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Layout from "../layouts/Layout";
 import swal from "sweetalert";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormGroup from "@material-ui/core/FormGroup";
+
 
 // const cards = [1];
 // const cards2 = [1];

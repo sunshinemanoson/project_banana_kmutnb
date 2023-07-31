@@ -14,8 +14,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { Modal, Box } from "@mui/material";
 import Edit from "./Edit";
 import { useAppStore } from "../appStore";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 import {TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import EditIcon from "@mui/icons-material/Edit";
@@ -28,7 +28,7 @@ import {
   TableHead,
   TableRow,
   Checkbox,
-} from "@material-ui/core";
+} from "@mui/material";
 
 // const style = {
 //   position: "absolute",

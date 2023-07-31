@@ -64,7 +64,7 @@ import Choice_Unraw_31 from "./components/Choice_Unraw_31";
 import Choice_Unraw_32 from "./components/Choice_Unraw_32";
 import Choice_Unraw_33 from "./components/Choice_Unraw_33";
 import Choice_Unraw_34 from "./components/Choice_Unraw_34";
-import Test_Ai_api from "./components/Test_Ai_api"
+
 
 import Sidebar from "./components/admin/Sidebar";
 import Feed from "./layouts/admin/Feed";
@@ -118,7 +118,7 @@ function App() {
      
 
       // raw
-      <Route path="Test_Ai_api" element={<Test_Ai_api />} />
+     
       <Route path="Add_wideth_Raw_1" element={<Add_wideth_Raw_1 />} />
        <Route path="Add_wideth_Raw_2" element={<Add_wideth_Raw_2 />} />
        <Route path="Add_wideth_Raw_3" element={<Add_wideth_Raw_3 />} />

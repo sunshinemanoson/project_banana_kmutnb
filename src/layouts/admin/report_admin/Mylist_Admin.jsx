@@ -23,7 +23,7 @@ import { useAppStore } from "../appStore";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Button, TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
-import { Checkbox } from "@material-ui/core";
+import { Checkbox } from "@mui/material";
 
 const style = {
   position: "absolute",
