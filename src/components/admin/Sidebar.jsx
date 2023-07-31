@@ -114,7 +114,7 @@ export default function Sidebar() {
               <ListItemText primary="หน้าแรก" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem  disablePadding sx={{ display: "block" }} onClick={() => {navigate("../Report_User")}}>
+          <ListItem disablePadding sx={{ display: "block" }} onClick={() => {window.location = "/Report_User";}}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -134,7 +134,7 @@ export default function Sidebar() {
               <ListItemText primary="การจัดการรายชื่อสมาชิก" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
-          <ListItem  disablePadding sx={{ display: "block" }} onClick={() => {navigate("../Report_Admin")}}>
+          <ListItem disablePadding sx={{ display: "block" }} onClick={() => {window.location = "/Report_Admin";}}>
             <ListItemButton
               sx={{
                 minHeight: 48,

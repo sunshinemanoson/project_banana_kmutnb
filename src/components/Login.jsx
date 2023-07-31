@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -143,7 +141,6 @@ export default function SignInSide() {
             backgroundPosition: "center",
           }}
         />
-
         {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
@@ -168,7 +165,7 @@ export default function SignInSide() {
             </Avatar>
             <Stack spacing={2} sx={{ width: "100%" }}></Stack>
             <Typography component="h1" variant="h5">
-              Sign in
+            เข้าสู่ระบบ
             </Typography>
             
             <Box
@@ -182,7 +179,7 @@ export default function SignInSide() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="อีเมล"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -190,7 +187,7 @@ export default function SignInSide() {
 
               <FormControl sx={{ width: "100%" }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
-                  Password
+                รหัสผ่าน
                 </InputLabel>
                 <OutlinedInput
                   id="password"
@@ -211,10 +208,10 @@ export default function SignInSide() {
                   label="Password"
                 />
               </FormControl>
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
               <Button
                 type="submit"
                 fullWidth
@@ -222,17 +219,17 @@ export default function SignInSide() {
                 // onClick={handleClick}
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                เข้าสู่ระบบ
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="dashboard" variant="body2">
+                  {/* <Link href="dashboard" variant="body2">
                     Forgot password?
-                  </Link>
+                  </Link> */}
                 </Grid>
                 <Grid item>
                   <Link href="register" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    {"สมัครสมาชิก"}
                   </Link>
                 </Grid>
               </Grid>

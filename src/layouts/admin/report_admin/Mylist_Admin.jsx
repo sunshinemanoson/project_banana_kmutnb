@@ -23,7 +23,6 @@ import { useAppStore } from "../appStore";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { Button, TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
-import { redirect } from "react-router-dom";
 import { Checkbox } from "@material-ui/core";
 
 const style = {
@@ -43,7 +42,7 @@ export default function Mylist() {
   const [open, setOpen] = useState(false);
   const [editadminopen, setEditAdminOpen] = useState(false);
   const [adminformid, setAdminFormId] = useState("");
-  const handleOpen = () => setOpen(true);
+  // const handleOpen = () => setOpen(true);
   const setRows = useAppStore((state) => state.setRows);
   const rows = useAppStore((state) => state.rows);
 
@@ -63,7 +62,15 @@ export default function Mylist() {
     if (v) {
       setRows([v]);
     } else {
-      // getUsers();
+      axios
+      .post("http://localhost:8888/getadmin")
+      .then((response) => {
+        console.log(response.data.result);
+        setRows(response.data.result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     }
   };
 
@@ -76,13 +83,13 @@ export default function Mylist() {
     setPage(0);
   };
 
-  const handleAddAdmin = () => {
-    setOpen(true);
-  };
+  // const handleAddAdmin = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   const handleEditAdminOpen = (id) => {
     setAdminFormId(id);
@@ -157,6 +164,7 @@ export default function Mylist() {
         // Handle error response
         showDialogBox("Error", "Failed to add admin.", "error");
       });
+    window.location.reload();
   };
 
   const handleRemoveAdminApi = (id) => {
@@ -173,8 +181,11 @@ export default function Mylist() {
         // Handle error response
         showDialogBox("Error", "Failed to add admin.", "error");
       });
+    window.location.reload();
   };
-
+  const handleAdduser = (event) => {
+    setOpen(true);
+  };
   return (
     <>
       <div>
@@ -212,10 +223,10 @@ export default function Mylist() {
           <Autocomplete
             disablePortal
             id="combo-box-demo"
-            options={rows}
+            options={rows} // Pass the rows array directly as options
             sx={{ width: 300 }}
             onChange={(e, v) => filterData(v)}
-            getOptionLabel={(rows) => rows.name || ""}
+            getOptionLabel={(row) => row.fname || "null"} // Extract the name property from each row object
             renderInput={(params) => (
               <TextField {...params} size="small" label="Search" />
             )}
@@ -241,13 +252,13 @@ export default function Mylist() {
           >
             Remove Admin
           </Button>
-          {/* <Button
+          <Button
             variant="contained"
             endIcon={<AddCircleIcon />}
-            onClick={handleOpen}
+            onClick={handleAdduser}
           >
             Add User
-          </Button> */}
+          </Button>
         </Stack>
         <Box height={10} />
         <TableContainer sx={{ maxHeight: 440 }}>
@@ -290,12 +301,12 @@ export default function Mylist() {
             <TableBody>
               {rows
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => (
+                .map((row, index) => (
                   <TableRow
                     hover
                     role="checkbox"
                     tabIndex={-1}
-                    key={row.user_id}
+                    key={row.id}
                     selected={selected.indexOf(row.user_id) !== -1}
                   >
                     <TableCell padding="checkbox">
@@ -317,7 +328,7 @@ export default function Mylist() {
                     </TableCell>
                     <TableCell align="left">{row.fname}</TableCell>
                     <TableCell align="left">{row.lname}</TableCell>
-                    <TableCell align="left">{row.us}</TableCell>
+                    <TableCell align="left">{row.name_status}</TableCell>
                     <TableCell align="left">{row.email}</TableCell>
                     <TableCell>
                       {" "}

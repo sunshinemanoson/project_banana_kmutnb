@@ -22,6 +22,11 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Layout from "../layouts/Layout";
+import swal from "sweetalert";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+
 // const cards = [1];
 // const cards2 = [1];
 // const cards3 = [1];
@@ -50,6 +55,18 @@ const options4 = [
 const options5 = ["ดีมาก", "ดี", "ปานกลาง", "ไม่ค่อยดี"];
 const options6 = ["ส่งออก", "กำลังริเริ่ม", "ไม่ได้ส่งออก"];
 
+const options7 = [
+  "กะทะ",
+  "ตะแกรง",
+  "ถาด",
+  "ตะหลิว",
+  "เต่า",
+  "เครื่องกวน",
+  "เต่าอบ",
+  "เครื่องรีด",
+  "เเม่พิมพ์",
+];
+
 // let BE = myFunction(BE);   // Function is called, return value will end up in x
 
 // function myFunction(BE) {
@@ -66,6 +83,10 @@ const optionsBE = ["2565"];
 const axios = require("axios");
 
 export default function Infouser() {
+  useEffect(() => {
+    swal("สวัสดี!", "โปรดกรุณากรอกข้อมูลส่วนบุคคลให้ครบถ้วน.", "success");
+  }, []);
+
   //กรอกข้อมูลผู้ใช้
   // อันนี้ของเลือกคำนำหน้า
   const [value, setValue] = useState(options[0]);
@@ -139,43 +160,43 @@ export default function Infouser() {
   const handleSubmit_userinfo = () => {
     // console.log("handdlesummited");
     if (
-      !value ||
+      // !value ||
       !nValue ||
-      !inputValueEdu ||
-      !lValue ||
-      !ageValue ||
-      !comName ||
-      !comAddress ||
-      !province ||
-      !district ||
-      !amphur ||
-      !zipcode ||
-      !yersBegin ||
-      !proraw ||
-      !proUnraw ||
-      !source ||
-      !qulity ||
-      !amount ||
-      !numWorkers ||
-      !proCapPerTime ||
-      !laborWagePerD ||
-      !laborWagePerM ||
-      !tools ||
-      !productChanal ||
-      !valueproductExport ||
-      !productExport ||
-      !valuemarketShare ||
-      !marketShare ||
-      !bestSell ||
-      !cost ||
-      !proFit ||
-      !stoRageR ||
-      !stoRagePro ||
-      !storageArea ||
-      !valuestorageQuality ||
-      !storageQuality ||
-      !valuestorageTran ||
-      !storageTran
+      // !inputValueEdu ||
+      !lValue
+      // !ageValue ||
+      // !comName ||
+      // !comAddress ||
+      // !province ||
+      // !district ||
+      // !amphur ||
+      // !zipcode ||
+      // !yersBegin ||
+      // !proraw ||
+      // !proUnraw ||
+      // !source ||
+      // !qulity ||
+      // !amount ||
+      // !numWorkers ||
+      // !proCapPerTime ||
+      // !laborWagePerD ||
+      // !laborWagePerM ||
+      // !tools ||
+      // !productChanal ||
+      // !valueproductExport ||
+      // !productExport ||
+      // !valuemarketShare ||
+      // !marketShare ||
+      // !bestSell ||
+      // !cost ||
+      // !proFit ||
+      // !stoRageR ||
+      // !stoRagePro ||
+      // !storageArea ||
+      // !valuestorageQuality ||
+      // !storageQuality ||
+      // !valuestorageTran ||
+      // !storageTran
     ) {
       console.log(
         nameTile,
@@ -200,7 +221,7 @@ export default function Infouser() {
         laborWagePerD,
         laborWagePerM,
         tools,
-        productChanal,
+        // productChanal,
         valueproductExport,
         productExport,
         valuemarketShare,
@@ -216,11 +237,19 @@ export default function Infouser() {
         valuestorageTran,
         storageTran
       );
-      alert("โปรดกรอกข่อมูลให้ครบถ้วน");
+      swal(
+        "ไม่ผ่าน!",
+        "เนื่องจากมีข้อมูลที่ยังไม่ได้กรอกกรุณาตรวจสอบอีกครั่ง.",
+        "error"
+      );
     } else if ((ageValue || expperyers) <= 0) {
-      alert("ไม่สามารถกรอกข้อมูลเป็นเลขน้อยกว่า 0 ได้");
+      swal(
+        "ไม่ผ่าน!",
+        "เนื่องจากรอกข้อมูลอายุเเละประสบการ์ณต้องมากกว่า 0 ขึ้นไป.",
+        "error"
+      );
       // console.log(ageValue,expperyers);
-    } else if (localStorage.length === 3) {
+    } else {
       console.log(
         nameTile,
         nValue,
@@ -320,17 +349,41 @@ export default function Infouser() {
         });
 
       console.log("handle !!!!");
-    } else {
-      alert("token expired");
-      console.log(localStorage.length);
-      window.location = "/login";
+      swal("ผ่าน!", "กรอกข้อมูลส่วนบุคคลครบถ้วน.", "success");
+      setTimeout(() => {
+        window.location = "/login";
+      }, 1000);
     }
+  };
+
+  useEffect(() => {
+    const lastName = sessionStorage.getItem("user_lastName");
+    if (lastName) {
+      setLValue(lastName);
+    }
+  }, []);
+
+  const handleLastNameChange = (event) => {
+    setLValue(event.target.value);
+    sessionStorage.setItem("user_lastName", event.target.value);
+  };
+
+  useEffect(() => {
+    const lastName = sessionStorage.getItem("user_firstName");
+    if (lastName) {
+      setNValue(lastName);
+    }
+  }, []);
+
+  const handlefirstNameChange = (event) => {
+    setNValue(event.target.value);
+    sessionStorage.setItem("user_lastName", event.target.value);
   };
 
   return (
     //<div className=' bg-[#E1F17C] h-[100rem] w-full'>
     <ThemeProvider theme={theme}>
-      <Layout />
+      {/* <Layout /> */}
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
@@ -348,7 +401,7 @@ export default function Infouser() {
           }}
         ></Box>
         <Container maxWidth="auto">
-          <Grid container spacing={4}>
+        <Grid container spacing={4}>
             <Grid item xs={12} sm={12} md={12} pd={12}>
               <Accordion
               //   expanded={expanded === "panel1"}
@@ -359,6 +412,7 @@ export default function Infouser() {
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
                 >
+                  
                   <Typography sx={{ width: "33%", flexShrink: 0 }}>
                     กรอกข้อมูลผู้ใช้
                   </Typography>
@@ -388,18 +442,16 @@ export default function Infouser() {
                   <Grid className="flex space-x-5 mt-4">
                     <TextField
                       required
-                      onChange={(event) => setNValue(event.target.value)}
+                      onChange={handlefirstNameChange}
                       id="outlined1"
                       label="ชื่อ"
-                      className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
+                      className="w-[28rem] md:w-full sm:w-full"
                       value={nValue}
                     />
-                  </Grid>
-                  <Grid className="flex space-x-5 mt-4">
                     <TextField
                       required
-                      onChange={(event) => setLValue(event.target.value)}
+                      onChange={handleLastNameChange}
                       id="outlined2"
                       label="นามสกุล"
                       variant="outlined"
@@ -425,8 +477,6 @@ export default function Infouser() {
                       variant="outlined"
                       className="w-[28rem] md:w-full sm:w-full"
                     />
-                  </Grid>
-                  <Grid className="flex space-x-5 mt-4">
                     <Autocomplete
                       className="w-[28rem] md:w-full sm:w-full"
                       value={value2}
@@ -583,15 +633,15 @@ export default function Infouser() {
                   id="panel1bh-header"
                 >
                   <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                    ผลิตภัณฑ์หลักที่เกี่ยวกับการแปรรูป
+                    ผลิตภัณฑ์หลักที่เกี่ยวกับการแปรรูปกล้วย
                   </Typography>
                   <Typography sx={{ color: "text.secondary" }}>
                     ได้โปรดกรอกข้อมูลของท่าน
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Grid className="flex space-x-5 mt-4">
-                    <Autocomplete
+                  {/* <Grid className="flex space-x-5 mt-4"> */}
+                  {/* <Autocomplete
                       className="w-[28rem] md:w-full sm:w-full"
                       value={valueproraw}
                       onChange={(event, newValue) => {
@@ -610,8 +660,8 @@ export default function Infouser() {
                           required
                         />
                       )}
-                    />
-                    <Autocomplete
+                    /> */}
+                  {/* <Autocomplete
                       className="w-[28rem] md:w-full sm:w-full"
                       value={valueproUnraw}
                       onChange={(event, newValue) => {
@@ -630,8 +680,8 @@ export default function Infouser() {
                           required
                         />
                       )}
-                    />
-                  </Grid>
+                    /> */}
+                  {/* </Grid> */}
                   <Grid className="flex space-x-5 mt-4">
                     <Typography
                       gutterBottom
@@ -639,11 +689,11 @@ export default function Infouser() {
                       component="h2"
                       className="mt-4"
                     >
-                      ด้านวัตถุดิบ
+                      ด้านวัตถุดิบกล้วย
                     </Typography>
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
-                    <TextField
+                    {/* <TextField
                       required
                       onChange={(event) => setsource(event.target.value)}
                       id="source"
@@ -651,7 +701,7 @@ export default function Infouser() {
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={source}
-                    />
+                    /> */}
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
                     <Autocomplete
@@ -681,7 +731,7 @@ export default function Infouser() {
                       type="number"
                       onChange={(event) => setamount(event.target.value)}
                       id="amount"
-                      label="ปริมาณของกล้วย"
+                      label="ปริมาณของกล้วยที่ต้องการผลิต"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={amount}
@@ -694,7 +744,7 @@ export default function Infouser() {
                       component="h2"
                       className="mt-4"
                     >
-                      กำลังการผลิต
+                      กำลังการผลิตกล้วย
                     </Typography>
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
@@ -710,23 +760,23 @@ export default function Infouser() {
                     />
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
-                    <TextField
+                    {/* <TextField
                       required
                       type="number"
                       onChange={(event) => setproCapPerTime(event.target.value)}
                       id="proCapPerTime"
-                      label="กำลังการผลิต / ครั้ง"
+                      label="กำลังการผลิต / จำนวนครั้งต่อวัน"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={proCapPerTime}
-                    />
+                    /> */}
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
                     <TextField
                       type="number"
                       onChange={(event) => setlaborWagePerD(event.target.value)}
                       id="laborWagePerD"
-                      label="ค่าจ้างแรงงาน / วัน"
+                      label="ค่าจ้างแรงงานบาท / วัน"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={laborWagePerD}
@@ -735,35 +785,34 @@ export default function Infouser() {
                       type="number"
                       onChange={(event) => setlaborWagePerM(event.target.value)}
                       id="laborWagePerM"
-                      label="ค่าจ้างแรงงาน / เดือน"
+                      label="ค่าจ้างแรงงานบาท / เดือน"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={laborWagePerM}
                     />
                   </Grid>
-                  <Grid className="flex space-x-5 mt-4">
+                  {/* <Grid className="flex space-x-5 mt-4">
                     <TextField
                       onChange={(event) => settools(event.target.value)}
                       id="tools"
-                      label="เครื่องมือและอุปกรณ์หลักที่ใช้ในการแปรรูป"
+                      label="เครื่องมือและอุปกรณ์หลักที่ใช้ในการแปรรูปกล้วย"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={tools}
                     />
-                  </Grid>
+                  </Grid> */}
                 </AccordionDetails>
               </Accordion>
             </Grid>
             <Grid item xs={12} sm={12} md={12} pd={12}>
-              <Accordion
-              >
+              <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
                 >
                   <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                    ช่องทางการตลาด
+                    ช่องทางการตลาดของกล้วย
                   </Typography>
                   <Typography sx={{ color: "text.secondary" }}>
                     ได้โปรดกรอกข้อมูลของท่าน
@@ -771,16 +820,15 @@ export default function Infouser() {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Grid className="flex space-x-5 mt-4">
-                    <TextField
+                    {/* <TextField
                       required
-                      type="number"
                       onChange={(event) => setproductChanal(event.target.value)}
                       id="productChanal"
-                      label="ส่งขายช่องทางไหนบ้าง"
+                      label="ส่งขายกล้วยช่องทางไหนบ้าง"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={productChanal}
-                    />
+                    /> */}
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
                     <Autocomplete
@@ -798,7 +846,7 @@ export default function Infouser() {
                       renderInput={(params) => (
                         <TextField
                           {...params}
-                          label="ส่งออกในประเทศและต่างประเทศไหม"
+                          label="ส่งออกกล้วยในประเทศและต่างประเทศไหม"
                         />
                       )}
                     />
@@ -817,30 +865,27 @@ export default function Infouser() {
                       id="controllable-states-demo"
                       options={options5}
                       renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          label="สัดส่วนทางการตลาด/ขายดีไหม"
-                        />
+                        <TextField {...params} label="สัดส่วนทางการตลาดกล้วย" />
                       )}
                     />
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
-                    <TextField
+                    {/* <TextField
                       required
                       onChange={(event) => setbestSell(event.target.value)}
                       id="bestSell"
-                      label="สินค้าที่ขายดีที่สุดคือ"
+                      label="สินค้าจากกล้วยที่ขายดีที่สุดคือ"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={bestSell}
-                    />
+                    /> */}
 
                     <TextField
                       required
                       type="number"
                       onChange={(event) => setCost(event.target.value)}
                       id="cost"
-                      label="ต้นทุน"
+                      label="ต้นทุนกล้วย"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={cost}
@@ -850,22 +895,23 @@ export default function Infouser() {
                       type="number"
                       onChange={(event) => setproFit(event.target.value)}
                       id="proFit"
-                      label="กำไรต่อหน่วย"
+                      label="กำไรต่อหน่วยของกล้วย"
                       className="w-[28rem] md:w-full sm:w-full"
                       variant="outlined"
                       value={proFit}
                     />
                   </Grid>
+                  {/* <p>  การเก็บรักษา</p> */}
                   <Grid className="flex space-x-5 mt-4">
                     <Typography gutterBottom variant="h8" component="h2">
-                      การเก็บรักษา
+                      คุณภาพของการขนส่งกล้วยเเละจัดเก็บกล้วย
                     </Typography>
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
-                    <TextField
+                    {/* <TextField
                       id="stoRageR"
                       onChange={(event) => setstoRageR(event.target.value)}
-                      label="การเก็บรักษาวัตถุดิบ"
+                      label="การเก็บรักษาวัตถุดิบกล้วย"
                       variant="outlined"
                       className="w-[28rem] md:w-full sm:w-full"
                       value={stoRageR}
@@ -875,7 +921,7 @@ export default function Infouser() {
                     <TextField
                       id="stoRagePro"
                       onChange={(event) => setstoRagePro(event.target.value)}
-                      label="การเก็บรักษาตัวผลิตภัณฑ์"
+                      label="การเก็บรักษาตัวผลิตภัณฑ์กล้วย"
                       variant="outlined"
                       className="w-[28rem] md:w-full sm:w-full"
                       value={stoRagePro}
@@ -885,11 +931,11 @@ export default function Infouser() {
                     <TextField
                       id="storageArea"
                       onChange={(event) => setstorageArea(event.target.value)}
-                      label="พื้นที่จัดเก็บ"
+                      label="พื้นที่จัดเก็บกล้วย"
                       variant="outlined"
                       className="w-[28rem] md:w-full sm:w-full"
                       value={storageArea}
-                    />
+                    /> */}
                   </Grid>
                   <Grid className="flex space-x-5 mt-4">
                     <Autocomplete
@@ -907,7 +953,7 @@ export default function Infouser() {
                       renderInput={(params) => (
                         <TextField
                           {...params}
-                          label="คุณภาพระหว่างการจัดเก็บ"
+                          label="คุณภาพระหว่างการจัดเก็บกล้วย"
                         />
                       )}
                     />
@@ -924,7 +970,10 @@ export default function Infouser() {
                       id="storageTran"
                       options={options5}
                       renderInput={(params) => (
-                        <TextField {...params} label="คุณภาพระหว่างการขนส่ง" />
+                        <TextField
+                          {...params}
+                          label="คุณภาพระหว่างการขนส่งกล้วย"
+                        />
                       )}
                     />
                   </Grid>

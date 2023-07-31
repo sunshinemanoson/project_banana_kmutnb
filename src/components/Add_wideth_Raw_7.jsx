@@ -380,7 +380,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง สิ่งแวดล้อมและสังคม 5/5
+            โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง สิ่งแวดล้อมและสังคม 7/7
           </Typography>
         </Toolbar>
       </AppBar>
@@ -397,7 +397,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                มีนโยบายส่งเสริมจากรัฐบาล (5.1)
+                มีนโยบายส่งเสริมกล้วยจากรัฐบาล
                 </h1>
               </Item>
             </Grid>
@@ -412,7 +412,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w1}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -423,14 +423,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
+                ผลกระทบจากการแปรรูปกล้วยที่มีต่อสิ่งแวดล้อม
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                มีนโยบายส่งเสริมจากรัฐบาล (5.1)
+                มีนโยบายส่งเสริมกล้วยจากรัฐบาล
                 </h1>
               </Item>
             </Grid>
@@ -445,7 +445,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w2}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -457,7 +457,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                การสร้างรายได้ให้กับชุมชน (5.3)
+                การสร้างรายได้ให้กับชุมชน
                 </h1>
               </Item>
             </Grid>
@@ -465,7 +465,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                ผลกระทบจากการแปรรูปที่มีต่อสิ่งแวดล้อม (5.2)
+                ผลกระทบจากการแปรรูปกล้วยที่มีต่อสิ่งแวดล้อม
                 </h1>
               </Item>
             </Grid>
@@ -480,7 +480,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w3}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -492,7 +492,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                การสร้างรายได้ให้กับชุมชน (5.3)
+                การสร้างรายได้ให้กับชุมชน
                 </h1>
               </Item>
             </Grid>

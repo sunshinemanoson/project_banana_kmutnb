@@ -84,7 +84,7 @@ import Add_infouser from "./components/Add_infouser";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<IndexBody />}/>
+      <Route exact path="/" element={<IndexBody />}/>
        
        {/* raw route */}
       
@@ -93,7 +93,7 @@ function App() {
       {/* </Route> */} 
       {/* <Route path="/IndexBody" element={<IndexBody />}></Route> */}
 
-      <Route path="login" element={<Login />} /> 
+      <Route path="login" element={<Login />} />
       <Route path="register" element={<Register />} /> 
       <Route path="goBlaFunc" element={<goBlaFunc />} /> 
       <Route path="dashboard" element={<Dashboard />} />

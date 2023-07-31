@@ -19,6 +19,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import swal from "sweetalert";
 
 const theme = createTheme();
 const axios = require("axios");
@@ -47,7 +48,7 @@ export default function Register() {
     };
     // console.log(data.get("email"))
     // console.log(data.get("fname"))
-
+    
     if (!email || !password || !fname || !lname) {
       alert("โปรดกรอกให้ครบถ้วน");
     } else {
@@ -61,7 +62,7 @@ export default function Register() {
           console.log("res:", res);
           console.log("email:", email);
           if (res.data.flag === false) {
-            alert("Email นี้มึเเล้วในระบบกรุณาเปลี่ยน email");
+            swal("สมัครสมาชิกไม่สำเร็จ!", "Email นี้มีอยู่ในระบบแล้ว กรุณาเปลี่ยน Email.", "error");
           } else {
             fetch("http://localhost:8888/register", {
               method: "POST", // or 'PUT'
@@ -75,8 +76,18 @@ export default function Register() {
               .catch((error) => {
                 console.error("Error:", error);
               });
-            alert("register sucessed.");
-            window.location = "/login";
+              swal("สมัครสมาชิกสำเร็จ!", "สมัครสมาชิกสำเร็จขอบคุณที่บริการ.", "success");
+              setTimeout(() => {
+                const firstNameTextField = document.getElementById("firstName");
+                const firstNameValue = firstNameTextField.value;
+                sessionStorage.setItem("user_firstName", firstNameValue);
+
+                const lastNameTextField = document.getElementById("lastName");
+                const lastNameValue = lastNameTextField.value;
+                sessionStorage.setItem("user_lastName", lastNameValue);
+
+                window.location = "/Add_infouser";
+              }, 2000);
           }
         })
         .catch((err) => {
@@ -144,7 +155,7 @@ export default function Register() {
               <Grid item xs={12}>
                 <FormControl sx={{ width: "100%" }} variant="outlined">
                   <InputLabel htmlFor="outlined-adornment-password">
-                    Password
+                    รหัสผ่าน
                   </InputLabel>
                   <OutlinedInput
                     id="password"
@@ -166,14 +177,14 @@ export default function Register() {
                   />
                 </FormControl>
                 </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Checkbox value="allowExtraEmails" color="primary" />
                   }
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
             <Button
               type="submit"
@@ -186,7 +197,7 @@ export default function Register() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">
-                  Already have an account? Sign in
+                มีแอคเคาท์ แล้วใช่ไหม ? เข้าสู่ระบบ
                 </Link>
               </Grid>
             </Grid>

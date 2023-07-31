@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
@@ -15,8 +15,7 @@ import Accordion from "@mui/material/Accordion";
 import { CardMedia, CardContent } from "@mui/material";
 import { Card } from "@mui/material";
 import axios from "axios";
-import { Result } from "postcss";
-import Button from "@mui/material/Button";
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 const theme = createTheme();
@@ -24,10 +23,9 @@ const theme = createTheme();
 const email = localStorage.getItem("email");
 const status = sessionStorage.getItem("status_weight");
 
-
 export default function Output() {
-  const [nameProduct, setNameproduct] = useState([]);
-  const [weight, setWeight] = useState([]);
+  // const [nameProduct, setNameproduct] = useState([]);
+  // const [weight, setWeight] = useState([]);
   // handleSubmit = ();
   function handleSubmit() {
     axios
@@ -45,6 +43,12 @@ export default function Output() {
         sessionStorage.setItem("result1", data_re[0].Result1 * 100);
         sessionStorage.setItem("result2", data_re[0].Result2 * 100);
         sessionStorage.setItem("result3", data_re[0].Result3 * 100);
+        // window.onload = function () {
+        //   if (!window.location.hash) {
+        //     window.location = window.location + "#loaded";
+        //     window.location.reload();
+        //   }
+        // };
       })
       .catch((err) => {
         console.log(err);
@@ -67,44 +71,20 @@ export default function Output() {
         let result_sum_1 = data_re[5].w_eigen * data_re[10].w_eigen;
         let result_sum_2 = data_re[5].w_eigen * data_re[11].w_eigen;
         let result_sum_3 = data_re[5].w_eigen * data_re[12].w_eigen;
-
         let result_sum_4 = data_re[6].w_eigen * data_re[13].w_eigen;
         let result_sum_5 = data_re[6].w_eigen * data_re[14].w_eigen;
         let result_sum_6 = data_re[6].w_eigen * data_re[15].w_eigen;
         let result_sum_7 = data_re[6].w_eigen * data_re[16].w_eigen;
-
         let result_sum_8 = data_re[7].w_eigen * data_re[19].w_eigen;
         let result_sum_9 = data_re[7].w_eigen * data_re[20].w_eigen;
         let result_sum_10 = data_re[7].w_eigen * data_re[21].w_eigen;
         let result_sum_11 = data_re[7].w_eigen * data_re[22].w_eigen;
-
         let result_sum_12 = data_re[8].w_eigen * data_re[25].w_eigen;
         let result_sum_13 = data_re[8].w_eigen * data_re[26].w_eigen;
         let result_sum_14 = data_re[8].w_eigen * data_re[27].w_eigen;
-
         let result_sum_15 = data_re[9].w_eigen * data_re[28].w_eigen;
         let result_sum_16 = data_re[9].w_eigen * data_re[29].w_eigen;
         let result_sum_17 = data_re[9].w_eigen * data_re[30].w_eigen;
-
-        // console.log(data_re[9].w_eigen, data_re[22].w_eigen);
-        // console.log("sum_col_1", result_sum_1);
-        // console.log("sum_col_2", result_sum_2);
-        // console.log("sum_col_3", result_sum_3);
-        // console.log("sum_col_4", result_sum_4);
-        // console.log("sum_col_5", result_sum_5);
-        // console.log("sum_col_6", result_sum_6);
-        // console.log("sum_col_7", result_sum_7);
-        // console.log("sum_col_8", result_sum_8);
-        // console.log("sum_col_9", result_sum_9);
-        // console.log("sum_col_10", result_sum_10);
-        // console.log("sum_col_11", result_sum_11);
-        // console.log("sum_col_12 ", result_sum_12);
-        // console.log("sum_col_13 ", result_sum_13);
-        // console.log("sum_col_14 ", result_sum_14);
-        // console.log("sum_col_15 ", result_sum_15);
-        // console.log("sum_col_16 ", result_sum_16);
-        // console.log("sum_col_17 ", result_sum_17);
-
         sessionStorage.setItem("result_Ai_1", result_sum_1);
         sessionStorage.setItem("result_Ai_2", result_sum_2);
         sessionStorage.setItem("result_Ai_3", result_sum_3);
@@ -126,16 +106,15 @@ export default function Output() {
       .catch((err) => {
         console.log(err);
       });
-
-    console.log("handle !!!!");
   }
+
   async function sendResultsToAPI() {
     let resultSums = [];
     for (let i = 1; i <= 17; i++) {
       let resultSum = sessionStorage.getItem(`result_Ai_${i}`);
       resultSums.push(resultSum);
     }
-  
+
     let resultWeights = [];
     for (let i = 0; i < resultSums.length; i++) {
       let response = await axios.post("http://127.0.0.1:8000/predictRaw", {
@@ -143,34 +122,31 @@ export default function Output() {
       });
       resultWeights.push(response.data.result);
     }
-  
+
     for (let i = 0; i < resultWeights.length; i++) {
       sessionStorage.setItem(`result_weight_${i + 1}`, resultWeights[i]);
     }
   }
-  
+
   let count_u1 = 0;
   let count_u2 = 0;
   let count_u3 = 0;
-  
   async function countResults() {
     await sendResultsToAPI();
-  
     for (let i = 0; i < 17; i++) {
       let result = sessionStorage.getItem(`result_weight_${i + 1}`);
-      if (result === 'U1') {
+      if (result === "U1") {
         count_u1++;
-      } else if (result === 'U2') {
+      } else if (result === "U2") {
         count_u2++;
-      } else if (result === 'U3') {
+      } else if (result === "U3") {
         count_u3++;
       }
     }
-    
     let banana_id_Ai = 0;
-    console.log(`U1 count: ${count_u1}`);
-    console.log(`U2 count: ${count_u2}`);
-    console.log(`U3 count: ${count_u3}`);
+    console.log(`กล้วยฉาบ count: ${count_u1}`);
+    console.log(`กล้วยอบเนย count: ${count_u2}`);
+    console.log(`กล้วยเบรคแตก count: ${count_u3}`);
     if (count_u1 >= count_u2 && count_u1 >= count_u3) {
       banana_id = 1;
     } else if (count_u2 >= count_u1 && count_u2 >= count_u3) {
@@ -181,52 +157,57 @@ export default function Output() {
     let result_per1;
     let result_per2;
     let result_per3;
-    
-    if(count_u1 > 0) {
-      result_per1 = count_u1 / 17 * 100;
+    if (count_u1 > 0) {
+      result_per1 = (count_u1 / 17) * 100;
     } else {
       result_per1 = 0;
     }
-    
-    if(count_u2 > 0) {
-      result_per2 = count_u2 / 17 * 100;
+    if (count_u2 > 0) {
+      result_per2 = (count_u2 / 17) * 100;
     } else {
       result_per2 = 0;
     }
-    
-    if(count_u3 > 0) {
-      result_per3 = count_u3 / 17 * 100;
+    if (count_u3 > 0) {
+      result_per3 = (count_u3 / 17) * 100;
     } else {
       result_per3 = 0;
     }
     sessionStorage.setItem("result1", result_per1);
     sessionStorage.setItem("result2", result_per2);
     sessionStorage.setItem("result3", result_per3);
-    // console.log(`banana_id_Ai :${banana_id_Ai}`);
   }
-  if(status === 'rawAI'){
+
+  if (status === "rawAI") {
     console.log("Ai algor");
     countResults();
     sendResultsToAPI();
     handleSubmit_AI();
-  }else if (status === 'raw'){
+  } else if (status === "raw") {
+    // alert("Fail Login agin!");
+    // window.location = "/outputRaw";
+    window.onload = function() {
+      if(!window.location.hash) {
+          window.location = window.location + '#loaded';
+          window.location.reload();
+      }
+  }
     console.log("AHP algor");
     handleSubmit();
-  }else{
+  } else {
     // alert("Fail Login agin!");
-    console.log("errror")
+    console.log("errror");
     // window.location = "/login";
   }
-  
+
   const Result1 = parseFloat(sessionStorage.getItem("result1"));
   const Result2 = parseFloat(sessionStorage.getItem("result2"));
   const Result3 = parseFloat(sessionStorage.getItem("result3"));
 
   let banana_id = 0;
-  
-    let Result1_cal = Result1;
-    let Result2_cal = Result2;
-    let Result3_cal = Result3;
+
+  let Result1_cal = Result1;
+  let Result2_cal = Result2;
+  let Result3_cal = Result3;
 
   const maxResult = Math.max(Result1_cal, Result2_cal, Result3_cal);
   console.log(maxResult);
@@ -239,20 +220,22 @@ export default function Output() {
     banana_id = 3;
   }
   console.log("banana_id=", banana_id);
+
   const banana = ["กล้วยฉาบ", "กล้วยอบเนย", "กล้วยเบรคแตก"];
-  const result_banana = banana[banana_id-1]; // get the corresponding result
-  
-  axios.post("http://localhost:8888/updateResult_Banana_raw", {
-    email: email, // add the email parameter
-    result_banana: result_banana // send the corresponding result
-  })
-  .then((res) => {
-    console.log(res.data);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-  // let result_banana = 
+  const result_banana = banana[banana_id - 1]; // get the corresponding result
+
+  axios
+    .post("http://localhost:8888/updateResult_Banana_raw", {
+      email: email, // add the email parameter
+      result_banana: result_banana, // send the corresponding result
+    })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  // let result_banana =
 
   const data = {
     labels: ["กล้วยฉาบ", "กล้วยอบเนย", "กล้วยเบรคแตก"], // ใส่ nameProduct

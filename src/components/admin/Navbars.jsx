@@ -32,6 +32,7 @@ export default function Navbars() {
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
+    window.location = '/login'
   };
 
 

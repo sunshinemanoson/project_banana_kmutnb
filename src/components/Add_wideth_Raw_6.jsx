@@ -353,7 +353,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง การเก็บรักษา 4/5
+            โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง การเก็บรักษากล้วย 6/7
           </Typography>
         </Toolbar>
       </AppBar>
@@ -370,7 +370,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                สามารถเก็บได้ที่อุณหภูมิปกติ (4.1)
+                กล้วยสามารถเก็บได้ที่อุณหภูมิปกติ 
                 </h1>
               </Item>
             </Grid>
@@ -385,7 +385,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w1}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -396,14 +396,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                ระยะเวลาในการเก็บรักษาด (4.2)
+                ระยะเวลาในการเก็บรักษาของกล้วย 
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                สามารถเก็บได้ที่อุณหภูมิปกติ (4.1)
+                กล้วยสามารถเก็บได้ที่อุณหภูมิปกติ
                 </h1>
               </Item>
             </Grid>
@@ -418,7 +418,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w2}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -430,7 +430,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษา (4.3)
+                สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษากล้วย
                 </h1>
               </Item>
             </Grid>
@@ -438,7 +438,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                ระยะเวลาในการเก็บรักษา (4.2)
+                ระยะเวลาในการเก็บรักษาของกล้วย
                 </h1>
               </Item>
             </Grid>
@@ -454,7 +454,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w3}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -466,7 +466,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษา (4.3)
+                สถานที่และขนาดพื้นที่ที่ใช้ในการเก็บรักษากล้วย
                 </h1>
               </Item>
             </Grid>

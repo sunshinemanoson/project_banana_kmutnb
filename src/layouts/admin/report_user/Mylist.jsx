@@ -16,9 +16,10 @@ import Edit from "./Edit";
 import { useAppStore } from "../appStore";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import { Button, TextField } from "@mui/material";
+import {TextField } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import EditIcon from "@mui/icons-material/Edit";
+
 
 import {
   Table,
@@ -29,30 +30,30 @@ import {
   Checkbox,
 } from "@material-ui/core";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+// const style = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   width: 400,
+//   bgcolor: "background.paper",
+//   border: "2px solid #000",
+//   boxShadow: 24,
+//   p: 4,
+// };
 export default function Mylist() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [editadminopen, setEditAdminOpen] = useState(false);
   const [adminformid, setAdminFormId] = useState("");
-  const handleOpen = () => setOpen(true);
+  // const handleOpen = () => setOpen(true);
   const setRows = useAppStore((state) => state.setRows);
   const rows = useAppStore((state) => state.rows);
   const [selected, setSelected] = useState([]);
   const [formid, setFormid] = useState("");
   const [editopen, setEditOpen] = useState(false);
-  const handleEditOpen = () => setEditOpen(true);
+  // const handleEditOpen = () => setEditOpen(true);
   const handleEditClose = () => setEditOpen(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -70,9 +71,20 @@ export default function Mylist() {
 
   const filterData = (v) => {
     if (v) {
+      // Filter the rows based on the full_name property containing the search value
       setRows([v]);
+      
     } else {
-      // getUsers();
+      // Fetch the initial data again or reset to the original data
+      axios
+      .post("http://localhost:8888/getuser_info")
+      .then((response) => {
+        console.log(response.data.result);
+        setRows(response.data.result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     }
   };
 
@@ -85,18 +97,18 @@ export default function Mylist() {
     setPage(0);
   };
 
-  const handleOpenModal = () => {
-    setIsModalVisible(true);
-  };
+  // const handleOpenModal = () => {
+  //   setIsModalVisible(true);
+  // };
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
   };
 
-  const handleEditAdminOpen = (id) => {
-    setAdminFormId(id);
-    setEditAdminOpen(true);
-  };
+  // const handleEditAdminOpen = (id) => {
+  //   setAdminFormId(id);
+  //   setEditAdminOpen(true);
+  // };
 
   const handleEditAdminClose = () => {
     setAdminFormId(null);
@@ -151,6 +163,71 @@ export default function Mylist() {
     });
   };
 
+  const handleAdduser = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+
+    const email = data.get("email");
+    const password = data.get("password");
+    const fname = data.get("firstName");
+    const lname = data.get("lastName");
+    var jsonData = {
+      email: email,
+      password: password,
+      fname: fname,
+      lname: lname,
+    };
+    // console.log(data.get("email"))
+    // console.log(data.get("fname"))
+    
+    if (!email || !password || !fname || !lname) {
+      alert("โปรดกรอกให้ครบถ้วน");
+    } else {
+      localStorage.setItem("token", data.token);
+      axios
+        .post("http://localhost:8888/getuser", {
+          email,
+        })
+        .then((res) => {
+          console.log(res.data);
+          console.log("res:", res);
+          console.log("email:", email);
+          if (res.data.flag === false) {
+            swal("สมัครสมาชิกไม่สำเร็จ!", "Email นี้มีอยู่ในระบบแล้ว กรุณาเปลี่ยน Email.", "error");
+          } else {
+            fetch("http://localhost:8888/register", {
+              method: "POST", // or 'PUT'
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(jsonData),
+            })
+              .then((response) => response.json())
+              .then((data) => {})
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+              swal("สมัครสมาชิกสำเร็จ!", "สมัครสมาชิกสำเร็จขอบคุณที่บริการ.", "success");
+              setTimeout(() => {
+                const firstNameTextField = document.getElementById("firstName");
+                const firstNameValue = firstNameTextField.value;
+                sessionStorage.setItem("user_firstName", firstNameValue);
+
+                const lastNameTextField = document.getElementById("lastName");
+                const lastNameValue = lastNameTextField.value;
+                sessionStorage.setItem("user_lastName", lastNameValue);
+
+                window.location = "/Add_infouser";
+              }, 2000);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    console.log("Success:", data);
+  };
+
   return (
     <>
       <div>
@@ -202,22 +279,17 @@ export default function Mylist() {
         <Box height={10} />
         <Stack direction="row" spacing={2} className="my-2 mb-2">
           <Autocomplete
-            disablePortal
+            
             id="combo-box-demo"
             options={rows}
             sx={{ width: 300 }}
             onChange={(e, v) => filterData(v)}
-            getOptionLabel={(rows) => rows.name || ""}
+            getOptionLabel={(rows) => rows.full_name || "null"}
             renderInput={(params) => (
               <TextField {...params} size="small" label="Search" />
             )}
           />
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1 }}
-          ></Typography>
-          {/* <Button
+           {/* <Button
             variant="contained"
             color="success"
             endIcon={<AddCircleIcon />}
@@ -225,6 +297,12 @@ export default function Mylist() {
           >
             Add Admin
           </Button> */}
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1 }}
+          ></Typography>
+         
         </Stack>
         <Box height={10} />
         <Divider />

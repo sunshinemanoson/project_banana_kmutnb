@@ -123,7 +123,7 @@ export default function Header() {
             Welcome
             <span className={classes.TexttitleColor}> To</span>
             <br />
-            <span className={classes.colorText}>Banana Consult App.</span>
+            <span className={classes.colorText}>Banana Decison Support System</span>
           </h1>
           <IconButton>
             

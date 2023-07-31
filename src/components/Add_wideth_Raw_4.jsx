@@ -70,6 +70,7 @@ export default function Add_wideth_Raw() {
   const [testVal6, setTestVal6] = useState([]);
 
   var re = 1;
+  
   var cri_sum = 1;
   var cri_num = 4;
   var cal_sum = 0;
@@ -370,7 +371,7 @@ export default function Add_wideth_Raw() {
   console.log("averageLamdaMax =", averageLamdaMax);
 
   // C.I cal
-  let CI_Val = (averageLamdaMax - cri_num) / (cri_num - 1);
+  let CI_Val = (averageLamdaMax - cri_num) / (cri_num - 1); 
   console.log("CI_val =", CI_Val);
   // C.R cal
   let RI_set_val = RI_vals.at(cri_num - 1);
@@ -495,7 +496,7 @@ export default function Add_wideth_Raw() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-          โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง วามพร้อมในการผลิต 2/5
+          โปรดเลือกระดับความสำคัญเทียบปัจจัยรอง ความพร้อมในการผลิตกล้วย 4/7
           </Typography>
         </Toolbar>
       </AppBar>
@@ -512,7 +513,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  จำนวนแรงงาน (2.1)
+                  จำนวนแรงงาน 
                 </h1>
               </Item>
             </Grid>
@@ -527,7 +528,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w1}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -538,14 +539,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h2 id="criteria2" name="criteria2">
-                  ความสามารถของแรงงาน (2.2)
+                  ความสามารถของแรงงาน
                 </h2>
               </Item>
             </Grid>
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  จำนวนแรงงาน (2.1)
+                  จำนวนแรงงาน 
                 </h1>
               </Item>
             </Grid>
@@ -560,7 +561,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w2}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -572,7 +573,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสนใจของเจ้าของกิจการ (2.3)
+                  ความสนใจของเจ้าของกิจการกล้วย
                 </h1>
               </Item>
             </Grid>
@@ -580,7 +581,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  จำนวนแรงงาน (2.1)
+                  จำนวนแรงงาน 
                 </h1>
               </Item>
             </Grid>
@@ -595,7 +596,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w3}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -607,7 +608,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิต (2.4)
+                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิตกล้วย
                 </h1>
               </Item>
             </Grid>
@@ -615,7 +616,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสามารถของแรงงาน (2.2)
+                  ความสามารถของแรงงาน 
                 </h1>
               </Item>
             </Grid>
@@ -630,7 +631,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w4}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -642,14 +643,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสนใจของเจ้าของกิจการ (2.3)
+                  ความสนใจของเจ้าของกิจการกล้วย
                 </h1>
               </Item>
             </Grid>
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสามารถของแรงงาน (2.2)
+                  ความสามารถของแรงงาน
                 </h1>
               </Item>
             </Grid>
@@ -664,7 +665,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w5}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -676,14 +677,14 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิต (2.4)
+                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิตกล้วย
                 </h1>
               </Item>
             </Grid>
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความสนใจของเจ้าของกิจการ (2.3)
+                  ความสนใจของเจ้าของกิจการกล้วย
                 </h1>
               </Item>
             </Grid>
@@ -699,7 +700,7 @@ export default function Add_wideth_Raw() {
                   defaultValue={0}
                   onChange={val_w6}
                   getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
+                  valueLabelDisplay="on"
                   step={1}
                   marks
                   min={-9}
@@ -711,7 +712,7 @@ export default function Add_wideth_Raw() {
             <Grid item xs={2.5} md={2.5}>
               <Item>
                 <h1 id="criteria1" name="criteria1">
-                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิต (2.4)
+                  ความพร้อมของอุปกรณ์ที่ใช้ในการผลิตกล้วย
                 </h1>
               </Item>
             </Grid> 

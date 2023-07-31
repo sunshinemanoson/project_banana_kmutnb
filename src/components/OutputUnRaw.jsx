@@ -310,6 +310,12 @@ export default function Output() {
     handleSubmit_AI();
     countResults();
   } else if (status === "unraw") {
+    window.onload = function() {
+      if(!window.location.hash) {
+          window.location = window.location + '#loaded';
+          window.location.reload();
+      }
+  }
     console.log("AHP algor");
     handleSubmit();
   } else {
@@ -499,12 +505,13 @@ export default function Output() {
               <Grid item xs={12} sm={4} md={4} pd={4}>
                 <Card
                   sx={{
-                    height: "100%",
+                    height: "50%",
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
                   <CardMedia
+                    sx={{height:500}}
                     component="img"
                     image="./images/unraw_banana_1.jpg"
                   />

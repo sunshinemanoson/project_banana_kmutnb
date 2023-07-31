@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react'
-import {AiOutlineSearch } from 'react-icons/ai'
-import { BsFillPersonFill } from "react-icons/bs";
+import React from 'react'
+// import { BsFillPersonFill } from "react-icons/bs";
 import IconButton from '@mui/material/IconButton';
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -34,19 +33,11 @@ export default function Navbar() {
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between items-center '>
       <div className='flex items-center'> 
-      <img src='./images/img1.jpg' width={80} height={50} onClick={handleToDashboard} ></img>
-        <div>
-          <div>
-            {/* <AiOutlineMenu size={30} /> */}
-          </div>
-          <h1 className='text-xl sm:text-2xl lg:text-2xl lg:w-[500] px-1'>
-          <span href='dashboard' className='font-bold'>BA</span>NANA 
-          </h1>
-        </div>
+      <img src='./images/logo.jpg' width={300} height={300} onClick={handleToDashboard} ></img>
       </div>
       
       <div className='flex items-center'>
-        <BsFillPersonFill onClick={handleToinfouser} size={30} className='mr-2' color='gray' />
+        {/* <BsFillPersonFill onClick={handleToinfouser} size={30} className='mr-2' color='gray' /> */}
         <h1>{handlegetname}</h1>
         <IconButton color="error" onClick={handleLoguot} aria-label="LogoutIcon">
         <LogoutIcon />
@@ -62,7 +53,7 @@ const handlegetname = (e) => {
 }
 const handleToinfouser = (e) =>{
 
-  window.location = '/add_infouser';
+  window.location = '/OutputRaw';
 }
 const handleToDashboard = (e) =>{
   window.location = '/dashboard';
