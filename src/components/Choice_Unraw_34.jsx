@@ -335,13 +335,7 @@ export default function Add_wideth_Raw() {
         critri_calrow_1_7
     ).toFixed(3) / cri_num;
 
-  console.log("Eig1 = ", critri_sum_Eig_1_5.toFixed(3));
-  //   console.log("Eig1.2 = ", critri_calrow_1_2.toFixed(3));
-  //   console.log("Eig1.3 = ", critri_calrow_1_3.toFixed(3));
-  //   console.log("Eig1.4 = ", critri_calrow_1_4.toFixed(3));
-  //   console.log("Eig1.5 = ", critri_calrow_1_5.toFixed(3));
-  //   console.log("Eig1.6 = ", critri_calrow_1_6.toFixed(3));
-  //   console.log("Eig1.7 = ", critri_calrow_1_7.toFixed(3));
+
 
   //   // // divis row 2 cal To 5
   let critri_calrow_2_1 = Math.abs(parseFloat(val_re2_2)) / critri_sumcol1;

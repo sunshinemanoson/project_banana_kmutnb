@@ -118,9 +118,9 @@ export default function Add_wideth_Raw() {
     val_3_2 = val_Po_3_2 = re / testVal1;
     Math.abs(val_3_2);
     var val_re3_2 = re / Math.abs(val_3_2);
-    console.log("val1", Math.abs(val_3_2));
-    console.log("re1", Math.abs(val_re3_2));
-    console.log(" 1cal sss");
+    // console.log("val1", Math.abs(val_3_2));
+    // console.log("re1", Math.abs(val_re3_2));
+    // console.log(" 1cal sss");
   } else {
     // console.log(" 1not cal");
   }
@@ -129,9 +129,9 @@ export default function Add_wideth_Raw() {
     val_3_3 = val_Po_3_3 = re / testVal2;
     Math.abs(val_3_3);
     var val_re3_3 = re / Math.abs(val_3_3);
-    console.log("val2", Math.abs(val_3_3));
-    console.log("re2", Math.abs(val_re3_3));
-    console.log(" 2cal sss");
+    // console.log("val2", Math.abs(val_3_3));
+    // console.log("re2", Math.abs(val_re3_3));
+    // console.log(" 2cal sss");
   } else {
     // console.log(" 2not cal");
   }
@@ -140,9 +140,9 @@ export default function Add_wideth_Raw() {
     val_3_4 = val_Po_3_4 = re / testVal3;
     Math.abs(val_3_4);
     var val_re3_4 = re / Math.abs(val_3_4);
-    console.log("val3", Math.abs(val_3_4));
-    console.log("re3", Math.abs(val_re3_4));
-    console.log(" 3cal sss");
+    // console.log("val3", Math.abs(val_3_4));
+    // console.log("re3", Math.abs(val_re3_4));
+    // console.log(" 3cal sss");
   } else {
     // console.log(" 3not cal");
   }
@@ -151,9 +151,9 @@ export default function Add_wideth_Raw() {
     val_3_5 = val_Po_3_5 = re / testVal4;
     Math.abs(val_3_5);
     var val_re3_5 = re / Math.abs(val_3_5);
-    console.log("val4", Math.abs(val_3_5));
-    console.log("re4", Math.abs(val_re3_5));
-    console.log(" 4cal sss");
+    // console.log("val4", Math.abs(val_3_5));
+    // console.log("re4", Math.abs(val_re3_5));
+    // console.log(" 4cal sss");
   } else {
     // console.log(" 4not cal");
   }
@@ -162,9 +162,9 @@ export default function Add_wideth_Raw() {
     val_3_6 = val_Po_3_6 = re / testVal5;
     Math.abs(val_3_6);
     var val_re3_6 = re / Math.abs(val_3_6);
-    console.log("val5", Math.abs(val_3_6));
-    console.log("re5", Math.abs(val_re3_6));
-    console.log(" 5cal sss");
+    // console.log("val5", Math.abs(val_3_6));
+    // console.log("re5", Math.abs(val_re3_6));
+    // console.log(" 5cal sss");
   } else {
     // console.log(" 5not cal");
   }
@@ -173,9 +173,9 @@ export default function Add_wideth_Raw() {
     val_3_7 = val_Po_3_7 = re / testVal6;
     Math.abs(val_3_7);
     var val_re3_7 = re / Math.abs(val_3_7);
-    console.log("val6", Math.abs(val_3_7));
-    console.log("re6", Math.abs(val_re3_7));
-    console.log(" 6cal sss");
+    // console.log("val6", Math.abs(val_3_7));
+    // console.log("re6", Math.abs(val_re3_7));
+    // console.log(" 6cal sss");
   } else {
     // console.log(" 6not cal");
   }
@@ -184,9 +184,9 @@ export default function Add_wideth_Raw() {
     val_3_8 = val_Po_3_8 = re / testVal7;
     Math.abs(val_3_8);
     var val_re3_8 = re / Math.abs(val_3_8);
-    console.log("val7", Math.abs(val_3_8));
-    console.log("re7", Math.abs(val_re3_8));
-    console.log(" 7cal sss");
+    // console.log("val7", Math.abs(val_3_8));
+    // console.log("re7", Math.abs(val_re3_8));
+    // console.log(" 7cal sss");
   } else {
     // console.log(" 7not cal");
   }
@@ -195,9 +195,9 @@ export default function Add_wideth_Raw() {
     val_3_9 = val_Po_3_9 = re / testVal8;
     Math.abs(val_3_9);
     var val_re3_9 = re / Math.abs(val_3_9);
-    console.log("val8", Math.abs(val_3_9));
-    console.log("re8", Math.abs(val_re3_9));
-    console.log(" 8cal sss");
+    // console.log("val8", Math.abs(val_3_9));
+    // console.log("re8", Math.abs(val_re3_9));
+    // console.log(" 8cal sss");
   } else {
     // console.log(" 8not cal");
   }
@@ -206,18 +206,18 @@ export default function Add_wideth_Raw() {
     val_3_10 = val_Po_3_10 = re / testVal9;
     Math.abs(val_3_10);
     var val_re3_10 = re / Math.abs(val_3_10);
-    console.log("val9", Math.abs(val_3_10));
-    console.log("re9", Math.abs(val_re3_10));
-    console.log(" 9cal sss");
+    // console.log("val9", Math.abs(val_3_10));
+    // console.log("re9", Math.abs(val_re3_10));
+    // console.log(" 9cal sss");
   }
   if (testVal10 < 0) {
     let val_Po_3_11;
     val_3_11 = val_Po_3_11 = re / testVal10;
     Math.abs(val_3_11);
     var val_re3_11 = re / Math.abs(val_3_11);
-    console.log("val10", Math.abs(val_3_11));
-    console.log("re10", Math.abs(val_re3_11));
-    console.log(" 10cal sss");
+    // console.log("val10", Math.abs(val_3_11));
+    // console.log("re10", Math.abs(val_re3_11));
+    // console.log(" 10cal sss");
   } else {
     // console.log(" 10not cal");
   }
@@ -226,9 +226,9 @@ export default function Add_wideth_Raw() {
     val_3_12 = val_Po_3_12 = re / testVal11;
     Math.abs(val_3_12);
     var val_re3_12 = re / Math.abs(val_3_12);
-    console.log("val10", Math.abs(val_3_12));
-    console.log("re10", Math.abs(val_re3_12));
-    console.log(" 10cal sss");
+    // console.log("val10", Math.abs(val_3_12));
+    // console.log("re10", Math.abs(val_re3_12));
+    // console.log(" 10cal sss");
   } else {
     // console.log(" 10not cal");
   }
@@ -309,21 +309,6 @@ export default function Add_wideth_Raw() {
     parseFloat(Math.abs(val_3_11)) +
     parseFloat(Math.abs(val_3_12));
 
-  // console.log("1",Math.abs(cri_sum))   ;
-  //   console.log("2",Math.abs(val_2_2))   ;
-  //   console.log("3",Math.abs(val_re2_8)) ;
-  //   console.log("4",Math.abs(val_re2_9)) ;
-  //   console.log("5",Math.abs(val_re2_10));
-  //   console.log("6",Math.abs(val_re2_11));
-  //   console.log("7",Math.abs(val_re3_2));
-
-  console.log("critri_sumcol1 =", Math.abs(critri_sumcol1));
-  console.log("critri_sumcol2 =", Math.abs(critri_sumcol2));
-  console.log("critri_sumcol3 =", Math.abs(critri_sumcol3));
-  console.log("critri_sumcol4 =", Math.abs(critri_sumcol4));
-  console.log("critri_sumcol5 =", Math.abs(critri_sumcol5));
-  console.log("critri_sumcol6 =", Math.abs(critri_sumcol6));
-  console.log("critri_sumcol7 =", Math.abs(critri_sumcol7));
 
   //   // //divis row 1 cal To 5
   let critri_calrow_1_1 = Math.abs(parseFloat(cri_sum)) / critri_sumcol1;
@@ -349,7 +334,7 @@ export default function Add_wideth_Raw() {
         critri_calrow_1_7
     ).toFixed(3) / cri_num;
 
-  console.log("Eig1 = ", critri_sum_Eig_1_5.toFixed(3));
+  // console.log("Eig1 = ", critri_sum_Eig_1_5.toFixed(3));
   //   console.log("Eig1.2 = ", critri_calrow_1_2.toFixed(3));
   //   console.log("Eig1.3 = ", critri_calrow_1_3.toFixed(3));
   //   console.log("Eig1.4 = ", critri_calrow_1_4.toFixed(3));

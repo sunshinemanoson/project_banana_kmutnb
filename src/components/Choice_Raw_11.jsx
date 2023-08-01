@@ -82,9 +82,9 @@ export default function Add_wideth_Raw() {
     val_3_2 = val_Po_3_2 = re / testVal1;
     Math.abs(val_3_2);
     var val_re3_2 = re / Math.abs(val_3_2);
-    console.log("val1", Math.abs(val_3_2));
-    console.log("re1", Math.abs(val_re3_2));
-    console.log(" 1cal sss");
+    // console.log("val1", Math.abs(val_3_2));
+    // console.log("re1", Math.abs(val_re3_2));
+    // console.log(" 1cal sss");
   } else {
     console.log(" 1not cal");
   }
@@ -93,9 +93,9 @@ export default function Add_wideth_Raw() {
     val_3_3 = val_Po_3_3 = re / testVal2;
     Math.abs(val_3_3);
     var val_re3_3 = re / Math.abs(val_3_3);
-    console.log("val2", Math.abs(val_3_3));
-    console.log("re2", Math.abs(val_re3_3));
-    console.log(" 2cal sss");
+    // console.log("val2", Math.abs(val_3_3));
+    // console.log("re2", Math.abs(val_re3_3));
+    // console.log(" 2cal sss");
   } else {
     console.log(" 2not cal");
   }
@@ -104,9 +104,9 @@ export default function Add_wideth_Raw() {
     val_3_4 = val_Po_3_4 = re / testVal3;
     Math.abs(val_3_4);
     var val_re3_4 = re / Math.abs(val_3_4);
-    console.log("val3", Math.abs(val_3_4));
-    console.log("re3", Math.abs(val_re3_4));
-    console.log(" 3cal sss");
+    // console.log("val3", Math.abs(val_3_4));
+    // console.log("re3", Math.abs(val_re3_4));
+    // console.log(" 3cal sss");
   } else {
     console.log(" 3not cal");
   }
@@ -138,9 +138,9 @@ export default function Add_wideth_Raw() {
     parseFloat(Math.abs(val_3_3)) +
     parseFloat(Math.abs(val_3_4));
 
-  console.log("critri_sumcol1 =", Math.abs(critri_sumcol1));
-  console.log("critri_sumcol2 =", Math.abs(critri_sumcol2));
-  console.log("critri_sumcol3 =", Math.abs(critri_sumcol3));
+  // console.log("critri_sumcol1 =", Math.abs(critri_sumcol1));
+  // console.log("critri_sumcol2 =", Math.abs(critri_sumcol2));
+  // console.log("critri_sumcol3 =", Math.abs(critri_sumcol3));
 
   // //divis row 1 cal To 5
   let critri_calrow_1_1 = Math.abs(parseFloat(cri_sum)) / critri_sumcol1;
@@ -321,7 +321,7 @@ export default function Add_wideth_Raw() {
     } else if (CR_Val >= 0.1) {
       console.log("Rejected Values");
       alert("ค่าไม่ถูกต้องตามหลัก ได้โปรดกรอกอีกครั้ง");
-    } else if (localStorage.length === 3) {
+    // } else if (localStorage.length === 3) {
       // console.log((add_weight.testVal1 && add_weight.testVa2) , (add_weight.testVa3 && add_weight.testVa4)  === 0);
       console.log(testVal1 || testVal2 || testVal3 === 0);
       // console.log(add_weight.length)
