@@ -86,7 +86,7 @@ export default function Add_wideth_Raw() {
    
 
   if (testVal1 < 0) {
-   
+    let val_Po_1_2;
     val_1_2 = val_Po_1_2 = re / testVal1;
     Math.abs(val_1_2);
     var val_re1 = re /  Math.abs(val_1_2) ;
