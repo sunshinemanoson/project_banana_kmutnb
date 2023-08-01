@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import Snackbar from "@mui/material/Snackbar";
-import swal from "sweetalert";
+
 
 const theme = createTheme();
 const Item = styled(Paper)(({ theme }) => ({

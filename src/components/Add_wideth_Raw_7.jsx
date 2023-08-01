@@ -71,7 +71,7 @@ export default function Add_wideth_Raw() {
   var re = 1;
   var cri_sum = 1;
   var cri_num = 3;
-  var cal_sum = 0;
+  // var cal_sum = 0;
 
   let val_3_2 = Math.abs(testVal1);
   let val_3_3 = Math.abs(testVal2);

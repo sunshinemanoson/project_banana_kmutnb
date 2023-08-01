@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -16,12 +10,11 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { InputAdornment, Paper } from "@mui/material";
+import InputAdornment  from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Layout from "../layouts/Layout";
 import swal from "sweetalert";
 
 
@@ -53,17 +46,17 @@ const options4 = [
 const options5 = ["ดีมาก", "ดี", "ปานกลาง", "ไม่ค่อยดี"];
 const options6 = ["ส่งออก", "กำลังริเริ่ม", "ไม่ได้ส่งออก"];
 
-const options7 = [
-  "กะทะ",
-  "ตะแกรง",
-  "ถาด",
-  "ตะหลิว",
-  "เต่า",
-  "เครื่องกวน",
-  "เต่าอบ",
-  "เครื่องรีด",
-  "เเม่พิมพ์",
-];
+// const options7 = [
+//   "กะทะ",
+//   "ตะแกรง",
+//   "ถาด",
+//   "ตะหลิว",
+//   "เต่า",
+//   "เครื่องกวน",
+//   "เต่าอบ",
+//   "เครื่องรีด",
+//   "เเม่พิมพ์",
+// ];
 
 // let BE = myFunction(BE);   // Function is called, return value will end up in x
 

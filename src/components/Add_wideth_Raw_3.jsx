@@ -66,12 +66,12 @@ export default function Add_wideth_Raw() {
   const [testVal2, setTestVal2] = useState([]);
   const [testVal3, setTestVal3] = useState([]);
 
-  let test = sessionStorage.getItem("main_critri_sum_Eig_1_4");
+  // let test = sessionStorage.getItem("main_critri_sum_Eig_1_4");
 
   var re = 1;
   var cri_sum = 1;
   var cri_num = 3;
-  var cal_sum = 0;
+  // var cal_sum = 0;
 
   let val_3_2 = Math.abs(testVal1);
   let val_3_3 = Math.abs(testVal2);
@@ -195,7 +195,7 @@ export default function Add_wideth_Raw() {
   let Calsum_col_3 = critri_calrow_1_3 + critri_calrow_2_3 + critri_calrow_3_3;
   console.log("Calsum_col_3 = ", Calsum_col_3.toFixed(4));
   // cal sum_all_sol main cirt
-  let Eigsum_all = critri_sum_Eig_1_5 + critri_sum_Eig_2_5 + critri_sum_Eig_3_5;
+  // let Eigsum_all = critri_sum_Eig_1_5 + critri_sum_Eig_2_5 + critri_sum_Eig_3_5;
 
   // console.log("Eigsum_all = ", Eigsum_all);
 

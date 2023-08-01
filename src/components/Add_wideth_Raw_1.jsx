@@ -12,9 +12,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
-import CircularProgress from "@mui/material/CircularProgress";
 import Snackbar from "@mui/material/Snackbar";
-import { Stack } from "@mui/material";
 import swal from "sweetalert";
 
 const theme = createTheme();
@@ -88,7 +86,7 @@ export default function Add_wideth_Raw() {
    
 
   if (testVal1 < 0) {
-    let val_Po_1_2;
+   
     val_1_2 = val_Po_1_2 = re / testVal1;
     Math.abs(val_1_2);
     var val_re1 = re /  Math.abs(val_1_2) ;
