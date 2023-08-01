@@ -309,14 +309,6 @@ export default function Add_wideth_Raw() {
     parseFloat(Math.abs(val_3_11)) +
     parseFloat(Math.abs(val_3_12));
 
- 
-  // console.log("critri_sumcol1 =", Math.abs(critri_sumcol1));
-  // console.log("critri_sumcol2 =", Math.abs(critri_sumcol2));
-  // console.log("critri_sumcol3 =", Math.abs(critri_sumcol3));
-  // console.log("critri_sumcol4 =", Math.abs(critri_sumcol4));
-  // console.log("critri_sumcol5 =", Math.abs(critri_sumcol5));
-  // console.log("critri_sumcol6 =", Math.abs(critri_sumcol6));
-  // console.log("critri_sumcol7 =", Math.abs(critri_sumcol7));
 
   //   // //divis row 1 cal To 5
   let critri_calrow_1_1 = Math.abs(parseFloat(cri_sum)) / critri_sumcol1;
