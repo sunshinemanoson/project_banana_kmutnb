@@ -53,7 +53,7 @@ export default function Test() {
         <Toolbar>
           {/* <CameraIcon sx={{ mr: 2 }} /> */}
           <Typography variant="h6" color="inherit" noWrap>
-            โปรดเลือกประเภทวัตถุดิบ
+            โปรดเลือกประเภทวัตถุดิ
           </Typography>
         </Toolbar>
       </AppBar>
