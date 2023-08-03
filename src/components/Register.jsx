@@ -20,6 +20,7 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import swal from "sweetalert";
+import { Link as RouterLink } from 'react-router-dom'; 
 
 const theme = createTheme();
 const axios = require("axios");
@@ -86,7 +87,7 @@ export default function Register() {
                 const lastNameValue = lastNameTextField.value;
                 sessionStorage.setItem("user_lastName", lastNameValue);
 
-                window.location = "/Add_infouser";
+                return <RouterLink to="/Add_infouser" />;
               }, 2000);
           }
         })
@@ -188,9 +189,9 @@ export default function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/login" variant="body2">
+              <RouterLink to="/login" >
                 มีแอคเคาท์ แล้วใช่ไหม ? เข้าสู่ระบบ
-                </Link>
+               </RouterLink>
               </Grid>
             </Grid>
           </Box>

@@ -3,7 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -20,6 +20,9 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import { Link as RouterLink } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+
 
 const theme = createTheme();
 
@@ -27,7 +30,8 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function SignInSide() {
+export default function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -103,10 +107,10 @@ export default function SignInSide() {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("email", email);
             if (res.data.user_status === 0) {
-              window.location = "/feed";
               sessionStorage.setItem("user_status", 0);
+              navigate("/feed");
             } else {
-              window.location = "/dashboard";
+              navigate("/dashboard");
             }
           } else {
             handleLogNotPass();
@@ -228,9 +232,9 @@ export default function SignInSide() {
                   </Link> */}
                 </Grid>
                 <Grid item>
-                  <Link href="register" variant="body2">
-                    {"สมัครสมาชิก"}
-                  </Link>
+                <RouterLink to="/register" variant="body2" >
+            {"สมัครสมาชิก"}
+          </RouterLink>
                 </Grid>
               </Grid>
               {/* <Copyright sx={{ mt: 5 }} /> */}

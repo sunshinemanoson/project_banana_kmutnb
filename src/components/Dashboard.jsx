@@ -13,6 +13,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const cards = [1];
 // const cards2 = [1];
@@ -23,6 +24,8 @@ const email = localStorage.getItem("email");
 const w_type = sessionStorage.getItem("status_weight");
 
 export default function Dashboard() {
+
+  const navigate = useNavigate();
   const add_Raw_page = () => {
     if (localStorage.length === 3) {
       sessionStorage.setItem("status_weight", "raw");
@@ -39,10 +42,10 @@ export default function Dashboard() {
 
       // console.log("handle !!!!");
       // console.log("1",email,w_type);
-      window.location = "/Add_wideth_Raw_1";
+      navigate("/Add_wideth_Raw_1");
     }else {
       alert("หมดเวลา");
-      window.location = "/login";
+      navigate("/login");
     }
   };
 
@@ -62,20 +65,20 @@ export default function Dashboard() {
 
       // console.log("handle !!!!");
       // console.log("2",email,w_type);
-      window.location = "/Add_wideth_Raw_1";
+      navigate("/Add_wideth_Raw_1");
     }else {
       alert("หมดเวลา");
-      window.location = "/login";
+      navigate("/login");
     }
   };
 
   const OutputRaw_page = () => {
-    window.location = "/outputRaw";
+    navigate("/outputRaw");
     sessionStorage.setItem("status_weight", "raw");
   };
 
   const OutputUnRaw_page = () => {
-    window.location = "/OutputUnraw";
+    navigate("/OutputUnraw");
     sessionStorage.setItem("status_weight", "unraw");
   };
   // const add_RawAI_page = () => {

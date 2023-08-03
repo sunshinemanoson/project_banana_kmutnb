@@ -4,7 +4,7 @@ import { AppBar, IconButton, Toolbar, Collapse } from "@mui/material";
 import SortIcon from '@mui/icons-material/Sort';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link as Scroll } from "react-scroll";
-
+import { Link as RouterLink } from 'react-router-dom'; 
 
 const PREFIX = 'Header';
 
@@ -98,8 +98,8 @@ export default function Header() {
   useEffect(() => {
     setChecked(true);
   }, []);
-  const goToLogin = () => {window.location = "/login";}
-  const OnHover = () => {}
+  // const goToLogin = () => {window.location = "/login";}
+  // const OnHover = () => {}
   return (
     <Root className={classes.root} id="header">
       <AppBar className={classes.appbar} elevation={0}>
@@ -127,7 +127,9 @@ export default function Header() {
           </h1>
           <IconButton>
             
-            <span className={classes.button} href="login" onmouseenter={OnHover} onClick={goToLogin}><b>เข้าสู่ระบบ</b></span>
+          <RouterLink to="/login" className={classes.button}>
+              <b>เข้าสู่ระบบ</b>
+            </RouterLink>
           </IconButton>
           <br></br>
           <Scroll to="place-to-visit" smooth={true}>
